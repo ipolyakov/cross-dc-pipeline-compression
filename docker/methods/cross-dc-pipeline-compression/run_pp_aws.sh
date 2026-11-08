@@ -26,6 +26,10 @@
 #   PP_PORT         default 6012
 #   PP_PULL=1       docker pull even when the image is already on the host
 #   PP_DEBUG=1      NCCL and c10d logs
+#   PP_TUNE_TRANSPORT=1   extra NCCL socket threads / buffer size for WAN
+#                         (NCCL_SOCKET_NTHREADS=4, NCCL_NSOCKS_PERTHREAD=4,
+#                          NCCL_BUFFSIZE=8M). TCP sysctls (BBR, buffers) must
+#                         still be set on the hosts themselves.
 #
 # The first real run also downloads OpenWebText onto the instance store of each host
 # (the regional replica from S3_DATASETS_REPLICAS when that region has one). Containers are
@@ -469,6 +473,12 @@ if [[ "${PP_DEBUG:-0}" == 1 ]]; then
     DEBUG_ENV="-e NCCL_DEBUG=INFO -e NCCL_DEBUG_SUBSYS=INIT,NET -e TORCH_DISTRIBUTED_DEBUG=DETAIL"
 fi
 
+TUNE_ENV=
+if [[ "${PP_TUNE_TRANSPORT:-0}" == 1 ]]; then
+    TUNE_ENV="-e NCCL_SOCKET_NTHREADS=4 -e NCCL_NSOCKS_PERTHREAD=4 -e NCCL_BUFFSIZE=8388608"
+    echo "Transport tuning enabled: NCCL_SOCKET_NTHREADS=4 NCCL_NSOCKS_PERTHREAD=4 NCCL_BUFFSIZE=8M"
+fi
+
 start_rank() {
     local pub=$1 rank=$2 data_uri=$3
     "${SCP[@]}" "$HERE/run_pp_container.sh" "$HERE/pp_p2p_compression.patch" "$SSH_USER@$pub:/tmp/"
@@ -510,6 +520,7 @@ sudo docker run -d --name "ppaws-$NAME" \
     -e GLOO_SOCKET_IFNAME=wg0 \
     -e NCCL_SOCKET_FAMILY=AF_INET \
     $DEBUG_ENV \
+    $TUNE_ENV \
     -e AWS_ACCESS_KEY_ID=$AWS_KEY_ID \
     -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY \
     -e S3_DATASETS=$data_uri \
