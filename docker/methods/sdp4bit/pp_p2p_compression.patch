@@ -1,0 +1,484 @@
+diff --git a/megatron/core/pipeline_parallel/p2p_communication.py b/megatron/core/pipeline_parallel/p2p_communication.py
+index 29ee34d..0720d7d 100644
+--- a/megatron/core/pipeline_parallel/p2p_communication.py
++++ b/megatron/core/pipeline_parallel/p2p_communication.py
+@@ -1,4 +1,6 @@
+ # Copyright (c) 2022, NVIDIA CORPORATION. All rights reserved.
++# Modified in 2026 by Igor Polyakov (ITMO University): optional lossy compression of the tensors
++# sent between pipeline stages, see p2p_compression.py.
+ 
+ import operator
+ from functools import reduce
+@@ -14,6 +16,7 @@ from megatron.core.parallel_state import (
+     get_pipeline_model_parallel_prev_rank,
+     get_pipeline_model_parallel_rank,
+ )
++from megatron.core.pipeline_parallel import p2p_compression
+ 
+ # Types
+ Shape = Union[List[int], torch.Size]
+@@ -312,6 +315,24 @@ def _communicate(
+             dtype=config.pipeline_dtype,
+         )
+ 
++    # Optional lossy compression (p2p_compression.py): the forward flow (send_next, recv_prev)
++    # carries activations, the backward flow (send_prev, recv_next) their gradients. Compressed
++    # tensors travel as uint8 buffers and are decoded below, after the receive has completed.
++    codec_forward, codec_backward = p2p_compression.codecs()
++    wire_send_next = p2p_compression.encode(codec_forward, tensor_send_next)
++    wire_send_prev = p2p_compression.encode(codec_backward, tensor_send_prev)
++    wire_recv_prev, wire_recv_next = tensor_recv_prev, tensor_recv_next
++    if codec_forward is not None or codec_backward is not None:
++        if config.use_ring_exchange_p2p or not wait_on_reqs:
++            raise RuntimeError(
++                'PP_P2P_COMPRESS needs blocking p2p communication: no ring exchange, and with '
++                'the interleaved schedule pass --no-overlap-p2p-communication'
++            )
++        if codec_forward is not None and recv_prev:
++            wire_recv_prev = codec_forward.empty_wire(recv_prev_shape, tensor_recv_prev.device)
++        if codec_backward is not None and recv_next:
++            wire_recv_next = codec_backward.empty_wire(recv_next_shape, tensor_recv_next.device)
++
+     # Send tensors in both the forward and backward directions as appropriate.
+     if config.use_ring_exchange_p2p:
+ 
+@@ -327,10 +348,10 @@ def _communicate(
+         p2p_func = _p2p_ops
+ 
+     reqs = p2p_func(
+-        tensor_send_prev=tensor_send_prev,
+-        tensor_recv_prev=tensor_recv_prev,
+-        tensor_send_next=tensor_send_next,
+-        tensor_recv_next=tensor_recv_next,
++        tensor_send_prev=wire_send_prev,
++        tensor_recv_prev=wire_recv_prev,
++        tensor_send_next=wire_send_next,
++        tensor_recv_next=wire_recv_next,
+         group=get_pipeline_model_parallel_group(),
+     )
+ 
+@@ -344,6 +365,16 @@ def _communicate(
+         # User should assert that we have a modern enough PyTorch to not need this
+         torch.cuda.synchronize()
+ 
++    # The decoded tensors are new leaves, like the buffers allocated above
++    if wire_recv_prev is not tensor_recv_prev:
++        tensor_recv_prev = codec_forward.decode(
++            wire_recv_prev, recv_prev_shape, config.pipeline_dtype
++        ).requires_grad_()
++    if wire_recv_next is not tensor_recv_next:
++        tensor_recv_next = codec_backward.decode(
++            wire_recv_next, recv_next_shape, config.pipeline_dtype
++        ).requires_grad_()
++
+     return tensor_recv_prev, tensor_recv_next, reqs
+ 
+ 
+diff --git a/megatron/core/pipeline_parallel/p2p_compression.py b/megatron/core/pipeline_parallel/p2p_compression.py
+new file mode 100644
+index 0000000..fcaf880
+--- /dev/null
++++ b/megatron/core/pipeline_parallel/p2p_compression.py
+@@ -0,0 +1,211 @@
++# Copyright (c) 2026, Igor Polyakov, ITMO University.
++# Licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
++
++"""Lossy compression of the tensors sent between pipeline stages.
++
++Two flows go over the wire in pipeline parallelism: activations from a stage to the next one
++(forward) and the gradients of those activations back to the previous stage (backward). Each flow
++gets its own codec, chosen with environment variables that are read once, on the first send or
++receive:
++
++    PP_P2P_COMPRESS        codec of the forward flow (activations): none | fp8 | int8 | nvfp4
++    PP_P2P_COMPRESS_GRAD   codec of the backward flow (gradients); defaults to PP_P2P_COMPRESS
++
++All stages must run with the same values. The codecs quantize blocks of consecutive elements of
++the flattened tensor with a local scale, so they need no communication of their own:
++
++    fp8    E4M3 codes, blocks of 128, float32 scale per block      1.03 bytes per element
++    int8   symmetric int8 codes, blocks of 128, float32 scale       1.03 bytes per element
++    nvfp4  E2M1 codes, blocks of 16, E4M3 scale per block and one   0.56 bytes per element
++           float32 scale per tensor (the NVFP4 layout)
++
++Codes and scales are packed into one uint8 buffer whose size depends only on the number of
++elements, so the receiver allocates it from the tensor shape it already knows. The arithmetic is
++float32 and rounds to nearest. A non-finite value decodes to NaN together with its block (fp8,
++int8) or its whole tensor (nvfp4, whose tensor scale it poisons), so that an overflow stays visible
++on the receiving stage.
++"""
++
++import math
++import os
++from typing import Optional, Sequence
++
++import torch
++
++_FP8_MAX = 448.0  # largest finite E4M3 value
++_FP4_MAX = 6.0  # largest E2M1 value
++_E2M1_VALUES = (0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 6.0)
++_E2M1_MIDPOINTS = (0.25, 0.75, 1.25, 1.75, 2.5, 3.5, 5.0)
++
++_tables = {}
++
++
++def _table(values, device):
++    key = (values, device)
++    if key not in _tables:
++        _tables[key] = torch.tensor(values, dtype=torch.float32, device=device)
++    return _tables[key]
++
++
++def _blocks(x: torch.Tensor, block: int):
++    """Flattened float32 copy of x, zero-padded to whole blocks, as (num_blocks, block)."""
++    flat = x.detach().reshape(-1).float()
++    numel = flat.numel()
++    num_blocks = max(1, math.ceil(numel / block))
++    pad = num_blocks * block - numel
++    if pad:
++        flat = torch.nn.functional.pad(flat, (0, pad))
++    return flat.view(num_blocks, block), num_blocks
++
++
++def _scale(amax: torch.Tensor, qmax: float) -> torch.Tensor:
++    """amax / qmax; 1 for all-zero blocks; NaN for blocks with a non-finite value."""
++    scale = torch.where(amax > 0, amax / qmax, torch.ones_like(amax))
++    return torch.where(torch.isfinite(amax), scale, torch.full_like(amax, float('nan')))
++
++
++def _numel(shape: Sequence[int]) -> int:
++    return int(math.prod(shape))
++
++
++class _BlockCodec:
++    """8-bit codes with a float32 scale per block. Layout: [scales: float32 x B][codes: 1 byte x N]."""
++
++    name = None
++    block = 128
++
++    def packed_nbytes(self, numel: int) -> int:
++        num_blocks = max(1, math.ceil(numel / self.block))
++        return num_blocks * 4 + num_blocks * self.block
++
++    def empty_wire(self, shape: Sequence[int], device) -> torch.Tensor:
++        return torch.empty(self.packed_nbytes(_numel(shape)), dtype=torch.uint8, device=device)
++
++    def encode(self, x: torch.Tensor) -> torch.Tensor:
++        blocks, num_blocks = _blocks(x, self.block)
++        scale = _scale(blocks.abs().amax(dim=1, keepdim=True), self.qmax)
++        wire = torch.empty(self.packed_nbytes(x.numel()), dtype=torch.uint8, device=x.device)
++        wire[: num_blocks * 4].view(torch.float32).copy_(scale.view(-1))
++        wire[num_blocks * 4 :].view(self.code_dtype).copy_(self._quantize(blocks / scale).view(-1))
++        return wire
++
++    def decode(self, wire: torch.Tensor, shape: Sequence[int], dtype: torch.dtype) -> torch.Tensor:
++        numel = _numel(shape)
++        num_blocks = max(1, math.ceil(numel / self.block))
++        scale = wire[: num_blocks * 4].view(torch.float32).view(num_blocks, 1)
++        codes = wire[num_blocks * 4 : num_blocks * 4 + num_blocks * self.block]
++        values = codes.view(self.code_dtype).view(num_blocks, self.block).float() * scale
++        return values.view(-1)[:numel].view(shape).to(dtype)
++
++
++class _Fp8Codec(_BlockCodec):
++    name = 'fp8'
++    qmax = _FP8_MAX
++    code_dtype = torch.float8_e4m3fn
++
++    def _quantize(self, scaled: torch.Tensor) -> torch.Tensor:
++        # The cast to E4M3 rounds to nearest; clamping keeps rounding error near the maximum
++        # from turning into NaN, which is the only special value of E4M3
++        return scaled.clamp(-_FP8_MAX, _FP8_MAX).to(torch.float8_e4m3fn)
++
++
++class _Int8Codec(_BlockCodec):
++    name = 'int8'
++    qmax = 127.0
++    code_dtype = torch.int8
++
++    def _quantize(self, scaled: torch.Tensor) -> torch.Tensor:
++        # NaN has no int8 code; the NaN scale of such a block still decodes it to NaN
++        return torch.nan_to_num(scaled, nan=0.0).round().clamp(-127, 127).to(torch.int8)
++
++
++class _Nvfp4Codec:
++    """E2M1 codes in blocks of 16 with an E4M3 scale each and a float32 scale per tensor.
++
++    Layout: [tensor scale: float32][block scales: E4M3 x B][codes: two per byte, low nibble first].
++    A code is the index of the E2M1 magnitude (3 bits) and the sign (bit 3).
++    """
++
++    name = 'nvfp4'
++    block = 16
++
++    def packed_nbytes(self, numel: int) -> int:
++        num_blocks = max(1, math.ceil(numel / self.block))
++        return 4 + num_blocks + num_blocks * self.block // 2
++
++    def empty_wire(self, shape: Sequence[int], device) -> torch.Tensor:
++        return torch.empty(self.packed_nbytes(_numel(shape)), dtype=torch.uint8, device=device)
++
++    def encode(self, x: torch.Tensor) -> torch.Tensor:
++        blocks, num_blocks = _blocks(x, self.block)
++        block_amax = blocks.abs().amax(dim=1, keepdim=True)
++        # The tensor scale maps the largest block scale onto the largest E4M3 value
++        tensor_scale = _scale(block_amax.amax().view(1), _FP4_MAX * _FP8_MAX)
++        block_scale = (block_amax / _FP4_MAX / tensor_scale).clamp(max=_FP8_MAX)
++        block_scale = torch.nan_to_num(block_scale, nan=0.0).to(torch.float8_e4m3fn)
++        effective = block_scale.float() * tensor_scale
++        scaled = torch.where(effective > 0, blocks / effective, torch.zeros_like(blocks))
++        index = torch.bucketize(
++            scaled.abs().clamp(max=_FP4_MAX), _table(_E2M1_MIDPOINTS, blocks.device)
++        )
++        codes = (index | (scaled < 0).long() << 3).to(torch.uint8).view(-1)
++        wire = torch.empty(self.packed_nbytes(x.numel()), dtype=torch.uint8, device=x.device)
++        wire[:4].view(torch.float32).copy_(tensor_scale)
++        wire[4 : 4 + num_blocks].view(torch.float8_e4m3fn).copy_(block_scale.view(-1))
++        wire[4 + num_blocks :].copy_(codes[0::2] | (codes[1::2] << 4))
++        return wire
++
++    def decode(self, wire: torch.Tensor, shape: Sequence[int], dtype: torch.dtype) -> torch.Tensor:
++        numel = _numel(shape)
++        num_blocks = max(1, math.ceil(numel / self.block))
++        tensor_scale = wire[:4].view(torch.float32)
++        block_scale = wire[4 : 4 + num_blocks].view(torch.float8_e4m3fn).float().view(num_blocks, 1)
++        packed = wire[4 + num_blocks : 4 + num_blocks + num_blocks * self.block // 2]
++        codes = torch.stack((packed & 0xF, packed >> 4), dim=1).view(num_blocks, self.block)
++        magnitude = _table(_E2M1_VALUES, wire.device)[(codes & 7).long()]
++        sign = 1.0 - 2.0 * (codes >> 3).float()
++        values = magnitude * sign * (block_scale * tensor_scale)
++        return values.view(-1)[:numel].view(shape).to(dtype)
++
++
++CODECS = {codec.name: codec for codec in (_Fp8Codec(), _Int8Codec(), _Nvfp4Codec())}
++
++_config = None
++
++
++def _read_config():
++    forward = os.environ.get('PP_P2P_COMPRESS', 'none').strip().lower() or 'none'
++    backward = os.environ.get('PP_P2P_COMPRESS_GRAD', forward).strip().lower() or forward
++    for variable, value in (('PP_P2P_COMPRESS', forward), ('PP_P2P_COMPRESS_GRAD', backward)):
++        if value != 'none' and value not in CODECS:
++            raise ValueError(
++                f'{variable}={value}: expected none or one of {", ".join(sorted(CODECS))}'
++            )
++    codecs = (CODECS.get(forward), CODECS.get(backward))
++    if forward != 'none' or backward != 'none':
++        rank = torch.distributed.get_rank() if torch.distributed.is_initialized() else 0
++        print(
++            f'[rank {rank}] pipeline p2p compression: activations={forward}, gradients={backward}',
++            flush=True,
++        )
++    return codecs
++
++
++def codecs():
++    """(codec of the forward flow, codec of the backward flow); None means uncompressed."""
++    global _config
++    if _config is None:
++        _config = _read_config()
++    return _config
++
++
++def reset():
++    """Read the environment variables again on the next call (for tests)."""
++    global _config
++    _config = None
++
++
++def encode(codec, tensor: Optional[torch.Tensor]) -> Optional[torch.Tensor]:
++    if codec is None or tensor is None:
++        return tensor
++    return codec.encode(tensor)
+diff --git a/tools/test_p2p_compression.py b/tools/test_p2p_compression.py
+new file mode 100644
+index 0000000..7b43bc0
+--- /dev/null
++++ b/tools/test_p2p_compression.py
+@@ -0,0 +1,185 @@
++# Copyright (c) 2026, Igor Polyakov, ITMO University.
++# Licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0).
++
++"""Checks of the pipeline p2p compression (megatron/core/pipeline_parallel/p2p_compression.py).
++
++Run from the repository root on a host with two GPUs:
++
++    torchrun --nproc_per_node=2 tools/test_p2p_compression.py
++
++1. Codec round trips on rank 0: packed size, error, zeros, NaN, odd sizes, bf16 and fp32.
++2. The two ranks form a pipeline of two stages (PP=2) and exchange activations and gradients
++   through the real send/recv functions of p2p_communication.py, for every codec. The receiver
++   compares what arrives with the sent tensor, which it regenerates from the same seed.
++
++Prints one line per check and "ALL CHECKS PASSED" at the end; any failure raises.
++"""
++
++import datetime
++import os
++import sys
++
++import torch
++
++sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
++
++
++def progress(message):
++    """Where each rank is: the last line of a rank that hangs shows the step it waits in."""
++    print(f'[rank {os.environ.get("RANK", "?")}] {message}', flush=True)
++
++
++progress('importing megatron')
++from megatron.core import ModelParallelConfig, parallel_state  # noqa: E402
++from megatron.core.pipeline_parallel import p2p_communication, p2p_compression  # noqa: E402
++
++progress('imports done')
++
++SHAPE = (2048, 1, 1280)  # sequence, micro-batch, hidden of the 539M model
++# Bounds on the relative RMS error for Gaussian data; measured values are well below
++RMS_BOUND = {'none': 0.0, 'fp8': 0.04, 'int8': 0.01, 'nvfp4': 0.15}
++BYTES_PER_ELEMENT = {'fp8': 1.03125, 'int8': 1.03125, 'nvfp4': 0.5625}
++
++
++def rel_rms(a, b):
++    a, b = a.float(), b.float()
++    return ((a - b).pow(2).mean().sqrt() / b.pow(2).mean().sqrt()).item()
++
++
++def check(condition, message):
++    if not condition:
++        raise AssertionError(message)
++    print('  ok', message, flush=True)
++
++
++def codec_checks(device):
++    print('codec round trips on', device, flush=True)
++    gen = torch.Generator(device='cpu').manual_seed(0)
++    for name, codec in sorted(p2p_compression.CODECS.items()):
++        for shape in (SHAPE, (1000, 3, 7), (5,)):
++            for dtype in (torch.bfloat16, torch.float32):
++                x = torch.randn(shape, generator=gen).to(device=device, dtype=dtype)
++                wire = codec.encode(x)
++                check(
++                    wire.dtype == torch.uint8 and wire.numel() == codec.packed_nbytes(x.numel()),
++                    f'{name} {shape} {dtype}: packed size {wire.numel()}',
++                )
++                y = codec.decode(wire, shape, dtype)
++                check(y.shape == x.shape and y.dtype == dtype, f'{name} {shape}: shape, dtype')
++                err = rel_rms(y, x)
++                if x.numel() >= 1000:  # the bounds are statistical
++                    check(err < RMS_BOUND[name], f'{name} {shape} {dtype}: rel RMS error {err:.4f}')
++                else:
++                    check(err < 0.5, f'{name} {shape} {dtype}: rel RMS error {err:.4f}')
++        ratio = codec.packed_nbytes(1 << 20) / (1 << 20)
++        check(
++            abs(ratio - BYTES_PER_ELEMENT[name]) < 1e-3, f'{name}: {ratio:.4f} bytes per element'
++        )
++        # Outliers stay local to their block: a large value spoils only its neighbours
++        x = torch.randn(SHAPE, generator=gen).to(device)
++        x.view(-1)[12345] = 1e4
++        y = codec.decode(codec.encode(x), SHAPE, torch.float32)
++        mask = torch.ones(x.numel(), dtype=torch.bool, device=device)
++        mask[12345 - 200 : 12345 + 200] = False
++        far = rel_rms(y.view(-1)[mask], x.view(-1)[mask])
++        if name == 'nvfp4':
++            # The tensor scale follows the outlier, so small blocks lose E4M3 scale resolution
++            check(far < 0.5, f'{name}: error away from an outlier {far:.4f}')
++        else:
++            check(far < RMS_BOUND[name], f'{name}: error away from an outlier {far:.4f}')
++        zeros = torch.zeros(SHAPE, device=device, dtype=torch.bfloat16)
++        check(
++            torch.equal(codec.decode(codec.encode(zeros), SHAPE, torch.bfloat16), zeros),
++            f'{name}: zeros decode to zeros',
++        )
++        x = torch.randn(SHAPE, generator=gen).to(device)
++        x.view(-1)[7] = float('nan')
++        y = codec.decode(codec.encode(x), SHAPE, torch.float32)
++        check(torch.isnan(y.view(-1)[7]).item(), f'{name}: NaN stays NaN')
++        if name != 'nvfp4':
++            block = codec.block
++            check(
++                torch.isfinite(y.view(-1)[block:]).all().item(),
++                f'{name}: NaN spoils only its block',
++            )
++    # Values on the E4M3 grid survive fp8 exactly when the block maximum is 448
++    grid = torch.tensor([448.0, 1.0, -2.5, 0.0, 0.015625, -96.0], device=device)
++    fp8 = p2p_compression.CODECS['fp8']
++    check(
++        torch.equal(fp8.decode(fp8.encode(grid), grid.shape, torch.float32), grid),
++        'fp8: E4M3 grid values are exact',
++    )
++
++
++def pipeline_checks(rank):
++    config = ModelParallelConfig(
++        pipeline_model_parallel_size=2, pipeline_dtype=torch.bfloat16, bf16=True
++    )
++    for name in ['none'] + sorted(p2p_compression.CODECS):
++        for grad_name in sorted({name, 'none'}):
++            os.environ['PP_P2P_COMPRESS'] = name
++            os.environ['PP_P2P_COMPRESS_GRAD'] = grad_name
++            p2p_compression.reset()
++            label = f'activations={name} gradients={grad_name}'
++
++            def tensor(seed):
++                gen = torch.Generator(device='cpu').manual_seed(seed)
++                return torch.randn(SHAPE, generator=gen).to(device='cuda', dtype=torch.bfloat16)
++
++            # Separate calls: send_forward / recv_forward, then send_backward / recv_backward
++            if rank == 0:
++                p2p_communication.send_forward(tensor(1), config)
++                grad = p2p_communication.recv_backward(SHAPE, config)
++                check(grad.requires_grad and grad.dtype == torch.bfloat16, f'{label}: grad leaf')
++                err = rel_rms(grad, tensor(2))
++                check(err <= RMS_BOUND[grad_name], f'{label}: gradient error {err:.4f}')
++            else:
++                act = p2p_communication.recv_forward(SHAPE, config)
++                check(act.requires_grad and act.dtype == torch.bfloat16, f'{label}: activation leaf')
++                err = rel_rms(act, tensor(1))
++                check(err <= RMS_BOUND[name], f'{label}: activation error {err:.4f}')
++                p2p_communication.send_backward(tensor(2), config)
++            # Combined calls of the 1F1B steady state: both flows in one batch_isend_irecv
++            if rank == 0:
++                p2p_communication.send_forward(tensor(3), config)
++                grad = p2p_communication.send_forward_recv_backward(tensor(5), SHAPE, config)
++                err = rel_rms(grad, tensor(4))
++                check(err <= RMS_BOUND[grad_name], f'{label}: combined, gradient error {err:.4f}')
++                grad = p2p_communication.recv_backward(SHAPE, config)
++                err = rel_rms(grad, tensor(6))
++                check(err <= RMS_BOUND[grad_name], f'{label}: last gradient error {err:.4f}')
++            else:
++                act = p2p_communication.recv_forward(SHAPE, config)
++                err = rel_rms(act, tensor(3))
++                check(err <= RMS_BOUND[name], f'{label}: activation error {err:.4f}')
++                act = p2p_communication.send_backward_recv_forward(tensor(4), SHAPE, config)
++                err = rel_rms(act, tensor(5))
++                check(err <= RMS_BOUND[name], f'{label}: combined, activation error {err:.4f}')
++                p2p_communication.send_backward(tensor(6), config)
++            torch.distributed.barrier()
++
++
++def main():
++    rank = int(os.environ['RANK'])
++    torch.cuda.set_device(int(os.environ.get('LOCAL_RANK', rank)))
++    progress(f'GPU {torch.cuda.current_device()}: {torch.cuda.get_device_name()}')
++    if rank == 0:
++        codec_checks('cpu')
++        codec_checks('cuda')
++    master = f'{os.environ.get("MASTER_ADDR")}:{os.environ.get("MASTER_PORT")}'
++    progress(f'init_process_group(nccl) with {master}')
++    # A rank that cannot reach the other one fails after 3 minutes instead of waiting forever
++    torch.distributed.init_process_group('nccl', timeout=datetime.timedelta(minutes=3))
++    parallel_state.initialize_model_parallel(
++        tensor_model_parallel_size=1, pipeline_model_parallel_size=2
++    )
++    progress('process groups ready; the first send/recv initializes NCCL between the ranks')
++    pipeline_checks(rank)
++    torch.distributed.barrier()
++    if rank == 0:
++        print('ALL CHECKS PASSED', flush=True)
++    torch.distributed.destroy_process_group()
++
++
++if __name__ == '__main__':
++    main()

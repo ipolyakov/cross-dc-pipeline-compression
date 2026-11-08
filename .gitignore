@@ -1,0 +1,3 @@
+cluster.env
+*.pem
+.aws/
