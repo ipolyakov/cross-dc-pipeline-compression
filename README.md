@@ -4,7 +4,19 @@ Code for the paper on block-scaled compression of the activations and activation
 
 The codecs sit in Megatron's pipeline point-to-point path. Computation inside a stage stays in its original precision. Compression is off unless the environment variables below are set, so an unset run is ordinary training.
 
-This repository is the paper-specific piece. It is not a fork of the training codebase. The image is [SDP4Bit](https://github.com/ByteDance-Seed/SDP4Bit) (Apache-2.0, Megatron-LM files under NVIDIA's license) with `pp_p2p_compression.patch` applied. Dataset, image and credentials are not included.
+This repository is the paper-specific piece. It is not a fork of the training codebase. The image is built from the Dockerfile here: public CUDA 12.8, PyTorch 2.9.1, then [SDP4Bit](https://github.com/ByteDance-Seed/SDP4Bit) pinned at `25e219de81ccb4e4a46d11f361b9cc44ffc86c9a` (repository HEAD, last commit 2024-12-11) with the two patches in `docker/methods/cross-dc-pipeline-compression/` applied. Dataset and credentials are not included.
+
+## Build the image
+
+From the repository root, on a machine with a GPU and the NVIDIA container toolkit:
+
+```bash
+docker build -t sdp-4bit:latest .
+```
+
+The build clones Apex unpinned. SDP4Bit is pinned. No AWS keys are copied into the image. The dev launcher mounts the dataset from the host. The AWS launcher reads keys from the local `aws` CLI and passes `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` into the container; `cluster.env` holds bucket names only.
+
+Point `DEV_REGISTRY` (dev) or `IMAGE_REPO` (AWS) in `cluster.env` at the image you just built. `run_pp.sh` and `run_pp_aws.sh` then `docker run` it and apply a newer copy of the patch at start if the image does not already contain it.
 
 ## Codecs
 
@@ -24,10 +36,13 @@ The code is plain PyTorch, in `megatron/core/pipeline_parallel/p2p_compression.p
 ## Layout
 
 ```
+Dockerfile
 cluster.env.example
 bench_codec.py
-docker/methods/sdp4bit/
+docker/methods/cross-dc-pipeline-compression/
     pp_p2p_compression.patch
+    sdp4bit_int64_offset_fix.patch
+    download_dataset.sh
     run_pp.sh              # 539M, two dev hosts, one GPU each
     run_pp_aws.sh          # 6.7B, two AWS regions, 8xH100 each
     run_pp_container.sh    # what the launchers run inside the image
@@ -35,7 +50,7 @@ docker/methods/sdp4bit/
     step_time.sh           # median step time from a Megatron log
 ```
 
-`run_pp.sh` and `run_pp_aws.sh` source `../../../cluster.env`, so they must stay in `docker/methods/sdp4bit/` with `cluster.env` at the repository root. Copy `cluster.env.example` to `cluster.env` and fill it in. That file holds registry and bucket names; AWS keys are read from the local `aws` CLI at launch and are not stored here.
+`run_pp.sh` and `run_pp_aws.sh` source `../../../cluster.env`, so they must stay in `docker/methods/cross-dc-pipeline-compression/` with `cluster.env` at the repository root. Copy `cluster.env.example` to `cluster.env` and fill it in. That file holds registry and bucket names; AWS keys are read from the local `aws` CLI at launch and are not stored here.
 
 ## Apply the patch
 

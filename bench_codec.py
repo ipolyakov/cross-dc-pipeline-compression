@@ -2,7 +2,7 @@
 """Encode/decode time, packed size and break-even bandwidth of the p2p codecs.
 
 Run on one GPU inside the training image. The patch must already be applied
-(the AWS image has it; otherwise git apply docker/methods/sdp4bit/pp_p2p_compression.patch).
+(the AWS image has it; otherwise git apply docker/methods/cross-dc-pipeline-compression/pp_p2p_compression.patch).
 
     sudo docker run --rm --gpus '"device=0"' --ipc host \
         -v "$PWD":/bench:ro \
