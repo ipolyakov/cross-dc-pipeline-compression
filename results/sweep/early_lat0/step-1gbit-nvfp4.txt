@@ -1,0 +1,632 @@
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1101 06:42:16.690280009 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1101 06:42:21.553479785 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 300520960
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (300520960 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    load-checkpoint ................................: (0.17, 0.18)
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (122.72, 182.54)
+    train/valid/test-data-iterators-setup ..........: (190.92, 209.22)
+[rank 1] pipeline p2p compression: activations=nvfp4, gradients=nvfp4
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+ iteration       10/     200 | consumed samples:          160 | elapsed time per iteration (ms): 3017.9 | throughput per GPU (TFLOP/s/GPU): 21.6 | learning rate: 1.993E-04 | global batch size:    16 | lm loss: 9.497632E+00 | loss scale: 1.0 | grad norm: 1.370 | number of skipped iterations:   0 | number of nan iterations:   0 |
+[Rank 1] (after 10 iterations) memory (MB) | allocated: 5336.53857421875 | max allocated: 7367.93212890625 | reserved: 7904.0 | max reserved: 7904.0
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2857.43, 2960.66)
+    forward-compute ................................: (737.44, 901.16)
+    backward-compute ...............................: (1581.12, 1701.11)
+    batch-generator ................................: (9.27, 14.26)
+    forward-recv ...................................: (138.56, 138.56)
+    forward-send ...................................: (10.57, 10.57)
+    backward-recv ..................................: (63.54, 63.54)
+    backward-send ..................................: (0.70, 0.70)
+    forward-send-backward-recv .....................: (562.73, 562.73)
+    backward-send-forward-recv .....................: (111.59, 111.59)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.04)
+    all-grads-sync .................................: (6.55, 7.21)
+    params-all-gather ..............................: (5.41, 5.50)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.68)
+    optimizer-clip-main-grad .......................: (10.98, 11.03)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.44, 21.66)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (45.31, 45.39)
+ iteration       20/     200 | consumed samples:          320 | elapsed time per iteration (ms): 2749.5 | throughput per GPU (TFLOP/s/GPU): 23.7 | learning rate: 1.964E-04 | global batch size:    16 | lm loss: 7.837422E+00 | loss scale: 1.0 | grad norm: 0.921 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2594.75, 2698.07)
+    forward-compute ................................: (672.79, 867.68)
+    backward-compute ...............................: (1493.51, 1639.19)
+    batch-generator ................................: (7.30, 7.65)
+    forward-recv ...................................: (43.28, 43.28)
+    forward-send ...................................: (0.83, 0.83)
+    backward-recv ..................................: (63.55, 63.55)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (462.00, 462.00)
+    backward-send-forward-recv .....................: (39.41, 39.41)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.04)
+    all-grads-sync .................................: (5.49, 5.58)
+    params-all-gather ..............................: (5.41, 5.49)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.68)
+    optimizer-clip-main-grad .......................: (7.23, 7.28)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (20.88, 21.13)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (41.10, 41.17)
+ iteration       30/     200 | consumed samples:          480 | elapsed time per iteration (ms): 2713.4 | throughput per GPU (TFLOP/s/GPU): 24.0 | learning rate: 1.913E-04 | global batch size:    16 | lm loss: 7.618034E+00 | loss scale: 1.0 | grad norm: 0.652 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2562.40, 2665.83)
+    forward-compute ................................: (654.99, 851.67)
+    backward-compute ...............................: (1493.93, 1639.41)
+    batch-generator ................................: (7.27, 7.61)
+    forward-recv ...................................: (43.23, 43.23)
+    forward-send ...................................: (0.81, 0.81)
+    backward-recv ..................................: (63.71, 63.71)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (447.28, 447.28)
+    backward-send-forward-recv .....................: (22.78, 22.78)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.04)
+    all-grads-sync .................................: (5.49, 5.58)
+    params-all-gather ..............................: (5.41, 5.49)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.66)
+    optimizer-clip-main-grad .......................: (3.32, 3.32)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.08, 21.32)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.49)
+    optimizer ......................................: (37.29, 37.38)
+ iteration       40/     200 | consumed samples:          640 | elapsed time per iteration (ms): 2714.7 | throughput per GPU (TFLOP/s/GPU): 24.0 | learning rate: 1.841E-04 | global batch size:    16 | lm loss: 7.540912E+00 | loss scale: 1.0 | grad norm: 0.786 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2563.70, 2667.12)
+    forward-compute ................................: (655.44, 852.60)
+    backward-compute ...............................: (1494.43, 1640.51)
+    batch-generator ................................: (7.32, 7.65)
+    forward-recv ...................................: (43.25, 43.25)
+    forward-send ...................................: (0.83, 0.83)
+    backward-recv ..................................: (63.73, 63.73)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (447.32, 447.32)
+    backward-send-forward-recv .....................: (21.93, 21.93)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.04)
+    all-grads-sync .................................: (5.50, 5.59)
+    params-all-gather ..............................: (5.41, 5.49)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.66)
+    optimizer-clip-main-grad .......................: (3.36, 3.37)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.10, 21.34)
+    optimizer-copy-main-to-model-params ............: (5.46, 5.50)
+    optimizer ......................................: (37.39, 37.43)
+ iteration       50/     200 | consumed samples:          800 | elapsed time per iteration (ms): 2715.9 | throughput per GPU (TFLOP/s/GPU): 24.0 | learning rate: 1.751E-04 | global batch size:    16 | lm loss: 7.403543E+00 | loss scale: 1.0 | grad norm: 0.664 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2565.22, 2668.64)
+    forward-compute ................................: (656.13, 853.14)
+    backward-compute ...............................: (1495.02, 1640.86)
+    batch-generator ................................: (7.28, 7.61)
+    forward-recv ...................................: (43.29, 43.29)
+    forward-send ...................................: (0.83, 0.83)
+    backward-recv ..................................: (63.73, 63.73)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (447.40, 447.40)
+    backward-send-forward-recv .....................: (22.41, 22.41)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.49, 5.58)
+    params-all-gather ..............................: (5.41, 5.51)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.68)
+    optimizer-clip-main-grad .......................: (3.35, 3.37)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.07, 21.25)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.20, 37.21)
+ iteration       60/     200 | consumed samples:          960 | elapsed time per iteration (ms): 2731.0 | throughput per GPU (TFLOP/s/GPU): 23.8 | learning rate: 1.645E-04 | global batch size:    16 | lm loss: 7.316272E+00 | loss scale: 1.0 | grad norm: 0.573 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2579.87, 2683.52)
+    forward-compute ................................: (671.59, 853.18)
+    backward-compute ...............................: (1495.46, 1640.98)
+    batch-generator ................................: (7.28, 7.66)
+    forward-recv ...................................: (43.35, 43.35)
+    forward-send ...................................: (0.85, 0.85)
+    backward-recv ..................................: (64.53, 64.53)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (445.51, 445.51)
+    backward-send-forward-recv .....................: (36.73, 36.73)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.06)
+    all-grads-sync .................................: (5.49, 5.57)
+    params-all-gather ..............................: (5.41, 5.49)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.68)
+    optimizer-clip-main-grad .......................: (3.45, 3.46)
+    optimizer-count-zeros ..........................: (0.01, 0.02)
+    optimizer-inner-step ...........................: (21.06, 21.35)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.49, 37.50)
+ iteration       70/     200 | consumed samples:         1120 | elapsed time per iteration (ms): 2733.5 | throughput per GPU (TFLOP/s/GPU): 23.8 | learning rate: 1.525E-04 | global batch size:    16 | lm loss: 7.299571E+00 | loss scale: 1.0 | grad norm: 0.723 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2581.71, 2685.08)
+    forward-compute ................................: (656.31, 868.42)
+    backward-compute ...............................: (1494.96, 1641.96)
+    batch-generator ................................: (7.28, 7.59)
+    forward-recv ...................................: (43.28, 43.28)
+    forward-send ...................................: (0.83, 0.83)
+    backward-recv ..................................: (63.80, 63.80)
+    backward-send ..................................: (0.70, 0.70)
+    forward-send-backward-recv .....................: (463.67, 463.67)
+    backward-send-forward-recv .....................: (22.39, 22.39)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.04)
+    all-grads-sync .................................: (5.50, 5.57)
+    params-all-gather ..............................: (5.41, 5.49)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.68)
+    optimizer-clip-main-grad .......................: (4.47, 4.49)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (20.98, 21.20)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (38.35, 38.38)
+ iteration       80/     200 | consumed samples:         1280 | elapsed time per iteration (ms): 2717.1 | throughput per GPU (TFLOP/s/GPU): 24.0 | learning rate: 1.394E-04 | global batch size:    16 | lm loss: 7.119888E+00 | loss scale: 1.0 | grad norm: 0.753 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2566.25, 2669.67)
+    forward-compute ................................: (656.44, 853.83)
+    backward-compute ...............................: (1495.24, 1641.52)
+    batch-generator ................................: (7.22, 7.63)
+    forward-recv ...................................: (43.18, 43.18)
+    forward-send ...................................: (0.84, 0.84)
+    backward-recv ..................................: (63.85, 63.85)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (447.71, 447.71)
+    backward-send-forward-recv .....................: (22.04, 22.04)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.04)
+    all-grads-sync .................................: (5.50, 5.57)
+    params-all-gather ..............................: (5.41, 5.48)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.66)
+    optimizer-clip-main-grad .......................: (3.50, 3.50)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.03, 21.27)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.25, 37.28)
+ iteration       90/     200 | consumed samples:         1440 | elapsed time per iteration (ms): 2716.8 | throughput per GPU (TFLOP/s/GPU): 24.0 | learning rate: 1.256E-04 | global batch size:    16 | lm loss: 7.166573E+00 | loss scale: 1.0 | grad norm: 0.734 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2566.13, 2669.58)
+    forward-compute ................................: (656.58, 854.06)
+    backward-compute ...............................: (1495.50, 1641.27)
+    batch-generator ................................: (7.29, 7.59)
+    forward-recv ...................................: (43.22, 43.22)
+    forward-send ...................................: (0.83, 0.83)
+    backward-recv ..................................: (63.85, 63.85)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (447.18, 447.18)
+    backward-send-forward-recv .....................: (21.90, 21.90)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.58)
+    params-all-gather ..............................: (5.42, 5.49)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.67)
+    optimizer-clip-main-grad .......................: (3.34, 3.35)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.02, 21.23)
+    optimizer-copy-main-to-model-params ............: (5.46, 5.50)
+    optimizer ......................................: (37.13, 37.14)
+ iteration      100/     200 | consumed samples:         1600 | elapsed time per iteration (ms): 2718.0 | throughput per GPU (TFLOP/s/GPU): 23.9 | learning rate: 1.114E-04 | global batch size:    16 | lm loss: 7.102835E+00 | loss scale: 1.0 | grad norm: 0.564 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2567.05, 2670.53)
+    forward-compute ................................: (656.78, 854.20)
+    backward-compute ...............................: (1495.84, 1641.54)
+    batch-generator ................................: (7.33, 7.56)
+    forward-recv ...................................: (43.31, 43.31)
+    forward-send ...................................: (0.84, 0.84)
+    backward-recv ..................................: (63.75, 63.75)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (447.58, 447.58)
+    backward-send-forward-recv .....................: (22.26, 22.26)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.04)
+    all-grads-sync .................................: (5.50, 5.58)
+    params-all-gather ..............................: (5.42, 5.48)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.65)
+    optimizer-clip-main-grad .......................: (3.42, 3.43)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.11, 21.20)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.49)
+    optimizer ......................................: (37.23, 37.27)
+ iteration      110/     200 | consumed samples:         1760 | elapsed time per iteration (ms): 2733.0 | throughput per GPU (TFLOP/s/GPU): 23.8 | learning rate: 9.719E-05 | global batch size:    16 | lm loss: 7.009520E+00 | loss scale: 1.0 | grad norm: 0.649 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2582.30, 2685.72)
+    forward-compute ................................: (673.73, 854.05)
+    backward-compute ...............................: (1495.93, 1641.37)
+    batch-generator ................................: (7.30, 7.58)
+    forward-recv ...................................: (43.19, 43.19)
+    forward-send ...................................: (0.83, 0.83)
+    backward-recv ..................................: (63.71, 63.71)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (445.84, 445.84)
+    backward-send-forward-recv .....................: (37.98, 37.98)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.58)
+    params-all-gather ..............................: (5.42, 5.49)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.66)
+    optimizer-clip-main-grad .......................: (3.40, 3.41)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.14, 21.31)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.38, 37.42)
+ iteration      120/     200 | consumed samples:         1920 | elapsed time per iteration (ms): 2717.9 | throughput per GPU (TFLOP/s/GPU): 23.9 | learning rate: 8.328E-05 | global batch size:    16 | lm loss: 6.974867E+00 | loss scale: 1.0 | grad norm: 0.547 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2567.34, 2670.77)
+    forward-compute ................................: (657.20, 854.32)
+    backward-compute ...............................: (1496.08, 1641.27)
+    batch-generator ................................: (7.31, 7.54)
+    forward-recv ...................................: (43.28, 43.28)
+    forward-send ...................................: (0.84, 0.84)
+    backward-recv ..................................: (63.74, 63.74)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (447.14, 447.14)
+    backward-send-forward-recv .....................: (22.74, 22.74)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.57)
+    params-all-gather ..............................: (5.42, 5.50)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.68)
+    optimizer-clip-main-grad .......................: (3.35, 3.36)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.06, 21.19)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.49)
+    optimizer ......................................: (37.16, 37.21)
+ iteration      130/     200 | consumed samples:         2080 | elapsed time per iteration (ms): 2734.9 | throughput per GPU (TFLOP/s/GPU): 23.8 | learning rate: 7.003E-05 | global batch size:    16 | lm loss: 6.947018E+00 | loss scale: 1.0 | grad norm: 0.614 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2584.30, 2687.76)
+    forward-compute ................................: (657.55, 870.84)
+    backward-compute ...............................: (1496.42, 1642.04)
+    batch-generator ................................: (7.23, 7.55)
+    forward-recv ...................................: (43.33, 43.33)
+    forward-send ...................................: (0.85, 0.85)
+    backward-recv ..................................: (63.83, 63.83)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (463.27, 463.27)
+    backward-send-forward-recv .....................: (22.33, 22.33)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.49, 5.57)
+    params-all-gather ..............................: (5.42, 5.50)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.70)
+    optimizer-clip-main-grad .......................: (3.34, 3.36)
+    optimizer-count-zeros ..........................: (0.01, 0.02)
+    optimizer-inner-step ...........................: (21.05, 21.24)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.22, 37.24)
+ iteration      140/     200 | consumed samples:         2240 | elapsed time per iteration (ms): 2718.8 | throughput per GPU (TFLOP/s/GPU): 23.9 | learning rate: 5.779E-05 | global batch size:    16 | lm loss: 6.881049E+00 | loss scale: 1.0 | grad norm: 0.531 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2567.67, 2671.20)
+    forward-compute ................................: (657.55, 854.31)
+    backward-compute ...............................: (1496.95, 1641.59)
+    batch-generator ................................: (7.25, 7.55)
+    forward-recv ...................................: (43.42, 43.42)
+    forward-send ...................................: (0.86, 0.86)
+    backward-recv ..................................: (63.76, 63.76)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (446.21, 446.21)
+    backward-send-forward-recv .....................: (22.53, 22.53)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.57)
+    params-all-gather ..............................: (5.42, 5.51)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.69)
+    optimizer-clip-main-grad .......................: (3.34, 3.36)
+    optimizer-count-zeros ..........................: (0.01, 0.02)
+    optimizer-inner-step ...........................: (21.03, 21.33)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.49)
+    optimizer ......................................: (37.39, 37.44)
+ iteration      150/     200 | consumed samples:         2400 | elapsed time per iteration (ms): 2719.4 | throughput per GPU (TFLOP/s/GPU): 23.9 | learning rate: 4.687E-05 | global batch size:    16 | lm loss: 6.869498E+00 | loss scale: 1.0 | grad norm: 0.699 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2567.72, 2671.28)
+    forward-compute ................................: (657.55, 854.37)
+    backward-compute ...............................: (1497.02, 1641.71)
+    batch-generator ................................: (7.26, 7.54)
+    forward-recv ...................................: (43.36, 43.36)
+    forward-send ...................................: (0.88, 0.88)
+    backward-recv ..................................: (63.71, 63.71)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (446.24, 446.24)
+    backward-send-forward-recv .....................: (22.45, 22.45)
+    layernorm-grads-all-reduce .....................: (0.01, 0.03)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.56)
+    params-all-gather ..............................: (5.42, 5.51)
+    optimizer-copy-to-main-grad ....................: (0.51, 0.68)
+    optimizer-clip-main-grad .......................: (3.91, 3.92)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.01, 21.19)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.49)
+    optimizer ......................................: (37.87, 37.94)
+ iteration      160/     200 | consumed samples:         2560 | elapsed time per iteration (ms): 2718.3 | throughput per GPU (TFLOP/s/GPU): 23.9 | learning rate: 3.753E-05 | global batch size:    16 | lm loss: 6.826428E+00 | loss scale: 1.0 | grad norm: 0.405 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2567.10, 2670.62)
+    forward-compute ................................: (657.64, 854.40)
+    backward-compute ...............................: (1496.87, 1641.51)
+    batch-generator ................................: (7.28, 7.56)
+    forward-recv ...................................: (43.31, 43.31)
+    forward-send ...................................: (0.88, 0.88)
+    backward-recv ..................................: (63.79, 63.79)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (445.62, 445.62)
+    backward-send-forward-recv .....................: (22.02, 22.02)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.57)
+    params-all-gather ..............................: (5.42, 5.53)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.66)
+    optimizer-clip-main-grad .......................: (3.36, 3.37)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.12, 21.19)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.35, 37.47)
+ iteration      170/     200 | consumed samples:         2720 | elapsed time per iteration (ms): 2736.0 | throughput per GPU (TFLOP/s/GPU): 23.8 | learning rate: 3.000E-05 | global batch size:    16 | lm loss: 6.867972E+00 | loss scale: 1.0 | grad norm: 0.488 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2584.95, 2688.45)
+    forward-compute ................................: (676.91, 854.18)
+    backward-compute ...............................: (1497.68, 1641.41)
+    batch-generator ................................: (7.25, 7.58)
+    forward-recv ...................................: (43.37, 43.37)
+    forward-send ...................................: (0.92, 0.92)
+    backward-recv ..................................: (63.77, 63.77)
+    backward-send ..................................: (0.70, 0.70)
+    forward-send-backward-recv .....................: (443.27, 443.27)
+    backward-send-forward-recv .....................: (40.15, 40.15)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.58)
+    params-all-gather ..............................: (5.42, 5.50)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.68)
+    optimizer-clip-main-grad .......................: (3.41, 3.42)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.04, 21.19)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.35, 37.39)
+ iteration      180/     200 | consumed samples:         2880 | elapsed time per iteration (ms): 2718.3 | throughput per GPU (TFLOP/s/GPU): 23.9 | learning rate: 2.449E-05 | global batch size:    16 | lm loss: 6.735609E+00 | loss scale: 1.0 | grad norm: 0.448 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2567.14, 2670.65)
+    forward-compute ................................: (657.96, 854.38)
+    backward-compute ...............................: (1497.00, 1641.12)
+    batch-generator ................................: (7.27, 7.57)
+    forward-recv ...................................: (43.50, 43.50)
+    forward-send ...................................: (0.94, 0.94)
+    backward-recv ..................................: (63.71, 63.71)
+    backward-send ..................................: (0.71, 0.71)
+    forward-send-backward-recv .....................: (445.13, 445.13)
+    backward-send-forward-recv .....................: (22.23, 22.23)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.58)
+    params-all-gather ..............................: (5.42, 5.50)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.68)
+    optimizer-clip-main-grad .......................: (3.41, 3.42)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (21.00, 21.31)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.49)
+    optimizer ......................................: (37.40, 37.43)
+ iteration      190/     200 | consumed samples:         3040 | elapsed time per iteration (ms): 2718.4 | throughput per GPU (TFLOP/s/GPU): 23.9 | learning rate: 2.113E-05 | global batch size:    16 | lm loss: 6.802279E+00 | loss scale: 1.0 | grad norm: 0.466 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2567.04, 2670.58)
+    forward-compute ................................: (658.25, 854.43)
+    backward-compute ...............................: (1497.17, 1640.82)
+    batch-generator ................................: (7.25, 7.55)
+    forward-recv ...................................: (43.41, 43.41)
+    forward-send ...................................: (0.89, 0.89)
+    backward-recv ..................................: (63.67, 63.67)
+    backward-send ..................................: (0.69, 0.69)
+    forward-send-backward-recv .....................: (444.70, 444.70)
+    backward-send-forward-recv .....................: (22.50, 22.50)
+    layernorm-grads-all-reduce .....................: (0.01, 0.03)
+    embedding-grads-all-reduce .....................: (0.03, 0.06)
+    all-grads-sync .................................: (5.50, 5.58)
+    params-all-gather ..............................: (5.42, 5.51)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.69)
+    optimizer-clip-main-grad .......................: (3.37, 3.38)
+    optimizer-count-zeros ..........................: (0.01, 0.02)
+    optimizer-inner-step ...........................: (21.03, 21.27)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.50)
+    optimizer ......................................: (37.46, 37.57)
+ iteration      200/     200 | consumed samples:         3200 | elapsed time per iteration (ms): 2738.1 | throughput per GPU (TFLOP/s/GPU): 23.8 | learning rate: 2.000E-05 | global batch size:    16 | lm loss: 6.821850E+00 | loss scale: 1.0 | grad norm: 0.458 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (2586.98, 2690.59)
+    forward-compute ................................: (658.06, 872.99)
+    backward-compute ...............................: (1497.46, 1642.25)
+    batch-generator ................................: (7.24, 7.55)
+    forward-recv ...................................: (43.43, 43.43)
+    forward-send ...................................: (0.99, 0.99)
+    backward-recv ..................................: (63.78, 63.78)
+    backward-send ..................................: (0.70, 0.70)
+    forward-send-backward-recv .....................: (464.35, 464.35)
+    backward-send-forward-recv .....................: (22.39, 22.39)
+    layernorm-grads-all-reduce .....................: (0.01, 0.02)
+    embedding-grads-all-reduce .....................: (0.03, 0.05)
+    all-grads-sync .................................: (5.50, 5.57)
+    params-all-gather ..............................: (5.42, 5.51)
+    optimizer-copy-to-main-grad ....................: (0.52, 0.67)
+    optimizer-clip-main-grad .......................: (3.45, 3.45)
+    optimizer-count-zeros ..........................: (0.01, 0.01)
+    optimizer-inner-step ...........................: (20.96, 21.21)
+    optimizer-copy-main-to-model-params ............: (5.47, 5.49)
+    optimizer ......................................: (37.36, 37.42)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    evaluate .......................................: (15828.88, 15829.06)
+-----------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 200 on validation set | lm loss value: 6.751315E+00 | lm loss PPL: 8.551823E+02 | 
+-----------------------------------------------------------------------------------------------------------------
+(min, max) time across ranks (ms):
+    evaluate .......................................: (14916.62, 14916.70)
+-----------------------------------------------------------------------------------------------------------
+ validation loss at iteration 200 on test set | lm loss value: 6.759057E+00 | lm loss PPL: 8.618291E+02 | 
+-----------------------------------------------------------------------------------------------------------
+[rank1]:[W1101 06:52:02.424768925 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

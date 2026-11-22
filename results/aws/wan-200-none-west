@@ -1,0 +1,1375 @@
+Checking s3:
+2019-09-02 04:40:51 deception-detection
+2026-07-19 05:35:42 ipolyakov-llm-training
+2026-10-11 15:31:45 ipolyakov-llm-training-us-east-2
+2026-10-11 10:02:50 ipolyakov-llm-training-us-west-2
+2020-06-02 03:50:07 sagemaker-studio-edzvpu6hr9n
+W1103 07:55:12.040000 45 torch/distributed/run.py:803] 
+W1103 07:55:12.040000 45 torch/distributed/run.py:803] *****************************************
+W1103 07:55:12.040000 45 torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1103 07:55:12.040000 45 torch/distributed/run.py:803] *****************************************
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank [Gloo] Rank 00 is connected to  is connected to 00 peer ranks.  peer ranks. Expected number of connected peer ranks is : Expected number of connected peer ranks is : 00
+
+[Gloo] Rank [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 00 is connected to 
+0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank [Gloo] Rank 0 is connected to 0 peer ranks. 0Expected number of connected peer ranks is :  is connected to 00 peer ranks. 
+Expected number of connected peer ranks is : 0
+[rank8]:[W1103 07:55:41.833042441 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank8]:[W1103 07:55:52.113353921 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank9]:[W1103 07:55:52.113416933 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank10]:[W1103 07:55:52.113630317 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank11]:[W1103 07:55:52.113636337 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank12]:[W1103 07:55:52.113831272 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank13]:[W1103 07:55:52.113842032 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank14]:[W1103 07:55:52.113995805 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank15]:[W1103 07:55:52.114082157 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (4, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (2, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (3, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (1, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (6, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (7, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (5, 1): 429326336
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (429326336 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    load-checkpoint ................................: (65.35, 66.52)
+[rank8]: Traceback (most recent call last):
+[rank8]:   File "/SDP4Bit/pretrain_gpt.py", line 210, in <module>
+[rank8]:     pretrain(train_valid_test_datasets_provider,
+[rank8]:   File "/SDP4Bit/megatron/training.py", line 228, in pretrain
+[rank8]:     = build_train_valid_test_data_iterators(
+[rank8]:   File "/SDP4Bit/megatron/training.py", line 1310, in build_train_valid_test_data_iterators
+[rank8]:     build_train_valid_test_data_loaders(
+[rank8]:   File "/SDP4Bit/megatron/training.py", line 1271, in build_train_valid_test_data_loaders
+[rank8]:     train_ds, valid_ds, test_ds = build_train_valid_test_datasets(
+[rank8]:   File "/SDP4Bit/megatron/training.py", line 1241, in build_train_valid_test_datasets
+[rank8]:     return build_train_valid_test_datasets_provider(train_val_test_num_samples)
+[rank8]:   File "/SDP4Bit/pretrain_gpt.py", line 198, in train_valid_test_datasets_provider
+[rank8]:     ).build()
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/blended_megatron_dataset_builder.py", line 61, in build
+[rank8]:     return self._build_blended_dataset_splits()
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/blended_megatron_dataset_builder.py", line 85, in _build_blended_dataset_splits
+[rank8]:     return self._build_megatron_dataset_splits(blend[0], split, self.sizes)
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/blended_megatron_dataset_builder.py", line 232, in _build_megatron_dataset_splits
+[rank8]:     self.build_generic_dataset(
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/blended_megatron_dataset_builder.py", line 282, in build_generic_dataset
+[rank8]:     dataset = cls(*args)
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/gpt_dataset.py", line 123, in __init__
+[rank8]:     super().__init__(
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/megatron_dataset.py", line 68, in __init__
+[rank8]:     self._finalize()
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/gpt_dataset.py", line 136, in _finalize
+[rank8]:     ) = self._build_document_sample_shuffle_indices()
+[rank8]:   File "/SDP4Bit/megatron/core/datasets/gpt_dataset.py", line 388, in _build_document_sample_shuffle_indices
+[rank8]:     from megatron.core.datasets import helpers
+[rank8]: ImportError: cannot import name 'helpers' from 'megatron.core.datasets' (/SDP4Bit/megatron/core/datasets/__init__.py)
+[rank8]:[W1103 07:55:57.009000496 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W1103 07:55:59.415000 45 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 111 closing signal SIGTERM
+W1103 07:55:59.416000 45 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 112 closing signal SIGTERM
+W1103 07:55:59.419000 45 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 113 closing signal SIGTERM
+W1103 07:55:59.421000 45 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 114 closing signal SIGTERM
+W1103 07:55:59.425000 45 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 115 closing signal SIGTERM
+W1103 07:55:59.426000 45 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 116 closing signal SIGTERM
+W1103 07:55:59.428000 45 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 117 closing signal SIGTERM
+E1103 07:56:00.413000 45 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 0 (pid: 110) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-03_07:55:59
+  host      : ip-172-31-14-68.us-west-2.compute.internal
+  rank      : 8 (local_rank: 0)
+  exitcode  : 1 (pid: 110)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Checking s3:
+2019-09-02 04:40:51 deception-detection
+2026-07-19 05:35:42 ipolyakov-llm-training
+2026-10-11 15:31:45 ipolyakov-llm-training-us-east-2
+2026-10-11 10:02:50 ipolyakov-llm-training-us-west-2
+2020-06-02 03:50:07 sagemaker-studio-edzvpu6hr9n
+W1103 08:13:26.212000 110 torch/distributed/run.py:803] 
+W1103 08:13:26.212000 110 torch/distributed/run.py:803] *****************************************
+W1103 08:13:26.212000 110 torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1103 08:13:26.212000 110 torch/distributed/run.py:803] *****************************************
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank8]:[W1103 08:13:55.233654751 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank8]:[W1103 08:13:59.083535600 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank9]:[W1103 08:13:59.083570231 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank10]:[W1103 08:13:59.083738005 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank11]:[W1103 08:13:59.083896528 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank12]:[W1103 08:13:59.083959920 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank13]:[W1103 08:13:59.084053462 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank14]:[W1103 08:13:59.084234366 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+[rank15]:[W1103 08:13:59.084242046 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (1, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (5, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (4, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (7, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (6, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (3, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 429326336
+ > number of parameters on (tensor, pipeline) model parallel rank (2, 1): 429326336
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (429326336 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.14.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.15.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.13.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.12.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    load-checkpoint ................................: (69.47, 70.13)
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (1969.53, 2061.21)
+    train/valid/test-data-iterators-setup ..........: (736.24, 892.00)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:416: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  handle = torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/distributed/grad_buffer.py:128: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+[Rank 8] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.32763671875 | reserved: 8240.0 | max reserved: 8240.0
+[Rank 9] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.29638671875 | reserved: 8240.0 | max reserved: 8240.0
+ iteration       10/     200 | consumed samples:          160 | elapsed time per iteration (ms): 14372.4 | throughput per GPU (TFLOP/s/GPU): 6.1 | learning rate: 1.196E-04 | global batch size:    16 | lm loss: 1.537008E+01 | loss scale: 1.0 | grad norm: 6.868 | number of skipped iterations:   0 | number of nan iterations:   0 |[Rank 10] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.29638671875 | reserved: 8240.0 | max reserved: 8240.0
+
+[Rank 12] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.29638671875 | reserved: 8240.0 | max reserved: 8240.0
+[Rank 13] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.29638671875 | reserved: 8240.0 | max reserved: 8240.0[Rank 11] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.29638671875 | reserved: 8240.0 | max reserved: 8240.0
+
+[Rank 14] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.29638671875 | reserved: 8240.0 | max reserved: 8240.0
+[Rank 15] (after 10 iterations) memory (MB) | allocated: 7470.12841796875 | max allocated: 8147.29638671875 | reserved: 8240.0 | max reserved: 8240.0
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12571.95, 13276.19)
+    forward-compute ................................: (921.96, 4726.01)
+    backward-compute ...............................: (989.69, 2606.03)
+    batch-generator ................................: (121.25, 3791.34)
+    forward-recv ...................................: (908.81, 1041.28)
+    forward-send ...................................: (96.45, 97.77)
+    backward-recv ..................................: (579.22, 635.11)
+    backward-send ..................................: (0.71, 0.75)
+    forward-send-backward-recv .....................: (9063.37, 9778.22)
+    backward-send-forward-recv .....................: (5936.15, 8635.11)
+    layernorm-grads-all-reduce .....................: (1.75, 14.60)
+    embedding-grads-all-reduce .....................: (0.06, 0.08)
+    all-grads-sync .................................: (26.77, 32.85)
+    params-all-gather ..............................: (3.26, 3.76)
+    optimizer-copy-to-main-grad ....................: (1.16, 1.57)
+    optimizer-clip-main-grad .......................: (75.71, 75.80)
+    optimizer-count-zeros ..........................: (0.02, 0.03)
+    optimizer-inner-step ...........................: (13.69, 17.08)
+    optimizer-copy-main-to-model-params ............: (2.21, 2.52)
+    optimizer ......................................: (516.49, 517.05)
+ iteration       20/     200 | consumed samples:          320 | elapsed time per iteration (ms): 13524.3 | throughput per GPU (TFLOP/s/GPU): 6.5 | learning rate: 1.178E-04 | global batch size:    16 | lm loss: 9.490993E+00 | loss scale: 1.0 | grad norm: 32.283 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (11762.73, 12454.61)
+    forward-compute ................................: (598.88, 2808.73)
+    backward-compute ...............................: (866.86, 2452.56)
+    batch-generator ................................: (5.84, 1969.40)
+    forward-recv ...................................: (641.92, 733.83)
+    forward-send ...................................: (0.67, 0.72)
+    backward-recv ..................................: (541.77, 634.43)
+    backward-send ..................................: (0.71, 0.76)
+    forward-send-backward-recv .....................: (8849.67, 9940.82)
+    backward-send-forward-recv .....................: (7435.26, 8733.24)
+    layernorm-grads-all-reduce .....................: (1.76, 2.28)
+    embedding-grads-all-reduce .....................: (0.05, 0.08)
+    all-grads-sync .................................: (1.21, 1.25)
+    params-all-gather ..............................: (3.15, 3.74)
+    optimizer-copy-to-main-grad ....................: (1.07, 1.53)
+    optimizer-clip-main-grad .......................: (72.43, 72.52)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.23)
+    optimizer-copy-main-to-model-params ............: (2.20, 2.56)
+    optimizer ......................................: (501.16, 501.72)
+ iteration       30/     200 | consumed samples:          480 | elapsed time per iteration (ms): 13771.1 | throughput per GPU (TFLOP/s/GPU): 6.4 | learning rate: 1.148E-04 | global batch size:    16 | lm loss: 8.136021E+00 | loss scale: 1.0 | grad norm: 4.860 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (11961.35, 12702.45)
+    forward-compute ................................: (596.85, 6291.96)
+    backward-compute ...............................: (867.06, 4195.38)
+    batch-generator ................................: (5.51, 5573.26)
+    forward-recv ...................................: (505.08, 778.79)
+    forward-send ...................................: (0.66, 0.73)
+    backward-recv ..................................: (448.32, 650.07)
+    backward-send ..................................: (0.70, 0.77)
+    forward-send-backward-recv .....................: (7454.75, 10115.24)
+    backward-send-forward-recv .....................: (4285.19, 9494.21)
+    layernorm-grads-all-reduce .....................: (1.74, 2.25)
+    embedding-grads-all-reduce .....................: (0.05, 0.07)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.14, 3.66)
+    optimizer-copy-to-main-grad ....................: (1.06, 1.41)
+    optimizer-clip-main-grad .......................: (72.33, 72.41)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.03, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.20, 2.48)
+    optimizer ......................................: (500.51, 501.01)
+ iteration       40/     200 | consumed samples:          640 | elapsed time per iteration (ms): 13750.3 | throughput per GPU (TFLOP/s/GPU): 6.4 | learning rate: 1.105E-04 | global batch size:    16 | lm loss: 7.766445E+00 | loss scale: 1.0 | grad norm: 2.732 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (11966.59, 12688.44)
+    forward-compute ................................: (606.27, 6109.87)
+    backward-compute ...............................: (876.07, 2167.61)
+    batch-generator ................................: (5.67, 5160.33)
+    forward-recv ...................................: (503.03, 745.43)
+    forward-send ...................................: (0.65, 0.73)
+    backward-recv ..................................: (574.68, 663.70)
+    backward-send ..................................: (0.68, 0.75)
+    forward-send-backward-recv .....................: (9329.50, 10399.42)
+    backward-send-forward-recv .....................: (4465.96, 9192.03)
+    layernorm-grads-all-reduce .....................: (1.70, 2.13)
+    embedding-grads-all-reduce .....................: (0.05, 0.08)
+    all-grads-sync .................................: (1.21, 1.26)
+    params-all-gather ..............................: (3.24, 3.71)
+    optimizer-copy-to-main-grad ....................: (1.10, 1.34)
+    optimizer-clip-main-grad .......................: (72.36, 72.44)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.03, 5.29)
+    optimizer-copy-main-to-model-params ............: (2.18, 2.43)
+    optimizer ......................................: (500.69, 501.12)
+ iteration       50/     200 | consumed samples:          800 | elapsed time per iteration (ms): 14069.2 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 1.051E-04 | global batch size:    16 | lm loss: 7.649503E+00 | loss scale: 1.0 | grad norm: 1.670 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12285.98, 13013.15)
+    forward-compute ................................: (653.14, 6047.99)
+    backward-compute ...............................: (875.12, 2394.32)
+    batch-generator ................................: (5.42, 5036.63)
+    forward-recv ...................................: (513.08, 767.65)
+    forward-send ...................................: (0.65, 0.72)
+    backward-recv ..................................: (591.05, 640.45)
+    backward-send ..................................: (0.68, 0.76)
+    forward-send-backward-recv .....................: (9367.38, 10231.42)
+    backward-send-forward-recv .....................: (4838.77, 9695.61)
+    layernorm-grads-all-reduce .....................: (1.72, 2.33)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.25)
+    params-all-gather ..............................: (3.16, 3.67)
+    optimizer-copy-to-main-grad ....................: (1.10, 1.35)
+    optimizer-clip-main-grad .......................: (72.36, 72.41)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.18, 2.52)
+    optimizer ......................................: (500.65, 501.25)
+ iteration       60/     200 | consumed samples:          960 | elapsed time per iteration (ms): 13914.5 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 9.870E-05 | global batch size:    16 | lm loss: 7.602750E+00 | loss scale: 1.0 | grad norm: 1.145 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12146.14, 12858.68)
+    forward-compute ................................: (599.62, 3788.68)
+    backward-compute ...............................: (877.63, 1950.41)
+    batch-generator ................................: (5.34, 3158.57)
+    forward-recv ...................................: (619.22, 757.65)
+    forward-send ...................................: (0.67, 0.72)
+    backward-recv ..................................: (603.42, 671.84)
+    backward-send ..................................: (0.68, 0.75)
+    forward-send-backward-recv .....................: (9694.17, 10300.50)
+    backward-send-forward-recv .....................: (6847.64, 9603.91)
+    layernorm-grads-all-reduce .....................: (1.53, 2.25)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.20, 1.24)
+    params-all-gather ..............................: (3.23, 3.67)
+    optimizer-copy-to-main-grad ....................: (1.09, 1.35)
+    optimizer-clip-main-grad .......................: (72.36, 72.44)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.03, 5.24)
+    optimizer-copy-main-to-model-params ............: (2.19, 2.56)
+    optimizer ......................................: (500.77, 501.20)
+ iteration       70/     200 | consumed samples:         1120 | elapsed time per iteration (ms): 14167.0 | throughput per GPU (TFLOP/s/GPU): 6.2 | learning rate: 9.150E-05 | global batch size:    16 | lm loss: 7.580993E+00 | loss scale: 1.0 | grad norm: 1.494 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12394.42, 13117.77)
+    forward-compute ................................: (604.34, 5314.79)
+    backward-compute ...............................: (879.75, 2097.00)
+    batch-generator ................................: (5.37, 4629.55)
+    forward-recv ...................................: (552.97, 775.66)
+    forward-send ...................................: (0.67, 0.73)
+    backward-recv ..................................: (619.02, 667.35)
+    backward-send ..................................: (0.70, 0.75)
+    forward-send-backward-recv .....................: (9785.29, 10693.78)
+    backward-send-forward-recv .....................: (5628.19, 9603.01)
+    layernorm-grads-all-reduce .....................: (1.57, 2.25)
+    embedding-grads-all-reduce .....................: (0.05, 0.07)
+    all-grads-sync .................................: (1.20, 1.24)
+    params-all-gather ..............................: (3.22, 3.71)
+    optimizer-copy-to-main-grad ....................: (1.08, 1.33)
+    optimizer-clip-main-grad .......................: (72.39, 72.56)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.02, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.17, 2.46)
+    optimizer ......................................: (500.94, 501.40)
+ iteration       80/     200 | consumed samples:         1280 | elapsed time per iteration (ms): 14132.8 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 8.366E-05 | global batch size:    16 | lm loss: 7.405996E+00 | loss scale: 1.0 | grad norm: 1.402 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12298.43, 13090.20)
+    forward-compute ................................: (596.91, 3880.48)
+    backward-compute ...............................: (878.87, 2526.61)
+    batch-generator ................................: (5.32, 3079.13)
+    forward-recv ...................................: (636.44, 799.52)
+    forward-send ...................................: (0.67, 0.72)
+    backward-recv ..................................: (577.04, 675.92)
+    backward-send ..................................: (0.71, 0.75)
+    forward-send-backward-recv .....................: (9351.75, 10533.22)
+    backward-send-forward-recv .....................: (6890.83, 9681.03)
+    layernorm-grads-all-reduce .....................: (1.56, 2.28)
+    embedding-grads-all-reduce .....................: (0.05, 0.07)
+    all-grads-sync .................................: (1.21, 1.27)
+    params-all-gather ..............................: (3.19, 3.78)
+    optimizer-copy-to-main-grad ....................: (1.10, 1.34)
+    optimizer-clip-main-grad .......................: (72.34, 72.41)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.02, 5.40)
+    optimizer-copy-main-to-model-params ............: (2.18, 2.52)
+    optimizer ......................................: (500.83, 501.40)
+ iteration       90/     200 | consumed samples:         1440 | elapsed time per iteration (ms): 14242.6 | throughput per GPU (TFLOP/s/GPU): 6.2 | learning rate: 7.538E-05 | global batch size:    16 | lm loss: 7.436350E+00 | loss scale: 1.0 | grad norm: 1.309 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12448.72, 13193.00)
+    forward-compute ................................: (619.95, 3606.81)
+    backward-compute ...............................: (879.32, 2230.16)
+    batch-generator ................................: (5.44, 2544.96)
+    forward-recv ...................................: (660.54, 771.05)
+    forward-send ...................................: (0.65, 0.71)
+    backward-recv ..................................: (623.07, 705.65)
+    backward-send ..................................: (0.68, 0.74)
+    forward-send-backward-recv .....................: (9709.52, 10812.26)
+    backward-send-forward-recv .....................: (7291.53, 9724.47)
+    layernorm-grads-all-reduce .....................: (1.52, 2.27)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.20, 1.25)
+    params-all-gather ..............................: (3.25, 3.59)
+    optimizer-copy-to-main-grad ....................: (1.07, 1.40)
+    optimizer-clip-main-grad .......................: (72.38, 72.44)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.23)
+    optimizer-copy-main-to-model-params ............: (2.22, 2.47)
+    optimizer ......................................: (500.83, 501.19)
+ iteration      100/     200 | consumed samples:         1600 | elapsed time per iteration (ms): 14086.9 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 6.686E-05 | global batch size:    16 | lm loss: 7.357184E+00 | loss scale: 1.0 | grad norm: 1.991 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12336.05, 13051.04)
+    forward-compute ................................: (630.62, 3771.37)
+    backward-compute ...............................: (876.57, 4094.18)
+    batch-generator ................................: (5.53, 3074.21)
+    forward-recv ...................................: (647.85, 817.97)
+    forward-send ...................................: (0.66, 0.71)
+    backward-recv ..................................: (477.73, 678.02)
+    backward-send ..................................: (0.67, 0.75)
+    forward-send-backward-recv .....................: (7840.78, 10668.16)
+    backward-send-forward-recv .....................: (7031.27, 9839.85)
+    layernorm-grads-all-reduce .....................: (1.54, 2.20)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.20, 3.67)
+    optimizer-copy-to-main-grad ....................: (1.13, 1.33)
+    optimizer-clip-main-grad .......................: (72.33, 72.44)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.20, 2.53)
+    optimizer ......................................: (500.71, 501.16)
+ iteration      110/     200 | consumed samples:         1760 | elapsed time per iteration (ms): 14264.7 | throughput per GPU (TFLOP/s/GPU): 6.2 | learning rate: 5.831E-05 | global batch size:    16 | lm loss: 7.230809E+00 | loss scale: 1.0 | grad norm: 1.432 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12478.79, 13215.17)
+    forward-compute ................................: (605.38, 3656.99)
+    backward-compute ...............................: (868.80, 5872.41)
+    batch-generator ................................: (5.47, 2885.76)
+    forward-recv ...................................: (665.46, 795.08)
+    forward-send ...................................: (0.66, 0.71)
+    backward-recv ..................................: (340.53, 681.20)
+    backward-send ..................................: (0.68, 0.77)
+    forward-send-backward-recv .....................: (6389.86, 10810.64)
+    backward-send-forward-recv .....................: (7278.54, 10007.77)
+    layernorm-grads-all-reduce .....................: (1.60, 2.37)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.16, 3.66)
+    optimizer-copy-to-main-grad ....................: (1.12, 1.37)
+    optimizer-clip-main-grad .......................: (72.33, 72.42)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.03, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.17, 2.55)
+    optimizer ......................................: (500.79, 501.27)
+ iteration      120/     200 | consumed samples:         1920 | elapsed time per iteration (ms): 13801.2 | throughput per GPU (TFLOP/s/GPU): 6.4 | learning rate: 4.997E-05 | global batch size:    16 | lm loss: 7.189579E+00 | loss scale: 1.0 | grad norm: 2.393 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12052.04, 12731.74)
+    forward-compute ................................: (597.11, 5661.01)
+    backward-compute ...............................: (876.01, 2566.60)
+    batch-generator ................................: (5.36, 4540.09)
+    forward-recv ...................................: (546.35, 747.10)
+    forward-send ...................................: (0.66, 0.73)
+    backward-recv ..................................: (546.75, 639.67)
+    backward-send ..................................: (0.68, 0.75)
+    forward-send-backward-recv .....................: (8991.80, 10360.88)
+    backward-send-forward-recv .....................: (4959.37, 9236.04)
+    layernorm-grads-all-reduce .....................: (1.65, 2.33)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.28, 3.68)
+    optimizer-copy-to-main-grad ....................: (1.14, 1.36)
+    optimizer-clip-main-grad .......................: (72.33, 72.53)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.05, 5.21)
+    optimizer-copy-main-to-model-params ............: (2.18, 2.48)
+    optimizer ......................................: (501.17, 501.58)
+ iteration      130/     200 | consumed samples:         2080 | elapsed time per iteration (ms): 14143.9 | throughput per GPU (TFLOP/s/GPU): 6.2 | learning rate: 4.202E-05 | global batch size:    16 | lm loss: 7.138896E+00 | loss scale: 1.0 | grad norm: 1.771 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12327.92, 13074.00)
+    forward-compute ................................: (594.07, 3041.38)
+    backward-compute ...............................: (875.71, 2258.85)
+    batch-generator ................................: (6.01, 2110.57)
+    forward-recv ...................................: (649.59, 764.40)
+    forward-send ...................................: (0.67, 0.73)
+    backward-recv ..................................: (557.70, 654.38)
+    backward-send ..................................: (0.68, 0.75)
+    forward-send-backward-recv .....................: (9656.76, 10510.50)
+    backward-send-forward-recv .....................: (7732.61, 9474.94)
+    layernorm-grads-all-reduce .....................: (1.53, 2.31)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.25, 3.75)
+    optimizer-copy-to-main-grad ....................: (1.13, 1.38)
+    optimizer-clip-main-grad .......................: (72.36, 72.43)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.17, 2.51)
+    optimizer ......................................: (500.94, 501.41)
+ iteration      140/     200 | consumed samples:         2240 | elapsed time per iteration (ms): 14210.9 | throughput per GPU (TFLOP/s/GPU): 6.2 | learning rate: 3.468E-05 | global batch size:    16 | lm loss: 7.065453E+00 | loss scale: 1.0 | grad norm: 1.323 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12404.39, 13141.49)
+    forward-compute ................................: (633.61, 4242.21)
+    backward-compute ...............................: (875.21, 4543.14)
+    batch-generator ................................: (5.84, 3625.60)
+    forward-recv ...................................: (608.52, 790.34)
+    forward-send ...................................: (0.66, 0.72)
+    backward-recv ..................................: (489.02, 676.63)
+    backward-send ..................................: (0.68, 0.77)
+    forward-send-backward-recv .....................: (7468.87, 10616.67)
+    backward-send-forward-recv .....................: (6666.02, 9697.98)
+    layernorm-grads-all-reduce .....................: (1.49, 2.31)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.20, 1.25)
+    params-all-gather ..............................: (3.27, 3.69)
+    optimizer-copy-to-main-grad ....................: (1.13, 1.36)
+    optimizer-clip-main-grad .......................: (72.31, 72.40)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.19, 2.50)
+    optimizer ......................................: (500.63, 501.02)
+ iteration      150/     200 | consumed samples:         2400 | elapsed time per iteration (ms): 14039.4 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 2.812E-05 | global batch size:    16 | lm loss: 7.043591E+00 | loss scale: 1.0 | grad norm: 1.335 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12217.41, 12962.98)
+    forward-compute ................................: (631.76, 2958.50)
+    backward-compute ...............................: (873.02, 2457.40)
+    batch-generator ................................: (5.69, 2337.43)
+    forward-recv ...................................: (647.46, 757.20)
+    forward-send ...................................: (0.66, 0.72)
+    backward-recv ..................................: (595.00, 681.89)
+    backward-send ..................................: (0.68, 0.74)
+    forward-send-backward-recv .....................: (9271.99, 10450.11)
+    backward-send-forward-recv .....................: (7724.19, 9542.33)
+    layernorm-grads-all-reduce .....................: (1.55, 2.23)
+    embedding-grads-all-reduce .....................: (0.05, 0.07)
+    all-grads-sync .................................: (1.20, 1.25)
+    params-all-gather ..............................: (3.24, 3.72)
+    optimizer-copy-to-main-grad ....................: (1.14, 1.34)
+    optimizer-clip-main-grad .......................: (72.33, 72.43)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.29)
+    optimizer-copy-main-to-model-params ............: (2.21, 2.42)
+    optimizer ......................................: (500.79, 501.31)
+ iteration      160/     200 | consumed samples:         2560 | elapsed time per iteration (ms): 13563.5 | throughput per GPU (TFLOP/s/GPU): 6.5 | learning rate: 2.252E-05 | global batch size:    16 | lm loss: 6.991946E+00 | loss scale: 1.0 | grad norm: 1.061 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (11772.01, 12501.11)
+    forward-compute ................................: (589.64, 3043.58)
+    backward-compute ...............................: (888.04, 2182.00)
+    batch-generator ................................: (6.14, 2191.89)
+    forward-recv ...................................: (610.13, 716.84)
+    forward-send ...................................: (0.67, 0.72)
+    backward-recv ..................................: (544.19, 623.48)
+    backward-send ..................................: (0.67, 0.74)
+    forward-send-backward-recv .....................: (9164.93, 10202.77)
+    backward-send-forward-recv .....................: (7213.13, 8851.68)
+    layernorm-grads-all-reduce .....................: (1.57, 2.16)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.20, 3.61)
+    optimizer-copy-to-main-grad ....................: (1.13, 1.36)
+    optimizer-clip-main-grad .......................: (72.04, 72.12)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.03, 5.19)
+    optimizer-copy-main-to-model-params ............: (2.18, 2.52)
+    optimizer ......................................: (500.28, 500.70)
+ iteration      170/     200 | consumed samples:         2720 | elapsed time per iteration (ms): 14093.4 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 1.800E-05 | global batch size:    16 | lm loss: 7.027708E+00 | loss scale: 1.0 | grad norm: 1.291 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12270.12, 13017.40)
+    forward-compute ................................: (596.09, 3292.69)
+    backward-compute ...............................: (889.59, 2629.64)
+    batch-generator ................................: (6.24, 2673.86)
+    forward-recv ...................................: (626.73, 756.23)
+    forward-send ...................................: (0.65, 0.73)
+    backward-recv ..................................: (551.00, 661.84)
+    backward-send ..................................: (0.67, 0.74)
+    forward-send-backward-recv .....................: (9233.87, 10487.31)
+    backward-send-forward-recv .....................: (7448.96, 9599.20)
+    layernorm-grads-all-reduce .....................: (1.55, 2.22)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.20, 3.50)
+    optimizer-copy-to-main-grad ....................: (1.13, 1.36)
+    optimizer-clip-main-grad .......................: (72.08, 72.13)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.19)
+    optimizer-copy-main-to-model-params ............: (2.18, 2.42)
+    optimizer ......................................: (500.48, 500.76)
+ iteration      180/     200 | consumed samples:         2880 | elapsed time per iteration (ms): 13992.1 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 1.470E-05 | global batch size:    16 | lm loss: 6.897046E+00 | loss scale: 1.0 | grad norm: 0.888 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12230.87, 12923.05)
+    forward-compute ................................: (593.31, 3393.28)
+    backward-compute ...............................: (887.17, 3938.49)
+    batch-generator ................................: (6.13, 2755.83)
+    forward-recv ...................................: (666.49, 781.93)
+    forward-send ...................................: (0.66, 0.72)
+    backward-recv ..................................: (456.86, 627.23)
+    backward-send ..................................: (0.67, 0.73)
+    forward-send-backward-recv .....................: (7927.64, 10446.20)
+    backward-send-forward-recv .....................: (7271.55, 9516.31)
+    layernorm-grads-all-reduce .....................: (1.61, 2.26)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.24)
+    params-all-gather ..............................: (3.27, 3.65)
+    optimizer-copy-to-main-grad ....................: (1.13, 1.33)
+    optimizer-clip-main-grad .......................: (72.00, 72.09)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.03, 5.22)
+    optimizer-copy-main-to-model-params ............: (2.22, 2.46)
+    optimizer ......................................: (500.23, 500.60)
+ iteration      190/     200 | consumed samples:         3040 | elapsed time per iteration (ms): 13956.0 | throughput per GPU (TFLOP/s/GPU): 6.3 | learning rate: 1.268E-05 | global batch size:    16 | lm loss: 6.952039E+00 | loss scale: 1.0 | grad norm: 0.970 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12116.82, 12888.11)
+    forward-compute ................................: (624.19, 3201.14)
+    backward-compute ...............................: (882.63, 2253.07)
+    batch-generator ................................: (6.05, 2527.10)
+    forward-recv ...................................: (616.93, 727.24)
+    forward-send ...................................: (0.66, 0.72)
+    backward-recv ..................................: (643.28, 710.56)
+    backward-send ..................................: (0.68, 0.74)
+    forward-send-backward-recv .....................: (9358.38, 10497.95)
+    backward-send-forward-recv .....................: (7404.32, 9339.34)
+    layernorm-grads-all-reduce .....................: (1.52, 2.16)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.20, 1.24)
+    params-all-gather ..............................: (3.23, 3.75)
+    optimizer-copy-to-main-grad ....................: (1.14, 1.35)
+    optimizer-clip-main-grad .......................: (71.50, 71.64)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.03, 5.21)
+    optimizer-copy-main-to-model-params ............: (2.22, 2.50)
+    optimizer ......................................: (499.63, 500.17)
+ iteration      200/     200 | consumed samples:         3200 | elapsed time per iteration (ms): 13880.7 | throughput per GPU (TFLOP/s/GPU): 6.4 | learning rate: 1.200E-05 | global batch size:    16 | lm loss: 6.965932E+00 | loss scale: 1.0 | grad norm: 0.924 | number of skipped iterations:   0 | number of nan iterations:   0 |
+(min, max) time across ranks (ms):
+    forward-backward ...............................: (12098.02, 12825.71)
+    forward-compute ................................: (635.52, 2283.39)
+    backward-compute ...............................: (876.35, 1764.95)
+    batch-generator ................................: (5.72, 1675.20)
+    forward-recv ...................................: (725.11, 796.25)
+    forward-send ...................................: (0.67, 0.72)
+    backward-recv ..................................: (614.01, 644.96)
+    backward-send ..................................: (0.66, 0.74)
+    forward-send-backward-recv .....................: (9799.33, 10359.55)
+    backward-send-forward-recv .....................: (8203.49, 9654.87)
+    layernorm-grads-all-reduce .....................: (1.53, 2.09)
+    embedding-grads-all-reduce .....................: (0.05, 0.06)
+    all-grads-sync .................................: (1.21, 1.25)
+    params-all-gather ..............................: (3.24, 3.67)
+    optimizer-copy-to-main-grad ....................: (1.12, 1.30)
+    optimizer-clip-main-grad .......................: (71.68, 71.96)
+    optimizer-count-zeros ..........................: (0.02, 0.02)
+    optimizer-inner-step ...........................: (5.04, 5.29)
+    optimizer-copy-main-to-model-params ............: (2.22, 2.53)
+    optimizer ......................................: (500.42, 500.88)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+/SDP4Bit/megatron/core/tensor_parallel/mappings.py:126: FutureWarning: `torch.distributed._reduce_scatter_base` is a private function and will be deprecated. Please use `torch.distributed.reduce_scatter_tensor` instead.
+  torch.distributed._reduce_scatter_base(
+(min, max) time across ranks (ms):
+    evaluate .......................................: (132290.65, 132291.38)
+-----------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 200 on validation set | lm loss value: 6.884087E+00 | lm loss PPL: 9.766092E+02 | 
+-----------------------------------------------------------------------------------------------------------------
+(min, max) time across ranks (ms):
+    evaluate .......................................: (128381.88, 128382.11)
+-----------------------------------------------------------------------------------------------------------
+ validation loss at iteration 200 on test set | lm loss value: 6.888709E+00 | lm loss PPL: 9.811336E+02 | 
+-----------------------------------------------------------------------------------------------------------
+[rank9]:[W1103 09:05:08.699408241 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank13]:[W1103 09:05:08.818329225 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank15]:[W1103 09:05:08.845292815 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank14]:[W1103 09:05:08.005411470 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank10]:[W1103 09:05:09.023581788 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank11]:[W1103 09:05:09.073216995 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank12]:[W1103 09:05:09.166550699 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank8]:[W1103 09:05:09.290357649 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

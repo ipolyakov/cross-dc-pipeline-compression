@@ -1,0 +1,2 @@
+Copyright 2026 ITMO University.
+pp_p2p_compression.patch modifies files of Megatron-LM as distributed in the SDP4Bit code base (Apache-2.0).

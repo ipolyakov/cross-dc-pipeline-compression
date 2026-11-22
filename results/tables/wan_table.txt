@@ -1,0 +1,4 @@
+=== Table 8 style (median of last 15 windows) ===
+wan-200-tuned-fp8-west.txt: median 4183.7 ms  (n=15)
+wan-200-tuned-none-west.txt: median 5325.3 ms  (n=15)
+wan-200-tuned-nvfp4-west.txt: median 3612.4 ms  (n=15)

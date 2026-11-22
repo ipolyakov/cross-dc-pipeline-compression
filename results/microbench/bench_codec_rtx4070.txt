@@ -1,0 +1,7 @@
+# RTX 4070 Super microbenchmark
+# bfloat16, shape (2048, 1, 1280), 20 warmup + 100 timed, CUDA events, median
+
+codec   packed    ratio   enc_ms  dec_ms  B*_Mbit/s  RMSE
+FP8     2703360   1.94    0.115   0.040   131513     0.02577
+INT8    2703360   1.94    0.140   0.037   114310     0.00663
+NVFP4   1474564   3.56    0.456   0.180   47410      0.09531

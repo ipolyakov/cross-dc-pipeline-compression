@@ -1,0 +1,1467 @@
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1109 05:33:16.662627683 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1109 05:33:17.531411786 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 300520960
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (300520960 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    load-checkpoint ................................: (16022.27, 16022.34)
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (16134.65, 16143.13)
+    train/valid/test-data-iterators-setup ..........: (157.61, 177.95)
+[rank 1] pipeline p2p compression: activations=nvfp4, gradients=nvfp4
+EVAL_ITER 1 3.39118671
+EVAL_ITER 2 3.30389524
+EVAL_ITER 3 3.25639510
+EVAL_ITER 4 3.32460570
+EVAL_ITER 5 3.39994049
+EVAL_ITER 6 3.28367972
+EVAL_ITER 7 3.27730370
+EVAL_ITER 8 3.43417263
+EVAL_ITER 9 3.34084725
+EVAL_ITER 10 3.43443537
+EVAL_ITER 11 3.50126243
+EVAL_ITER 12 3.44174242
+EVAL_ITER 13 3.18674541
+EVAL_ITER 14 3.39483094
+EVAL_ITER 15 3.42106867
+EVAL_ITER 16 3.43436837
+EVAL_ITER 17 3.28944659
+EVAL_ITER 18 3.28665495
+EVAL_ITER 19 3.08884883
+EVAL_ITER 20 3.26740623
+EVAL_ITER 21 3.48351526
+EVAL_ITER 22 3.44012308
+EVAL_ITER 23 3.33187842
+EVAL_ITER 24 3.41964865
+EVAL_ITER 25 3.31196094
+EVAL_ITER 26 3.41178370
+EVAL_ITER 27 3.38152552
+EVAL_ITER 28 3.45557880
+EVAL_ITER 29 3.29389691
+EVAL_ITER 30 3.23759890
+EVAL_ITER 31 3.22479320
+EVAL_ITER 32 3.35286117
+EVAL_ITER 33 3.31419754
+EVAL_ITER 34 3.31429100
+EVAL_ITER 35 3.31966758
+EVAL_ITER 36 3.31605959
+EVAL_ITER 37 3.33860517
+EVAL_ITER 38 3.33838868
+EVAL_ITER 39 3.30512309
+EVAL_ITER 40 3.21510601
+EVAL_ITER 41 3.28598785
+EVAL_ITER 42 3.47928357
+EVAL_ITER 43 3.24860668
+EVAL_ITER 44 3.50858235
+EVAL_ITER 45 3.51502514
+EVAL_ITER 46 3.35058188
+EVAL_ITER 47 3.22927475
+EVAL_ITER 48 3.34067440
+EVAL_ITER 49 3.42492938
+EVAL_ITER 50 3.38817954
+EVAL_ITER 51 3.30476403
+EVAL_ITER 52 3.23205352
+EVAL_ITER 53 3.25846767
+EVAL_ITER 54 3.32653260
+EVAL_ITER 55 3.39652777
+EVAL_ITER 56 3.30544448
+EVAL_ITER 57 3.17825103
+EVAL_ITER 58 3.26497293
+EVAL_ITER 59 3.18852186
+EVAL_ITER 60 3.36300898
+EVAL_ITER 61 3.23361754
+EVAL_ITER 62 3.36686611
+EVAL_ITER 63 3.49014163
+EVAL_ITER 64 3.12911654
+EVAL_ITER 65 3.40394354
+EVAL_ITER 66 3.18241096
+EVAL_ITER 67 3.36616635
+EVAL_ITER 68 3.34983563
+EVAL_ITER 69 3.34985399
+EVAL_ITER 70 3.45444608
+EVAL_ITER 71 3.36695385
+EVAL_ITER 72 3.44566083
+EVAL_ITER 73 3.34076738
+EVAL_ITER 74 3.40998745
+EVAL_ITER 75 3.33676457
+EVAL_ITER 76 3.29827881
+EVAL_ITER 77 3.34525156
+EVAL_ITER 78 3.37632632
+EVAL_ITER 79 3.43304968
+EVAL_ITER 80 3.38182664
+EVAL_ITER 81 3.35348940
+EVAL_ITER 82 3.47057962
+EVAL_ITER 83 3.23009658
+EVAL_ITER 84 3.34893823
+EVAL_ITER 85 3.24259686
+EVAL_ITER 86 3.42040706
+EVAL_ITER 87 3.30731416
+EVAL_ITER 88 3.45673656
+EVAL_ITER 89 3.26615644
+EVAL_ITER 90 3.36518812
+EVAL_ITER 91 3.37122393
+EVAL_ITER 92 3.50916243
+EVAL_ITER 93 3.34412432
+EVAL_ITER 94 3.32865930
+EVAL_ITER 95 3.32256269
+EVAL_ITER 96 3.48828936
+EVAL_ITER 97 3.23471165
+EVAL_ITER 98 3.22170281
+EVAL_ITER 99 3.35692048
+EVAL_ITER 100 3.25699663
+EVAL_ITER 101 3.36178112
+EVAL_ITER 102 3.42953014
+EVAL_ITER 103 3.29303265
+EVAL_ITER 104 3.25481749
+EVAL_ITER 105 3.29019094
+EVAL_ITER 106 3.35334301
+EVAL_ITER 107 3.39447212
+EVAL_ITER 108 3.40077996
+EVAL_ITER 109 3.16873789
+EVAL_ITER 110 3.27661610
+EVAL_ITER 111 3.22566986
+EVAL_ITER 112 3.34145832
+EVAL_ITER 113 3.32739878
+EVAL_ITER 114 3.26732850
+EVAL_ITER 115 3.33821368
+EVAL_ITER 116 3.31332898
+EVAL_ITER 117 3.51972771
+EVAL_ITER 118 3.37728572
+EVAL_ITER 119 3.30390716
+EVAL_ITER 120 3.35922313
+EVAL_ITER 121 3.30884075
+EVAL_ITER 122 3.27372456
+EVAL_ITER 123 3.38268065
+EVAL_ITER 124 3.36477733
+EVAL_ITER 125 3.18732667
+EVAL_ITER 126 3.43007302
+EVAL_ITER 127 3.40566349
+EVAL_ITER 128 3.35596371
+EVAL_ITER 129 3.29542112
+EVAL_ITER 130 3.37520385
+EVAL_ITER 131 3.18308377
+EVAL_ITER 132 3.38291168
+EVAL_ITER 133 3.28658032
+EVAL_ITER 134 3.37195444
+EVAL_ITER 135 3.34570098
+EVAL_ITER 136 3.35353398
+EVAL_ITER 137 3.25428247
+EVAL_ITER 138 3.43976545
+EVAL_ITER 139 3.43528152
+EVAL_ITER 140 3.28927827
+EVAL_ITER 141 3.35496521
+EVAL_ITER 142 3.37903070
+EVAL_ITER 143 3.46283579
+EVAL_ITER 144 3.27418137
+EVAL_ITER 145 3.26858044
+EVAL_ITER 146 3.34043288
+EVAL_ITER 147 3.37691951
+EVAL_ITER 148 3.32152438
+EVAL_ITER 149 3.31689405
+EVAL_ITER 150 3.33749866
+EVAL_ITER 151 3.38235593
+EVAL_ITER 152 3.33164692
+EVAL_ITER 153 3.39708233
+EVAL_ITER 154 3.32038569
+EVAL_ITER 155 3.34667397
+EVAL_ITER 156 3.29734254
+EVAL_ITER 157 3.44008994
+EVAL_ITER 158 3.38627911
+EVAL_ITER 159 3.40162802
+EVAL_ITER 160 3.35880280
+EVAL_ITER 161 3.34216809
+EVAL_ITER 162 3.24594831
+EVAL_ITER 163 3.40353370
+EVAL_ITER 164 3.28409576
+EVAL_ITER 165 3.27270079
+EVAL_ITER 166 3.10049748
+EVAL_ITER 167 3.29313850
+EVAL_ITER 168 3.35711718
+EVAL_ITER 169 3.39419436
+EVAL_ITER 170 3.25665832
+EVAL_ITER 171 3.42768335
+EVAL_ITER 172 3.35809803
+EVAL_ITER 173 3.17434883
+EVAL_ITER 174 3.42776442
+EVAL_ITER 175 3.35202003
+EVAL_ITER 176 3.30494523
+EVAL_ITER 177 3.30384684
+EVAL_ITER 178 3.28696513
+EVAL_ITER 179 3.32681990
+EVAL_ITER 180 3.39205718
+EVAL_ITER 181 3.31810641
+EVAL_ITER 182 3.36710978
+EVAL_ITER 183 3.34792829
+EVAL_ITER 184 3.40790224
+EVAL_ITER 185 3.36925554
+EVAL_ITER 186 3.28959036
+EVAL_ITER 187 3.40610719
+EVAL_ITER 188 3.23128176
+EVAL_ITER 189 3.42998338
+EVAL_ITER 190 3.28975534
+EVAL_ITER 191 3.14337993
+EVAL_ITER 192 3.20123816
+EVAL_ITER 193 3.41880989
+EVAL_ITER 194 3.40330338
+EVAL_ITER 195 3.42604756
+EVAL_ITER 196 3.21190929
+EVAL_ITER 197 3.38452864
+EVAL_ITER 198 3.33281922
+EVAL_ITER 199 3.43120098
+EVAL_ITER 200 3.42494106
+EVAL_ITER 201 3.37095404
+EVAL_ITER 202 3.49285746
+EVAL_ITER 203 3.48587132
+EVAL_ITER 204 3.43599296
+EVAL_ITER 205 3.25967479
+EVAL_ITER 206 3.22889757
+EVAL_ITER 207 3.32611799
+EVAL_ITER 208 3.29709959
+EVAL_ITER 209 3.37515426
+EVAL_ITER 210 3.41495109
+EVAL_ITER 211 3.27356482
+EVAL_ITER 212 3.27365661
+EVAL_ITER 213 3.34259725
+EVAL_ITER 214 3.38373852
+EVAL_ITER 215 3.42954612
+EVAL_ITER 216 3.35084867
+EVAL_ITER 217 3.43035603
+EVAL_ITER 218 3.44609165
+EVAL_ITER 219 3.37185287
+EVAL_ITER 220 3.45343852
+EVAL_ITER 221 3.39039207
+EVAL_ITER 222 3.39311981
+EVAL_ITER 223 3.06860590
+EVAL_ITER 224 2.99736404
+EVAL_ITER 225 3.25028276
+EVAL_ITER 226 3.32696080
+EVAL_ITER 227 3.25697064
+EVAL_ITER 228 3.52412653
+EVAL_ITER 229 3.49089861
+EVAL_ITER 230 3.29891181
+EVAL_ITER 231 3.31044960
+EVAL_ITER 232 3.29649544
+EVAL_ITER 233 3.39499664
+EVAL_ITER 234 3.34680986
+EVAL_ITER 235 3.41235614
+EVAL_ITER 236 3.34547043
+EVAL_ITER 237 3.26473379
+EVAL_ITER 238 3.27573490
+EVAL_ITER 239 3.30635667
+EVAL_ITER 240 3.32052803
+EVAL_ITER 241 3.31730843
+EVAL_ITER 242 3.40061903
+EVAL_ITER 243 3.30205941
+EVAL_ITER 244 3.25371337
+EVAL_ITER 245 3.36199212
+EVAL_ITER 246 3.28313136
+EVAL_ITER 247 3.35682225
+EVAL_ITER 248 3.33205080
+EVAL_ITER 249 3.29847574
+EVAL_ITER 250 3.30887294
+EVAL_ITER 251 3.24928379
+EVAL_ITER 252 3.27472687
+EVAL_ITER 253 3.31569529
+EVAL_ITER 254 3.41650844
+EVAL_ITER 255 3.33966708
+EVAL_ITER 256 3.29554701
+EVAL_ITER 257 3.33678341
+EVAL_ITER 258 3.30948710
+EVAL_ITER 259 3.42985034
+EVAL_ITER 260 3.45032525
+EVAL_ITER 261 3.37362480
+EVAL_ITER 262 3.28770113
+EVAL_ITER 263 3.48597097
+EVAL_ITER 264 3.44287920
+EVAL_ITER 265 3.23753834
+EVAL_ITER 266 3.29221797
+EVAL_ITER 267 3.25317669
+EVAL_ITER 268 3.38830662
+EVAL_ITER 269 3.42883587
+EVAL_ITER 270 3.31015396
+EVAL_ITER 271 3.53657341
+EVAL_ITER 272 3.19452739
+EVAL_ITER 273 3.40470028
+EVAL_ITER 274 3.38054371
+EVAL_ITER 275 3.27708983
+EVAL_ITER 276 3.42277765
+EVAL_ITER 277 3.28382063
+EVAL_ITER 278 3.32931423
+EVAL_ITER 279 3.37449455
+EVAL_ITER 280 3.31405473
+EVAL_ITER 281 3.40353370
+EVAL_ITER 282 3.39753246
+EVAL_ITER 283 3.23923826
+EVAL_ITER 284 3.26566386
+EVAL_ITER 285 3.42597675
+EVAL_ITER 286 3.36176181
+EVAL_ITER 287 3.41782093
+EVAL_ITER 288 3.37331176
+EVAL_ITER 289 3.26763892
+EVAL_ITER 290 3.44889808
+EVAL_ITER 291 3.30909848
+EVAL_ITER 292 3.30071783
+EVAL_ITER 293 3.29757166
+EVAL_ITER 294 3.37587500
+EVAL_ITER 295 3.40585375
+EVAL_ITER 296 3.21165299
+EVAL_ITER 297 3.37962413
+EVAL_ITER 298 3.41851997
+EVAL_ITER 299 3.26833844
+EVAL_ITER 300 3.52332377
+EVAL_ITER 301 3.37267113
+EVAL_ITER 302 3.28642964
+EVAL_ITER 303 3.18971252
+EVAL_ITER 304 3.40790248
+EVAL_ITER 305 3.37712479
+EVAL_ITER 306 3.58700299
+EVAL_ITER 307 3.40708065
+EVAL_ITER 308 3.24311090
+EVAL_ITER 309 3.29735899
+EVAL_ITER 310 3.41503477
+EVAL_ITER 311 3.41243768
+EVAL_ITER 312 3.37603521
+EVAL_ITER 313 3.22744012
+EVAL_ITER 314 3.26310468
+EVAL_ITER 315 3.31817722
+EVAL_ITER 316 3.24847841
+EVAL_ITER 317 3.30720377
+EVAL_ITER 318 3.37475634
+EVAL_ITER 319 3.17839837
+EVAL_ITER 320 3.42526531
+EVAL_ITER 321 3.50070620
+EVAL_ITER 322 3.34350061
+EVAL_ITER 323 3.40424490
+EVAL_ITER 324 3.25374722
+EVAL_ITER 325 3.33805919
+EVAL_ITER 326 3.38168287
+EVAL_ITER 327 3.32083488
+EVAL_ITER 328 3.40605307
+EVAL_ITER 329 3.39020801
+EVAL_ITER 330 3.32822943
+EVAL_ITER 331 3.44254255
+EVAL_ITER 332 3.22617912
+EVAL_ITER 333 3.46659994
+EVAL_ITER 334 3.18586421
+EVAL_ITER 335 3.46656585
+EVAL_ITER 336 3.40970349
+EVAL_ITER 337 3.29515529
+EVAL_ITER 338 3.45663619
+EVAL_ITER 339 3.31527805
+EVAL_ITER 340 3.35222340
+EVAL_ITER 341 3.32686520
+EVAL_ITER 342 3.33428192
+EVAL_ITER 343 3.18893266
+EVAL_ITER 344 3.32994652
+EVAL_ITER 345 3.40088201
+EVAL_ITER 346 3.38845730
+EVAL_ITER 347 3.36571527
+EVAL_ITER 348 3.28500009
+EVAL_ITER 349 3.37628055
+EVAL_ITER 350 3.36090660
+EVAL_ITER 351 3.38930726
+EVAL_ITER 352 3.31916118
+EVAL_ITER 353 3.41481423
+EVAL_ITER 354 3.52900815
+EVAL_ITER 355 3.61450362
+EVAL_ITER 356 3.31036782
+EVAL_ITER 357 3.39416647
+EVAL_ITER 358 3.41615629
+EVAL_ITER 359 3.28169465
+EVAL_ITER 360 3.45140195
+EVAL_ITER 361 3.25347376
+EVAL_ITER 362 3.45505953
+EVAL_ITER 363 3.38364959
+EVAL_ITER 364 3.28898811
+EVAL_ITER 365 3.39798689
+EVAL_ITER 366 3.27037191
+EVAL_ITER 367 3.33045077
+EVAL_ITER 368 3.26706505
+EVAL_ITER 369 3.34050441
+EVAL_ITER 370 3.36046219
+EVAL_ITER 371 3.37222004
+EVAL_ITER 372 3.38441348
+EVAL_ITER 373 3.44417167
+EVAL_ITER 374 3.37503600
+EVAL_ITER 375 3.20233369
+EVAL_ITER 376 3.35540414
+EVAL_ITER 377 3.24192119
+EVAL_ITER 378 3.35855460
+EVAL_ITER 379 3.52640247
+EVAL_ITER 380 3.30365109
+EVAL_ITER 381 3.43118095
+EVAL_ITER 382 3.38248420
+EVAL_ITER 383 3.38201547
+EVAL_ITER 384 3.39929509
+EVAL_ITER 385 3.43491125
+EVAL_ITER 386 3.26408815
+EVAL_ITER 387 3.33532572
+EVAL_ITER 388 3.38057899
+EVAL_ITER 389 3.40834904
+EVAL_ITER 390 3.33725643
+EVAL_ITER 391 3.39781308
+EVAL_ITER 392 3.28014255
+EVAL_ITER 393 3.48689461
+EVAL_ITER 394 3.22943330
+EVAL_ITER 395 3.24120355
+EVAL_ITER 396 3.29839063
+EVAL_ITER 397 3.40664291
+EVAL_ITER 398 3.30257368
+EVAL_ITER 399 3.15599704
+EVAL_ITER 400 3.39252043
+EVAL_ITER 401 3.19196510
+EVAL_ITER 402 3.31010413
+EVAL_ITER 403 3.41630578
+EVAL_ITER 404 3.13218546
+EVAL_ITER 405 3.26659441
+EVAL_ITER 406 3.46429849
+EVAL_ITER 407 3.31911826
+EVAL_ITER 408 3.43429899
+EVAL_ITER 409 3.52914143
+EVAL_ITER 410 3.42198873
+EVAL_ITER 411 3.32962990
+EVAL_ITER 412 3.24179053
+EVAL_ITER 413 3.38232327
+EVAL_ITER 414 3.40181994
+EVAL_ITER 415 3.31155205
+EVAL_ITER 416 3.42985916
+EVAL_ITER 417 3.43543649
+EVAL_ITER 418 3.39292693
+EVAL_ITER 419 3.30416250
+EVAL_ITER 420 3.11292362
+EVAL_ITER 421 3.48120284
+EVAL_ITER 422 3.26836658
+EVAL_ITER 423 3.30528498
+EVAL_ITER 424 3.38660932
+EVAL_ITER 425 3.30691719
+EVAL_ITER 426 3.36464429
+EVAL_ITER 427 3.44361615
+EVAL_ITER 428 3.16161537
+EVAL_ITER 429 3.27453828
+EVAL_ITER 430 3.29023576
+EVAL_ITER 431 3.39496231
+EVAL_ITER 432 3.31530619
+EVAL_ITER 433 3.34351945
+EVAL_ITER 434 3.21094418
+EVAL_ITER 435 3.29648614
+EVAL_ITER 436 3.27566981
+EVAL_ITER 437 3.34886312
+EVAL_ITER 438 3.24902892
+EVAL_ITER 439 3.34648347
+EVAL_ITER 440 3.34699345
+EVAL_ITER 441 3.21686912
+EVAL_ITER 442 3.41755557
+EVAL_ITER 443 3.34970665
+EVAL_ITER 444 3.20627689
+EVAL_ITER 445 3.37599778
+EVAL_ITER 446 3.32098126
+EVAL_ITER 447 3.44406724
+EVAL_ITER 448 3.30078125
+EVAL_ITER 449 3.32974005
+EVAL_ITER 450 3.38671708
+EVAL_ITER 451 3.24058628
+EVAL_ITER 452 3.28879762
+EVAL_ITER 453 3.31358099
+EVAL_ITER 454 3.21845388
+EVAL_ITER 455 3.24825096
+EVAL_ITER 456 3.30642462
+EVAL_ITER 457 3.29308796
+EVAL_ITER 458 3.40125942
+EVAL_ITER 459 3.30829144
+EVAL_ITER 460 3.20600438
+EVAL_ITER 461 3.34435415
+EVAL_ITER 462 3.25086856
+EVAL_ITER 463 3.36271524
+EVAL_ITER 464 3.13521791
+EVAL_ITER 465 3.35079145
+EVAL_ITER 466 3.31774235
+EVAL_ITER 467 3.35814214
+EVAL_ITER 468 3.29212713
+EVAL_ITER 469 3.29598737
+EVAL_ITER 470 3.29010463
+EVAL_ITER 471 3.32923651
+EVAL_ITER 472 3.34686661
+EVAL_ITER 473 3.21544838
+EVAL_ITER 474 3.26016092
+EVAL_ITER 475 3.42963171
+EVAL_ITER 476 3.25581574
+EVAL_ITER 477 3.14118147
+EVAL_ITER 478 3.28448892
+EVAL_ITER 479 3.19758105
+EVAL_ITER 480 3.35523987
+EVAL_ITER 481 3.28045154
+EVAL_ITER 482 3.45319009
+EVAL_ITER 483 3.30197239
+EVAL_ITER 484 3.40232635
+EVAL_ITER 485 3.26772308
+EVAL_ITER 486 3.37377143
+EVAL_ITER 487 3.35322833
+EVAL_ITER 488 3.40216541
+EVAL_ITER 489 3.33234811
+EVAL_ITER 490 3.23824334
+EVAL_ITER 491 3.36695337
+EVAL_ITER 492 3.35065699
+EVAL_ITER 493 3.27085352
+EVAL_ITER 494 3.28457236
+EVAL_ITER 495 3.43465614
+EVAL_ITER 496 3.29553628
+EVAL_ITER 497 3.37445784
+EVAL_ITER 498 3.37033606
+EVAL_ITER 499 3.48590755
+EVAL_ITER 500 3.38497591
+EVAL_ITER 501 3.24051213
+EVAL_ITER 502 3.31158161
+EVAL_ITER 503 3.17308044
+EVAL_ITER 504 3.38404465
+EVAL_ITER 505 3.35609126
+EVAL_ITER 506 3.34645438
+EVAL_ITER 507 3.32261634
+EVAL_ITER 508 3.41770720
+EVAL_ITER 509 3.31321335
+EVAL_ITER 510 3.38318062
+EVAL_ITER 511 3.27052569
+EVAL_ITER 512 3.24659538
+EVAL_ITER 513 3.21455693
+EVAL_ITER 514 3.38865662
+EVAL_ITER 515 3.29592586
+EVAL_ITER 516 3.32633114
+EVAL_ITER 517 3.20186162
+EVAL_ITER 518 3.21604919
+EVAL_ITER 519 3.32302022
+EVAL_ITER 520 3.28265476
+EVAL_ITER 521 3.38487816
+EVAL_ITER 522 3.41743398
+EVAL_ITER 523 3.39521646
+EVAL_ITER 524 3.33299875
+EVAL_ITER 525 3.47160006
+EVAL_ITER 526 3.17666364
+EVAL_ITER 527 3.32516623
+EVAL_ITER 528 3.36826181
+EVAL_ITER 529 3.28675103
+EVAL_ITER 530 3.19398999
+EVAL_ITER 531 3.33375025
+EVAL_ITER 532 3.39265323
+EVAL_ITER 533 3.23112059
+EVAL_ITER 534 3.34795260
+EVAL_ITER 535 3.17657232
+EVAL_ITER 536 3.32709146
+EVAL_ITER 537 3.43272853
+EVAL_ITER 538 3.28255820
+EVAL_ITER 539 3.43864369
+EVAL_ITER 540 3.36710405
+EVAL_ITER 541 3.15945816
+EVAL_ITER 542 3.32211924
+EVAL_ITER 543 3.30698109
+EVAL_ITER 544 3.41475725
+EVAL_ITER 545 3.36491442
+EVAL_ITER 546 3.31387496
+EVAL_ITER 547 3.24767780
+EVAL_ITER 548 3.25856423
+EVAL_ITER 549 3.37396526
+EVAL_ITER 550 3.38168144
+EVAL_ITER 551 3.31660056
+EVAL_ITER 552 3.35222173
+EVAL_ITER 553 3.22112989
+EVAL_ITER 554 3.18296576
+EVAL_ITER 555 3.31466079
+EVAL_ITER 556 3.39432049
+EVAL_ITER 557 3.21747327
+EVAL_ITER 558 3.33740520
+EVAL_ITER 559 3.25723481
+EVAL_ITER 560 3.29743505
+EVAL_ITER 561 3.47066331
+EVAL_ITER 562 3.29199266
+EVAL_ITER 563 3.45542192
+EVAL_ITER 564 3.51173019
+EVAL_ITER 565 3.34227705
+EVAL_ITER 566 3.44105029
+EVAL_ITER 567 3.47419810
+EVAL_ITER 568 3.35529160
+EVAL_ITER 569 3.17906022
+EVAL_ITER 570 3.25056911
+EVAL_ITER 571 3.39272571
+EVAL_ITER 572 3.40003324
+EVAL_ITER 573 3.44482613
+EVAL_ITER 574 3.41968536
+EVAL_ITER 575 3.42204213
+EVAL_ITER 576 3.38851023
+EVAL_ITER 577 3.39909792
+EVAL_ITER 578 3.34756160
+EVAL_ITER 579 3.31989360
+EVAL_ITER 580 3.43377972
+EVAL_ITER 581 3.27928996
+EVAL_ITER 582 3.19142008
+EVAL_ITER 583 3.31884122
+EVAL_ITER 584 3.44641209
+EVAL_ITER 585 3.25374341
+EVAL_ITER 586 3.40339518
+EVAL_ITER 587 3.24184442
+EVAL_ITER 588 3.38650990
+EVAL_ITER 589 3.32555318
+EVAL_ITER 590 3.37872863
+EVAL_ITER 591 3.32673764
+EVAL_ITER 592 3.40134716
+EVAL_ITER 593 3.23234987
+EVAL_ITER 594 3.51530600
+EVAL_ITER 595 3.40663123
+EVAL_ITER 596 3.18154001
+EVAL_ITER 597 3.37406349
+EVAL_ITER 598 3.40171361
+EVAL_ITER 599 3.46587944
+EVAL_ITER 600 3.39971852
+EVAL_ITER 601 3.28008795
+EVAL_ITER 602 3.39726853
+EVAL_ITER 603 3.15644550
+EVAL_ITER 604 3.24850178
+EVAL_ITER 605 3.35385275
+EVAL_ITER 606 3.28061652
+EVAL_ITER 607 3.54765320
+EVAL_ITER 608 3.41434312
+EVAL_ITER 609 3.26490164
+EVAL_ITER 610 3.41648960
+EVAL_ITER 611 3.24180746
+EVAL_ITER 612 3.21124983
+EVAL_ITER 613 3.28220272
+EVAL_ITER 614 3.36191702
+EVAL_ITER 615 3.42999029
+EVAL_ITER 616 3.41622305
+EVAL_ITER 617 3.33598351
+EVAL_ITER 618 3.37117624
+EVAL_ITER 619 3.29259896
+EVAL_ITER 620 3.30395460
+EVAL_ITER 621 3.22689557
+EVAL_ITER 622 3.26898861
+EVAL_ITER 623 3.35697389
+EVAL_ITER 624 3.36219192
+EVAL_ITER 625 3.40249228
+EVAL_ITER 626 3.38018250
+EVAL_ITER 627 3.35529852
+EVAL_ITER 628 3.18011999
+EVAL_ITER 629 3.43759346
+EVAL_ITER 630 3.34015036
+EVAL_ITER 631 3.23879051
+EVAL_ITER 632 3.42395020
+EVAL_ITER 633 3.30699635
+EVAL_ITER 634 3.31772327
+EVAL_ITER 635 3.34841251
+EVAL_ITER 636 3.33054662
+EVAL_ITER 637 3.37871885
+EVAL_ITER 638 3.36030483
+EVAL_ITER 639 3.25499701
+EVAL_ITER 640 3.33588099
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    evaluate .......................................: (481788.27, 481788.64)
+-------------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 30000 on validation set | lm loss value: 3.338018E+00 | lm loss PPL: 2.816326E+01 | 
+-------------------------------------------------------------------------------------------------------------------
+EVAL_ITER 1 3.49139285
+EVAL_ITER 2 3.31870985
+EVAL_ITER 3 3.37998772
+EVAL_ITER 4 3.40010262
+EVAL_ITER 5 3.23945236
+EVAL_ITER 6 3.32276869
+EVAL_ITER 7 3.29186344
+EVAL_ITER 8 3.21196127
+EVAL_ITER 9 3.36044359
+EVAL_ITER 10 3.33485246
+EVAL_ITER 11 3.34305787
+EVAL_ITER 12 3.28423500
+EVAL_ITER 13 3.43629265
+EVAL_ITER 14 3.31033397
+EVAL_ITER 15 3.32186723
+EVAL_ITER 16 3.34473801
+EVAL_ITER 17 3.33867860
+EVAL_ITER 18 3.42247844
+EVAL_ITER 19 3.22137856
+EVAL_ITER 20 3.36265707
+EVAL_ITER 21 3.34263802
+EVAL_ITER 22 3.19581246
+EVAL_ITER 23 3.36993027
+EVAL_ITER 24 3.26384854
+EVAL_ITER 25 3.48961306
+EVAL_ITER 26 3.33731985
+EVAL_ITER 27 3.39806867
+EVAL_ITER 28 3.29410052
+EVAL_ITER 29 3.33810568
+EVAL_ITER 30 3.26292324
+EVAL_ITER 31 3.48822045
+EVAL_ITER 32 3.39580131
+EVAL_ITER 33 3.32500839
+EVAL_ITER 34 3.29350209
+EVAL_ITER 35 3.40441585
+EVAL_ITER 36 3.30207372
+EVAL_ITER 37 3.46835399
+EVAL_ITER 38 3.28057647
+EVAL_ITER 39 3.39789081
+EVAL_ITER 40 3.13380027
+EVAL_ITER 41 3.23722959
+EVAL_ITER 42 3.29702854
+EVAL_ITER 43 3.49460888
+EVAL_ITER 44 3.24319696
+EVAL_ITER 45 3.36616755
+EVAL_ITER 46 3.32250500
+EVAL_ITER 47 3.38983798
+EVAL_ITER 48 3.35834146
+EVAL_ITER 49 3.30649233
+EVAL_ITER 50 3.36471748
+EVAL_ITER 51 3.23743439
+EVAL_ITER 52 3.37827277
+EVAL_ITER 53 3.36018801
+EVAL_ITER 54 3.21359873
+EVAL_ITER 55 3.19135356
+EVAL_ITER 56 3.21696782
+EVAL_ITER 57 3.38978529
+EVAL_ITER 58 3.25166655
+EVAL_ITER 59 3.16989708
+EVAL_ITER 60 3.35277486
+EVAL_ITER 61 3.39867783
+EVAL_ITER 62 3.38677025
+EVAL_ITER 63 3.55540895
+EVAL_ITER 64 3.29672074
+EVAL_ITER 65 3.44877410
+EVAL_ITER 66 3.45373106
+EVAL_ITER 67 3.40026832
+EVAL_ITER 68 3.40490651
+EVAL_ITER 69 3.35588264
+EVAL_ITER 70 3.23010492
+EVAL_ITER 71 3.34351158
+EVAL_ITER 72 3.31870055
+EVAL_ITER 73 3.45362139
+EVAL_ITER 74 3.26938248
+EVAL_ITER 75 3.35003591
+EVAL_ITER 76 3.26630592
+EVAL_ITER 77 3.37374282
+EVAL_ITER 78 3.25511622
+EVAL_ITER 79 3.27574182
+EVAL_ITER 80 3.35299683
+EVAL_ITER 81 3.40619540
+EVAL_ITER 82 3.38494825
+EVAL_ITER 83 3.22774911
+EVAL_ITER 84 3.32813954
+EVAL_ITER 85 3.46010542
+EVAL_ITER 86 3.52079749
+EVAL_ITER 87 3.32642651
+EVAL_ITER 88 3.38490963
+EVAL_ITER 89 3.33875847
+EVAL_ITER 90 3.24539828
+EVAL_ITER 91 3.38641906
+EVAL_ITER 92 3.48637557
+EVAL_ITER 93 3.34785080
+EVAL_ITER 94 3.30878806
+EVAL_ITER 95 3.32997751
+EVAL_ITER 96 3.38567114
+EVAL_ITER 97 3.52884197
+EVAL_ITER 98 3.35941362
+EVAL_ITER 99 3.33001256
+EVAL_ITER 100 3.30522299
+EVAL_ITER 101 3.20821738
+EVAL_ITER 102 3.46676946
+EVAL_ITER 103 3.34537959
+EVAL_ITER 104 3.36494350
+EVAL_ITER 105 3.53110743
+EVAL_ITER 106 3.28569555
+EVAL_ITER 107 3.24610162
+EVAL_ITER 108 3.37719417
+EVAL_ITER 109 3.40945840
+EVAL_ITER 110 3.34360218
+EVAL_ITER 111 3.19890022
+EVAL_ITER 112 3.19731808
+EVAL_ITER 113 3.38007307
+EVAL_ITER 114 3.30133176
+EVAL_ITER 115 3.38074064
+EVAL_ITER 116 3.40161085
+EVAL_ITER 117 3.37871480
+EVAL_ITER 118 3.43921065
+EVAL_ITER 119 3.28292012
+EVAL_ITER 120 3.33168936
+EVAL_ITER 121 3.37041998
+EVAL_ITER 122 3.24338651
+EVAL_ITER 123 3.41317892
+EVAL_ITER 124 3.35704327
+EVAL_ITER 125 3.37867808
+EVAL_ITER 126 3.25619698
+EVAL_ITER 127 3.12132263
+EVAL_ITER 128 3.53255486
+EVAL_ITER 129 3.26121855
+EVAL_ITER 130 3.26623797
+EVAL_ITER 131 3.24228072
+EVAL_ITER 132 3.31950498
+EVAL_ITER 133 3.29638004
+EVAL_ITER 134 3.47280216
+EVAL_ITER 135 3.41095996
+EVAL_ITER 136 3.41531134
+EVAL_ITER 137 3.36723137
+EVAL_ITER 138 3.18538332
+EVAL_ITER 139 3.34295034
+EVAL_ITER 140 3.25725651
+EVAL_ITER 141 3.34976077
+EVAL_ITER 142 3.25269532
+EVAL_ITER 143 3.57739544
+EVAL_ITER 144 3.28547668
+EVAL_ITER 145 3.41357040
+EVAL_ITER 146 3.34647155
+EVAL_ITER 147 3.28282714
+EVAL_ITER 148 3.35915756
+EVAL_ITER 149 3.23479295
+EVAL_ITER 150 3.22809529
+EVAL_ITER 151 3.29112363
+EVAL_ITER 152 3.34797382
+EVAL_ITER 153 3.42896366
+EVAL_ITER 154 3.31248450
+EVAL_ITER 155 3.22695589
+EVAL_ITER 156 3.18172908
+EVAL_ITER 157 3.17589068
+EVAL_ITER 158 3.33208394
+EVAL_ITER 159 3.34744453
+EVAL_ITER 160 3.35568428
+EVAL_ITER 161 3.41278481
+EVAL_ITER 162 3.30910254
+EVAL_ITER 163 3.15751958
+EVAL_ITER 164 3.38882399
+EVAL_ITER 165 3.49337792
+EVAL_ITER 166 3.33854961
+EVAL_ITER 167 3.39743042
+EVAL_ITER 168 3.27860117
+EVAL_ITER 169 3.38207769
+EVAL_ITER 170 3.44194841
+EVAL_ITER 171 3.27707171
+EVAL_ITER 172 3.31632233
+EVAL_ITER 173 3.40743232
+EVAL_ITER 174 3.41319180
+EVAL_ITER 175 3.32805490
+EVAL_ITER 176 3.22833705
+EVAL_ITER 177 3.35874104
+EVAL_ITER 178 3.35830736
+EVAL_ITER 179 3.29397559
+EVAL_ITER 180 3.44013572
+EVAL_ITER 181 3.32510471
+EVAL_ITER 182 3.36779857
+EVAL_ITER 183 3.33575559
+EVAL_ITER 184 3.38822031
+EVAL_ITER 185 3.23569107
+EVAL_ITER 186 3.38391805
+EVAL_ITER 187 3.33777809
+EVAL_ITER 188 3.48041248
+EVAL_ITER 189 3.38354063
+EVAL_ITER 190 3.34923172
+EVAL_ITER 191 3.27637458
+EVAL_ITER 192 3.30094075
+EVAL_ITER 193 3.31099486
+EVAL_ITER 194 3.39300203
+EVAL_ITER 195 3.38177538
+EVAL_ITER 196 3.22945213
+EVAL_ITER 197 3.32178020
+EVAL_ITER 198 3.31376815
+EVAL_ITER 199 3.35839725
+EVAL_ITER 200 3.40553117
+EVAL_ITER 201 3.37730980
+EVAL_ITER 202 3.35828948
+EVAL_ITER 203 3.43253827
+EVAL_ITER 204 3.39127421
+EVAL_ITER 205 3.27010059
+EVAL_ITER 206 3.38509727
+EVAL_ITER 207 3.37571764
+EVAL_ITER 208 3.42072344
+EVAL_ITER 209 3.30057478
+EVAL_ITER 210 3.28204703
+EVAL_ITER 211 3.35079479
+EVAL_ITER 212 3.39546824
+EVAL_ITER 213 3.30051303
+EVAL_ITER 214 3.37516212
+EVAL_ITER 215 3.46323347
+EVAL_ITER 216 3.40629363
+EVAL_ITER 217 3.39221787
+EVAL_ITER 218 3.36944246
+EVAL_ITER 219 3.21767998
+EVAL_ITER 220 3.33081031
+EVAL_ITER 221 3.39177608
+EVAL_ITER 222 3.26441288
+EVAL_ITER 223 3.43827438
+EVAL_ITER 224 3.45475626
+EVAL_ITER 225 3.46734071
+EVAL_ITER 226 3.33004737
+EVAL_ITER 227 3.30581903
+EVAL_ITER 228 3.31497288
+EVAL_ITER 229 3.29302621
+EVAL_ITER 230 3.19815135
+EVAL_ITER 231 3.37874484
+EVAL_ITER 232 3.26333785
+EVAL_ITER 233 3.32998228
+EVAL_ITER 234 3.29773688
+EVAL_ITER 235 3.37576318
+EVAL_ITER 236 3.36033916
+EVAL_ITER 237 3.29518914
+EVAL_ITER 238 3.46016622
+EVAL_ITER 239 3.28275347
+EVAL_ITER 240 3.38797379
+EVAL_ITER 241 3.41153884
+EVAL_ITER 242 3.32098341
+EVAL_ITER 243 3.21610379
+EVAL_ITER 244 3.41102123
+EVAL_ITER 245 3.44827914
+EVAL_ITER 246 3.32514238
+EVAL_ITER 247 3.35663772
+EVAL_ITER 248 3.34427190
+EVAL_ITER 249 3.32062006
+EVAL_ITER 250 3.21672726
+EVAL_ITER 251 3.32137847
+EVAL_ITER 252 3.23423386
+EVAL_ITER 253 3.33320451
+EVAL_ITER 254 3.28593016
+EVAL_ITER 255 3.19780016
+EVAL_ITER 256 3.27815413
+EVAL_ITER 257 3.33313704
+EVAL_ITER 258 3.29212403
+EVAL_ITER 259 3.39657998
+EVAL_ITER 260 3.35923171
+EVAL_ITER 261 3.23095965
+EVAL_ITER 262 3.37242818
+EVAL_ITER 263 3.29528594
+EVAL_ITER 264 3.42319679
+EVAL_ITER 265 3.38983822
+EVAL_ITER 266 3.38893914
+EVAL_ITER 267 3.39326000
+EVAL_ITER 268 3.33761239
+EVAL_ITER 269 3.41386890
+EVAL_ITER 270 3.31091976
+EVAL_ITER 271 3.42674732
+EVAL_ITER 272 3.23581457
+EVAL_ITER 273 3.27021742
+EVAL_ITER 274 3.36725187
+EVAL_ITER 275 3.36506915
+EVAL_ITER 276 3.43799376
+EVAL_ITER 277 3.26479793
+EVAL_ITER 278 3.32028961
+EVAL_ITER 279 3.33026528
+EVAL_ITER 280 3.36831522
+EVAL_ITER 281 3.30841589
+EVAL_ITER 282 3.38615203
+EVAL_ITER 283 3.23734879
+EVAL_ITER 284 3.38817310
+EVAL_ITER 285 3.31453800
+EVAL_ITER 286 3.38611794
+EVAL_ITER 287 3.17564464
+EVAL_ITER 288 3.32772779
+EVAL_ITER 289 3.31944013
+EVAL_ITER 290 3.38897896
+EVAL_ITER 291 3.41341209
+EVAL_ITER 292 3.34280872
+EVAL_ITER 293 3.34809732
+EVAL_ITER 294 3.33891249
+EVAL_ITER 295 3.30593371
+EVAL_ITER 296 3.38116264
+EVAL_ITER 297 3.36715794
+EVAL_ITER 298 3.46232700
+EVAL_ITER 299 3.46653867
+EVAL_ITER 300 3.35577154
+EVAL_ITER 301 3.31475282
+EVAL_ITER 302 3.40734649
+EVAL_ITER 303 3.26123953
+EVAL_ITER 304 3.28950834
+EVAL_ITER 305 3.33706713
+EVAL_ITER 306 3.41896796
+EVAL_ITER 307 3.30609918
+EVAL_ITER 308 3.38955426
+EVAL_ITER 309 3.35331774
+EVAL_ITER 310 3.34093094
+EVAL_ITER 311 3.25173712
+EVAL_ITER 312 3.20041418
+EVAL_ITER 313 3.38399315
+EVAL_ITER 314 3.25125742
+EVAL_ITER 315 3.41506004
+EVAL_ITER 316 3.28227139
+EVAL_ITER 317 3.47586036
+EVAL_ITER 318 3.21615124
+EVAL_ITER 319 3.37813997
+EVAL_ITER 320 3.39742017
+EVAL_ITER 321 3.36555362
+EVAL_ITER 322 3.18836641
+EVAL_ITER 323 3.44908428
+EVAL_ITER 324 3.45191383
+EVAL_ITER 325 3.38508534
+EVAL_ITER 326 3.33167338
+EVAL_ITER 327 3.22097969
+EVAL_ITER 328 3.34633660
+EVAL_ITER 329 3.30389023
+EVAL_ITER 330 3.26473594
+EVAL_ITER 331 3.33041048
+EVAL_ITER 332 3.38499141
+EVAL_ITER 333 3.32434011
+EVAL_ITER 334 3.35147524
+EVAL_ITER 335 3.39515066
+EVAL_ITER 336 3.33561158
+EVAL_ITER 337 3.46065044
+EVAL_ITER 338 3.34143376
+EVAL_ITER 339 3.43930793
+EVAL_ITER 340 3.36471081
+EVAL_ITER 341 3.34119701
+EVAL_ITER 342 3.29997897
+EVAL_ITER 343 3.37011909
+EVAL_ITER 344 3.49514580
+EVAL_ITER 345 3.42010736
+EVAL_ITER 346 3.40040565
+EVAL_ITER 347 3.34477305
+EVAL_ITER 348 3.42216897
+EVAL_ITER 349 3.35173225
+EVAL_ITER 350 3.38453078
+EVAL_ITER 351 3.28508615
+EVAL_ITER 352 3.42228460
+EVAL_ITER 353 3.31410885
+EVAL_ITER 354 3.31709266
+EVAL_ITER 355 3.33466101
+EVAL_ITER 356 3.35108757
+EVAL_ITER 357 3.34151077
+EVAL_ITER 358 3.29631972
+EVAL_ITER 359 3.31133533
+EVAL_ITER 360 3.27022910
+EVAL_ITER 361 3.42832208
+EVAL_ITER 362 3.52350068
+EVAL_ITER 363 3.13685894
+EVAL_ITER 364 3.33978653
+EVAL_ITER 365 3.30492425
+EVAL_ITER 366 3.45334411
+EVAL_ITER 367 3.23420739
+EVAL_ITER 368 3.30917168
+EVAL_ITER 369 3.37552929
+EVAL_ITER 370 3.28193045
+EVAL_ITER 371 3.42546940
+EVAL_ITER 372 3.36658788
+EVAL_ITER 373 3.41355038
+EVAL_ITER 374 3.26841378
+EVAL_ITER 375 3.25388479
+EVAL_ITER 376 3.30385494
+EVAL_ITER 377 3.34880519
+EVAL_ITER 378 3.40819025
+EVAL_ITER 379 3.24917388
+EVAL_ITER 380 3.29585361
+EVAL_ITER 381 3.25126004
+EVAL_ITER 382 3.41729784
+EVAL_ITER 383 3.33056211
+EVAL_ITER 384 3.36946225
+EVAL_ITER 385 3.37999892
+EVAL_ITER 386 3.26845694
+EVAL_ITER 387 3.23110986
+EVAL_ITER 388 3.36032081
+EVAL_ITER 389 3.51898122
+EVAL_ITER 390 3.26241994
+EVAL_ITER 391 3.39916587
+EVAL_ITER 392 3.36080647
+EVAL_ITER 393 3.33818722
+EVAL_ITER 394 3.31164265
+EVAL_ITER 395 3.44725728
+EVAL_ITER 396 3.22267151
+EVAL_ITER 397 3.34942317
+EVAL_ITER 398 3.32922292
+EVAL_ITER 399 3.36617970
+EVAL_ITER 400 3.39858675
+EVAL_ITER 401 3.32888055
+EVAL_ITER 402 3.29032779
+EVAL_ITER 403 3.34379721
+EVAL_ITER 404 3.34661674
+EVAL_ITER 405 3.41763091
+EVAL_ITER 406 3.34824395
+EVAL_ITER 407 3.20629287
+EVAL_ITER 408 3.33499289
+EVAL_ITER 409 3.37113237
+EVAL_ITER 410 3.43911481
+EVAL_ITER 411 3.31328559
+EVAL_ITER 412 3.23157191
+EVAL_ITER 413 3.32484937
+EVAL_ITER 414 3.38350868
+EVAL_ITER 415 3.29423261
+EVAL_ITER 416 3.48695803
+EVAL_ITER 417 3.37394309
+EVAL_ITER 418 3.42547178
+EVAL_ITER 419 3.29445505
+EVAL_ITER 420 3.32488918
+EVAL_ITER 421 3.39952421
+EVAL_ITER 422 3.40118265
+EVAL_ITER 423 3.35798025
+EVAL_ITER 424 3.31820345
+EVAL_ITER 425 3.47745299
+EVAL_ITER 426 3.37026191
+EVAL_ITER 427 3.26428151
+EVAL_ITER 428 3.41266656
+EVAL_ITER 429 3.29335976
+EVAL_ITER 430 3.42232490
+EVAL_ITER 431 3.36540747
+EVAL_ITER 432 3.23574209
+EVAL_ITER 433 3.37422442
+EVAL_ITER 434 3.27972388
+EVAL_ITER 435 3.33229947
+EVAL_ITER 436 3.48401880
+EVAL_ITER 437 3.40362215
+EVAL_ITER 438 3.29522109
+EVAL_ITER 439 3.34319997
+EVAL_ITER 440 3.35057354
+EVAL_ITER 441 3.40408444
+EVAL_ITER 442 3.28499007
+EVAL_ITER 443 3.34305739
+EVAL_ITER 444 3.17491269
+EVAL_ITER 445 3.45462966
+EVAL_ITER 446 3.31117201
+EVAL_ITER 447 3.27312875
+EVAL_ITER 448 3.35934353
+EVAL_ITER 449 3.33821893
+EVAL_ITER 450 3.42199683
+EVAL_ITER 451 3.40917253
+EVAL_ITER 452 3.39071608
+EVAL_ITER 453 3.38392019
+EVAL_ITER 454 3.45316553
+EVAL_ITER 455 3.29071307
+EVAL_ITER 456 3.27109766
+EVAL_ITER 457 3.44159532
+EVAL_ITER 458 3.40740895
+EVAL_ITER 459 3.22641540
+EVAL_ITER 460 3.36566710
+EVAL_ITER 461 3.39253068
+EVAL_ITER 462 3.36273384
+EVAL_ITER 463 3.27792954
+EVAL_ITER 464 3.28518200
+EVAL_ITER 465 3.38013339
+EVAL_ITER 466 3.26447177
+EVAL_ITER 467 3.40568948
+EVAL_ITER 468 3.39748120
+EVAL_ITER 469 3.38535380
+EVAL_ITER 470 3.25555682
+EVAL_ITER 471 3.25525451
+EVAL_ITER 472 3.34454250
+EVAL_ITER 473 3.33437872
+EVAL_ITER 474 3.39703822
+EVAL_ITER 475 3.24636173
+EVAL_ITER 476 3.40928912
+EVAL_ITER 477 3.29718828
+EVAL_ITER 478 3.30912232
+EVAL_ITER 479 3.40732455
+EVAL_ITER 480 3.34718394
+EVAL_ITER 481 3.40225911
+EVAL_ITER 482 3.50428700
+EVAL_ITER 483 3.46196079
+EVAL_ITER 484 3.35307002
+EVAL_ITER 485 3.31312704
+EVAL_ITER 486 3.24236608
+EVAL_ITER 487 3.37191725
+EVAL_ITER 488 3.31852269
+EVAL_ITER 489 3.42768526
+EVAL_ITER 490 3.34100366
+EVAL_ITER 491 3.40679359
+EVAL_ITER 492 3.34865165
+EVAL_ITER 493 3.32528877
+EVAL_ITER 494 3.20977736
+EVAL_ITER 495 3.33982325
+EVAL_ITER 496 3.42255569
+EVAL_ITER 497 3.28076196
+EVAL_ITER 498 3.27677011
+EVAL_ITER 499 3.32461882
+EVAL_ITER 500 3.44258690
+EVAL_ITER 501 3.43581200
+EVAL_ITER 502 3.24652386
+EVAL_ITER 503 3.32670379
+EVAL_ITER 504 3.43266869
+EVAL_ITER 505 3.41738081
+EVAL_ITER 506 3.25084710
+EVAL_ITER 507 3.42802548
+EVAL_ITER 508 3.37986994
+EVAL_ITER 509 3.34230733
+EVAL_ITER 510 3.37541389
+EVAL_ITER 511 3.30673528
+EVAL_ITER 512 3.34487557
+EVAL_ITER 513 3.27024221
+EVAL_ITER 514 3.22978425
+EVAL_ITER 515 3.36820602
+EVAL_ITER 516 3.25291872
+EVAL_ITER 517 3.33345532
+EVAL_ITER 518 3.32336926
+EVAL_ITER 519 3.36201096
+EVAL_ITER 520 3.37902045
+EVAL_ITER 521 3.48014975
+EVAL_ITER 522 3.41545510
+EVAL_ITER 523 3.37246203
+EVAL_ITER 524 3.34995389
+EVAL_ITER 525 3.29089069
+EVAL_ITER 526 3.12882566
+EVAL_ITER 527 3.39950132
+EVAL_ITER 528 3.37814116
+EVAL_ITER 529 3.33229542
+EVAL_ITER 530 3.24189377
+EVAL_ITER 531 3.35066319
+EVAL_ITER 532 3.32473183
+EVAL_ITER 533 3.29586911
+EVAL_ITER 534 3.28912973
+EVAL_ITER 535 3.39593673
+EVAL_ITER 536 3.45954490
+EVAL_ITER 537 3.45347667
+EVAL_ITER 538 3.44700265
+EVAL_ITER 539 3.19084573
+EVAL_ITER 540 3.26814079
+EVAL_ITER 541 3.33704567
+EVAL_ITER 542 3.30224872
+EVAL_ITER 543 3.23579717
+EVAL_ITER 544 3.45511627
+EVAL_ITER 545 3.35936856
+EVAL_ITER 546 3.22575092
+EVAL_ITER 547 3.43263698
+EVAL_ITER 548 3.49384427
+EVAL_ITER 549 3.25539255
+EVAL_ITER 550 3.34939289
+EVAL_ITER 551 3.29388952
+EVAL_ITER 552 3.33042192
+EVAL_ITER 553 3.47867393
+EVAL_ITER 554 3.13851786
+EVAL_ITER 555 3.41126990
+EVAL_ITER 556 3.36295033
+EVAL_ITER 557 3.28668404
+EVAL_ITER 558 3.34310865
+EVAL_ITER 559 3.48708105
+EVAL_ITER 560 3.41887760
+EVAL_ITER 561 3.45010948
+EVAL_ITER 562 3.24467897
+EVAL_ITER 563 3.39553142
+EVAL_ITER 564 3.30145645
+EVAL_ITER 565 3.31575108
+EVAL_ITER 566 3.40882134
+EVAL_ITER 567 3.46779966
+EVAL_ITER 568 3.42057633
+EVAL_ITER 569 3.38112903
+EVAL_ITER 570 3.41279554
+EVAL_ITER 571 3.42842793
+EVAL_ITER 572 3.39809966
+EVAL_ITER 573 3.27242517
+EVAL_ITER 574 3.32820034
+EVAL_ITER 575 3.45370626
+EVAL_ITER 576 3.33592248
+EVAL_ITER 577 3.28067517
+EVAL_ITER 578 3.56414223
+EVAL_ITER 579 3.39038134
+EVAL_ITER 580 3.37299395
+EVAL_ITER 581 3.34437752
+EVAL_ITER 582 3.33434796
+EVAL_ITER 583 3.23905969
+EVAL_ITER 584 3.20869088
+EVAL_ITER 585 3.35243201
+EVAL_ITER 586 3.28041601
+EVAL_ITER 587 3.45284414
+EVAL_ITER 588 3.14171839
+EVAL_ITER 589 3.36248803
+EVAL_ITER 590 3.34200120
+EVAL_ITER 591 3.50789261
+EVAL_ITER 592 3.33205271
+EVAL_ITER 593 3.36654568
+EVAL_ITER 594 3.43200254
+EVAL_ITER 595 3.34366846
+EVAL_ITER 596 3.49018908
+EVAL_ITER 597 3.29495096
+EVAL_ITER 598 3.57296395
+EVAL_ITER 599 3.35847378
+EVAL_ITER 600 3.34938025
+EVAL_ITER 601 3.42045379
+EVAL_ITER 602 3.38845420
+EVAL_ITER 603 3.39060378
+EVAL_ITER 604 3.29819942
+EVAL_ITER 605 3.35081983
+EVAL_ITER 606 3.44521666
+EVAL_ITER 607 3.25956130
+EVAL_ITER 608 3.22199106
+EVAL_ITER 609 3.31466961
+EVAL_ITER 610 3.36716938
+EVAL_ITER 611 3.39824939
+EVAL_ITER 612 3.35907602
+EVAL_ITER 613 3.45650673
+EVAL_ITER 614 3.42696619
+EVAL_ITER 615 3.38659763
+EVAL_ITER 616 3.30623722
+EVAL_ITER 617 3.38432455
+EVAL_ITER 618 3.33133364
+EVAL_ITER 619 3.31383824
+EVAL_ITER 620 3.36242175
+EVAL_ITER 621 3.41536069
+EVAL_ITER 622 3.29925108
+EVAL_ITER 623 3.45533228
+EVAL_ITER 624 3.34547019
+EVAL_ITER 625 3.26664162
+EVAL_ITER 626 3.33848572
+EVAL_ITER 627 3.20772386
+EVAL_ITER 628 3.37196112
+EVAL_ITER 629 3.33016586
+EVAL_ITER 630 3.45101738
+EVAL_ITER 631 3.32533002
+EVAL_ITER 632 3.12288117
+EVAL_ITER 633 3.42489791
+EVAL_ITER 634 3.37476063
+EVAL_ITER 635 3.24124694
+EVAL_ITER 636 3.32496142
+EVAL_ITER 637 3.29572177
+EVAL_ITER 638 3.22884369
+EVAL_ITER 639 3.31998920
+EVAL_ITER 640 3.50117707
+(min, max) time across ranks (ms):
+    evaluate .......................................: (480449.89, 480449.98)
+-------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 30000 on test set | lm loss value: 3.345126E+00 | lm loss PPL: 2.836414E+01 | 
+-------------------------------------------------------------------------------------------------------------
+[rank1]:[W1109 05:49:40.342226534 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

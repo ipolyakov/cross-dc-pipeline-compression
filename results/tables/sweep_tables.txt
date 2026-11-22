@@ -1,0 +1,79 @@
+=== Medians (ms, last 15 windows) ===
+
+lat0_4070s:
+  step-lat0-4070s--100mbit-fp8.txt: 4304.5
+  step-lat0-4070s--100mbit-int8.txt: 4307.4
+  step-lat0-4070s--100mbit-none.txt: 7087.2
+  step-lat0-4070s--100mbit-nvfp4.txt: 3457.8
+  step-lat0-4070s--1gbit-fp8.txt: 2731.5
+  step-lat0-4070s--1gbit-int8.txt: 2730.5
+  step-lat0-4070s--1gbit-none.txt: 2897.4
+  step-lat0-4070s--1gbit-nvfp4.txt: 2722.2
+  step-lat0-4070s--200mbit-fp8.txt: 3402.0
+  step-lat0-4070s--200mbit-int8.txt: 3404.9
+  step-lat0-4070s--200mbit-none.txt: 4271.9
+  step-lat0-4070s--200mbit-nvfp4.txt: 2964.3
+  step-lat0-4070s--500mbit-fp8.txt: 2883.3
+  step-lat0-4070s--500mbit-int8.txt: 2885.5
+  step-lat0-4070s--500mbit-none.txt: 3254.4
+  step-lat0-4070s--500mbit-nvfp4.txt: 2728.2
+  step-lat0-4070s--off-fp8.txt: 2713.2
+  step-lat0-4070s--off-int8.txt: 2715.3
+  step-lat0-4070s--off-none.txt: 2729.8
+  step-lat0-4070s--off-nvfp4.txt: 2712.9
+
+lat30_4070s:
+  step-lat30-4070s--100mbit-fp8.txt: 5493.9
+  step-lat30-4070s--100mbit-int8.txt: 5496.2
+  step-lat30-4070s--100mbit-none.txt: 7779.0
+  step-lat30-4070s--100mbit-nvfp4.txt: 4082.0
+  step-lat30-4070s--1gbit-fp8.txt: 3449.2
+  step-lat30-4070s--1gbit-int8.txt: 3448.8
+  step-lat30-4070s--1gbit-none.txt: 3603.5
+  step-lat30-4070s--1gbit-nvfp4.txt: 3382.8
+  step-lat30-4070s--200mbit-fp8.txt: 4278.3
+  step-lat30-4070s--200mbit-int8.txt: 4116.6
+  step-lat30-4070s--200mbit-none.txt: 5452.0
+  step-lat30-4070s--200mbit-nvfp4.txt: 3660.9
+  step-lat30-4070s--500mbit-fp8.txt: 3591.6
+  step-lat30-4070s--500mbit-int8.txt: 3603.7
+  step-lat30-4070s--500mbit-none.txt: 3964.2
+  step-lat30-4070s--500mbit-nvfp4.txt: 3449.6
+  step-lat30-4070s--off-fp8.txt: 3317.8
+  step-lat30-4070s--off-int8.txt: 3319.5
+  step-lat30-4070s--off-none.txt: 3331.1
+  step-lat30-4070s--off-nvfp4.txt: 3317.8
+
+early_lat0:
+  step-100mbit-fp8.txt: 4249.4
+  step-100mbit-none.txt: 7069.7
+  step-100mbit-nvfp4.txt: 3371.9
+  step-1gbit-fp8.txt: 2734.5
+  step-1gbit-none.txt: 2897.5
+  step-1gbit-nvfp4.txt: 2718.8
+  step-200mbit-fp8.txt: 3405.0
+  step-200mbit-none.txt: 4275.3
+  step-200mbit-nvfp4.txt: 2961.5
+  step-500mbit-fp8.txt: 2886.1
+  step-500mbit-none.txt: 3254.5
+  step-500mbit-nvfp4.txt: 2729.5
+  step-off-fp8.txt: 2715.0
+  step-off-none.txt: 2728.9
+  step-off-nvfp4.txt: 2710.3
+
+early_lat30:
+  step-lat30-100mbit-fp8.txt: 5443.4
+  step-lat30-100mbit-none.txt: 7740.9
+  step-lat30-100mbit-nvfp4.txt: 4014.9
+  step-lat30-1gbit-fp8.txt: 3373.7
+  step-lat30-1gbit-none.txt: 3544.3
+  step-lat30-1gbit-nvfp4.txt: 3303.8
+  step-lat30-200mbit-fp8.txt: 4005.1
+  step-lat30-200mbit-none.txt: 5389.9
+  step-lat30-200mbit-nvfp4.txt: 3680.8
+  step-lat30-500mbit-fp8.txt: 3529.9
+  step-lat30-500mbit-none.txt: 3891.5
+  step-lat30-500mbit-nvfp4.txt: 3374.2
+  step-lat30-off-fp8.txt: 3242.6
+  step-lat30-off-none.txt: 3257.5
+  step-lat30-off-nvfp4.txt: 3239.6

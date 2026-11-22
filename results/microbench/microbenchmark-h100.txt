@@ -1,0 +1,17 @@
+device: NVIDIA H100 80GB HBM3
+warmup 20, timed 100, CUDA events, median
+
+shape            codec       numel       bf16     packed  ratio   enc ms   dec ms  B* Mbit/s    max|e|      rmse
+aws_shard_6.7B   fp8       1048576    2097152    1081344   1.94    0.284    0.087      21892    0.1562   0.02578
+aws_shard_6.7B   int8      1048576    2097152    1081344   1.94    0.305    0.088      20698    0.0234   0.00663
+aws_shard_6.7B   nvfp4     1048576    2097152     589828   3.56    0.536    0.261      15134    0.5938   0.09512
+aws_full_6.7B    fp8       8388608   16777216    8650752   1.94    0.286    0.110     164231    0.1719   0.02578
+aws_full_6.7B    int8      8388608   16777216    8650752   1.94    0.348    0.107     142780    0.0234   0.00662
+aws_full_6.7B    nvfp4     8388608   16777216    4718596   3.56    0.696    0.357      91597    0.6562   0.09521
+dev_539M         fp8       2621440    5242880    2703360   1.94    0.280    0.088      55325    0.1562   0.02577
+dev_539M         int8      2621440    5242880    2703360   1.94    0.304    0.087      51978    0.0234   0.00662
+dev_539M         nvfp4     2621440    5242880    1474564   3.56    0.547    0.260      37350    0.6406   0.09510
+
+B* is the link bandwidth at which encode+decode costs as much as
+sending the saved bytes. Slower than B*: compression wins.
+enc/dec are medians; the step pays both, on the two ends of the link.

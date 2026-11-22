@@ -1,0 +1,2272 @@
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1120 00:55:41.424505347 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1120 01:05:42.601353167 socket.cpp:472] [c10d] waitForInput: poll for socket SocketImpl(fd=42, addr=[HOST]:41842, remote=[igor-tower]:6012) returned 0, likely a timeout
+[rank1]:[W1120 01:05:42.601696827 socket.cpp:497] [c10d] waitForInput: socket SocketImpl(fd=42, addr=[HOST]:41842, remote=[igor-tower]:6012) timed out after 600000ms
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/SDP4Bit/pretrain_gpt.py", line 210, in <module>
+[rank1]:     pretrain(train_valid_test_datasets_provider,
+[rank1]:   File "/SDP4Bit/megatron/training.py", line 177, in pretrain
+[rank1]:     initialize_megatron(extra_args_provider=extra_args_provider,
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 89, in initialize_megatron
+[rank1]:     _compile_dependencies()
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 156, in _compile_dependencies
+[rank1]:     torch.distributed.barrier()
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 4881, in barrier
+[rank1]:     work = group.barrier(opts=opts)
+[rank1]: torch.distributed.DistBackendError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: wait timeout after 600000ms, keys: /default_pg/0//cuda//0
+[rank1]: Exception raised from doWait at /pytorch/torch/csrc/distributed/c10d/TCPStore.cpp:603 (most recent call first):
+[rank1]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x7a871413fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+[rank1]: frame #1: <unknown function> + 0x5f5f6a1 (0x7a87563ff6a1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #2: <unknown function> + 0x14997f0 (0x7a87519397f0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #3: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x7a875649b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #4: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x7a875649c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #5: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x7a8756446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #6: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x7a8756446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x7a8756446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #8: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x7a87150221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #9: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x7a8715024d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #10: <unknown function> + 0xe664ff (0x7a87150294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #11: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x7a8715029d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #12: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x7a8715038de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #13: <unknown function> + 0x5f95fa0 (0x7a8756435fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #14: <unknown function> + 0x5fa3aea (0x7a8756443aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #15: <unknown function> + 0x54dffc5 (0x7a875597ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #16: <unknown function> + 0x5fb5b54 (0x7a8756455b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #17: <unknown function> + 0x5fb6ad1 (0x7a8756456ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #18: <unknown function> + 0xe073ba (0x7a8765bfd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #19: <unknown function> + 0x3cc213 (0x7a87651c2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #20: <unknown function> + 0x18ae32 (0x5a62148bce32 in /usr/bin/python3)
+[rank1]: frame #21: _PyObject_MakeTpCall + 0x25b (0x5a62148b389b in /usr/bin/python3)
+[rank1]: frame #22: <unknown function> + 0x1989cb (0x5a62148ca9cb in /usr/bin/python3)
+[rank1]: frame #23: _PyEval_EvalFrameDefault + 0x1992 (0x5a62148a8ea2 in /usr/bin/python3)
+[rank1]: frame #24: _PyFunction_Vectorcall + 0x7c (0x5a62148bd68c in /usr/bin/python3)
+[rank1]: frame #25: _PyEval_EvalFrameDefault + 0x286b (0x5a62148a9d7b in /usr/bin/python3)
+[rank1]: frame #26: _PyFunction_Vectorcall + 0x7c (0x5a62148bd68c in /usr/bin/python3)
+[rank1]: frame #27: _PyEval_EvalFrameDefault + 0x56cb (0x5a62148acbdb in /usr/bin/python3)
+[rank1]: frame #28: _PyFunction_Vectorcall + 0x7c (0x5a62148bd68c in /usr/bin/python3)
+[rank1]: frame #29: _PyEval_EvalFrameDefault + 0x6c0 (0x5a62148a7bd0 in /usr/bin/python3)
+[rank1]: frame #30: _PyFunction_Vectorcall + 0x7c (0x5a62148bd68c in /usr/bin/python3)
+[rank1]: frame #31: _PyEval_EvalFrameDefault + 0x1992 (0x5a62148a8ea2 in /usr/bin/python3)
+[rank1]: frame #32: _PyFunction_Vectorcall + 0x7c (0x5a62148bd68c in /usr/bin/python3)
+[rank1]: frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x5a62148a8ea2 in /usr/bin/python3)
+[rank1]: frame #34: <unknown function> + 0x259d36 (0x5a621498bd36 in /usr/bin/python3)
+[rank1]: frame #35: PyEval_EvalCode + 0x86 (0x5a621498bc06 in /usr/bin/python3)
+[rank1]: frame #36: <unknown function> + 0x280678 (0x5a62149b2678 in /usr/bin/python3)
+[rank1]: frame #37: <unknown function> + 0x27accf (0x5a62149acccf in /usr/bin/python3)
+[rank1]: frame #38: <unknown function> + 0x280415 (0x5a62149b2415 in /usr/bin/python3)
+[rank1]: frame #39: _PyRun_SimpleFileObject + 0x1a8 (0x5a62149b1958 in /usr/bin/python3)
+[rank1]: frame #40: _PyRun_AnyFileObject + 0x47 (0x5a62149b1637 in /usr/bin/python3)
+[rank1]: frame #41: Py_RunMain + 0x2be (0x5a62149a5bfe in /usr/bin/python3)
+[rank1]: frame #42: Py_BytesMain + 0x2d (0x5a621497fc4d in /usr/bin/python3)
+[rank1]: frame #43: <unknown function> + 0x29d90 (0x7a8773f14d90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #44: __libc_start_main + 0x80 (0x7a8773f14e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #45: _start + 0x25 (0x5a621497fb45 in /usr/bin/python3)
+[rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank1]:[W1120 01:05:42.206068588 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1120 01:05:43.144000 162 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 0 (pid: 179) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-20_01:05:43
+  host      : HOST
+  rank      : 1 (local_rank: 0)
+  exitcode  : 1 (pid: 179)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1120 01:07:02.740787804 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1120 01:07:03.044875270 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:43486, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x784f4193fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x784f83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffdc0d (0x784f83c9dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe2c9 (0x784f83c9e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x784f83c99576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x784f83c9b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x784f83c9c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x784f83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x784f83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x784f83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x784f428221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x784f42824d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #12: <unknown function> + 0xe664ff (0x784f428294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x784f42829d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x784f42838de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #15: <unknown function> + 0x5f95fa0 (0x784f83c35fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x5fa3aea (0x784f83c43aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x54dffc5 (0x784f8317ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #18: <unknown function> + 0x5fb5b54 (0x784f83c55b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x5fb6ad1 (0x784f83c56ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #20: <unknown function> + 0xe073ba (0x784f933fd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #21: <unknown function> + 0x3cc213 (0x784f929c2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #22: <unknown function> + 0x18ae32 (0x5f27578f6e32 in /usr/bin/python3)
+frame #23: _PyObject_MakeTpCall + 0x25b (0x5f27578ed89b in /usr/bin/python3)
+frame #24: <unknown function> + 0x1989cb (0x5f27579049cb in /usr/bin/python3)
+frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x5f27578e2ea2 in /usr/bin/python3)
+frame #26: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+frame #27: _PyEval_EvalFrameDefault + 0x286b (0x5f27578e3d7b in /usr/bin/python3)
+frame #28: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x5f27578e6bdb in /usr/bin/python3)
+frame #30: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x5f27578e1bd0 in /usr/bin/python3)
+frame #32: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x5f27578e2ea2 in /usr/bin/python3)
+frame #34: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x5f27578e2ea2 in /usr/bin/python3)
+frame #36: <unknown function> + 0x259d36 (0x5f27579c5d36 in /usr/bin/python3)
+frame #37: PyEval_EvalCode + 0x86 (0x5f27579c5c06 in /usr/bin/python3)
+frame #38: <unknown function> + 0x280678 (0x5f27579ec678 in /usr/bin/python3)
+frame #39: <unknown function> + 0x27accf (0x5f27579e6ccf in /usr/bin/python3)
+frame #40: <unknown function> + 0x280415 (0x5f27579ec415 in /usr/bin/python3)
+frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x5f27579eb958 in /usr/bin/python3)
+frame #42: _PyRun_AnyFileObject + 0x47 (0x5f27579eb637 in /usr/bin/python3)
+frame #43: Py_RunMain + 0x2be (0x5f27579dfbfe in /usr/bin/python3)
+frame #44: Py_BytesMain + 0x2d (0x5f27579b9c4d in /usr/bin/python3)
+frame #45: <unknown function> + 0x29d90 (0x784fa1778d90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #46: __libc_start_main + 0x80 (0x784fa1778e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #47: _start + 0x25 (0x5f27579b9b45 in /usr/bin/python3)
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/SDP4Bit/pretrain_gpt.py", line 210, in <module>
+[rank1]:     pretrain(train_valid_test_datasets_provider,
+[rank1]:   File "/SDP4Bit/megatron/training.py", line 177, in pretrain
+[rank1]:     initialize_megatron(extra_args_provider=extra_args_provider,
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 89, in initialize_megatron
+[rank1]:     _compile_dependencies()
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 156, in _compile_dependencies
+[rank1]:     torch.distributed.barrier()
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 4881, in barrier
+[rank1]:     work = group.barrier(opts=opts)
+[rank1]: torch.distributed.DistBackendError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+[rank1]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x784f4193fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+[rank1]: frame #1: <unknown function> + 0x5ffc5b1 (0x784f83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #2: <unknown function> + 0x5ffdc0d (0x784f83c9dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #3: <unknown function> + 0x5ffe2c9 (0x784f83c9e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x784f83c99576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x784f83c9b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x784f83c9c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x784f83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x784f83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x784f83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x784f428221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x784f42824d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #12: <unknown function> + 0xe664ff (0x784f428294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x784f42829d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x784f42838de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #15: <unknown function> + 0x5f95fa0 (0x784f83c35fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #16: <unknown function> + 0x5fa3aea (0x784f83c43aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #17: <unknown function> + 0x54dffc5 (0x784f8317ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #18: <unknown function> + 0x5fb5b54 (0x784f83c55b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #19: <unknown function> + 0x5fb6ad1 (0x784f83c56ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #20: <unknown function> + 0xe073ba (0x784f933fd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #21: <unknown function> + 0x3cc213 (0x784f929c2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #22: <unknown function> + 0x18ae32 (0x5f27578f6e32 in /usr/bin/python3)
+[rank1]: frame #23: _PyObject_MakeTpCall + 0x25b (0x5f27578ed89b in /usr/bin/python3)
+[rank1]: frame #24: <unknown function> + 0x1989cb (0x5f27579049cb in /usr/bin/python3)
+[rank1]: frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x5f27578e2ea2 in /usr/bin/python3)
+[rank1]: frame #26: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+[rank1]: frame #27: _PyEval_EvalFrameDefault + 0x286b (0x5f27578e3d7b in /usr/bin/python3)
+[rank1]: frame #28: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+[rank1]: frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x5f27578e6bdb in /usr/bin/python3)
+[rank1]: frame #30: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+[rank1]: frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x5f27578e1bd0 in /usr/bin/python3)
+[rank1]: frame #32: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+[rank1]: frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x5f27578e2ea2 in /usr/bin/python3)
+[rank1]: frame #34: _PyFunction_Vectorcall + 0x7c (0x5f27578f768c in /usr/bin/python3)
+[rank1]: frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x5f27578e2ea2 in /usr/bin/python3)
+[rank1]: frame #36: <unknown function> + 0x259d36 (0x5f27579c5d36 in /usr/bin/python3)
+[rank1]: frame #37: PyEval_EvalCode + 0x86 (0x5f27579c5c06 in /usr/bin/python3)
+[rank1]: frame #38: <unknown function> + 0x280678 (0x5f27579ec678 in /usr/bin/python3)
+[rank1]: frame #39: <unknown function> + 0x27accf (0x5f27579e6ccf in /usr/bin/python3)
+[rank1]: frame #40: <unknown function> + 0x280415 (0x5f27579ec415 in /usr/bin/python3)
+[rank1]: frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x5f27579eb958 in /usr/bin/python3)
+[rank1]: frame #42: _PyRun_AnyFileObject + 0x47 (0x5f27579eb637 in /usr/bin/python3)
+[rank1]: frame #43: Py_RunMain + 0x2be (0x5f27579dfbfe in /usr/bin/python3)
+[rank1]: frame #44: Py_BytesMain + 0x2d (0x5f27579b9c4d in /usr/bin/python3)
+[rank1]: frame #45: <unknown function> + 0x29d90 (0x784fa1778d90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #46: __libc_start_main + 0x80 (0x784fa1778e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #47: _start + 0x25 (0x5f27579b9b45 in /usr/bin/python3)
+[rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank1]:[W1120 01:07:03.086884422 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:43486, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x784f4193fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x784f83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffd9ad (0x784f83c9d9ad in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe55a (0x784f83c9e55a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x784f83c9927e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x784f42818868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x784f996b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x784fa17e3ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x784fa1874a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1120 01:07:03.089495843 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:07:03.348224359 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1120 01:07:04.291000 162 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 0 (pid: 179) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-20_01:07:04
+  host      : HOST
+  rank      : 1 (local_rank: 0)
+  exitcode  : 1 (pid: 179)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1120 01:08:26.713640841 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1120 01:08:27.782215021 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:48214, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x703ba0b7cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x703b83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffdc0d (0x703b83c9dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe2c9 (0x703b83c9e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x703b83c99576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x703b83c9b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x703b83c9c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x703b83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x703b83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x703b83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x703b428221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x703b42824d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #12: <unknown function> + 0xe664ff (0x703b428294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x703b42829d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x703b42838de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #15: <unknown function> + 0x5f95fa0 (0x703b83c35fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x5fa3aea (0x703b83c43aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x54dffc5 (0x703b8317ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #18: <unknown function> + 0x5fb5b54 (0x703b83c55b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x5fb6ad1 (0x703b83c56ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #20: <unknown function> + 0xe073ba (0x703b933fd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #21: <unknown function> + 0x3cc213 (0x703b929c2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #22: <unknown function> + 0x18ae32 (0x5952b1894e32 in /usr/bin/python3)
+frame #23: _PyObject_MakeTpCall + 0x25b (0x5952b188b89b in /usr/bin/python3)
+frame #24: <unknown function> + 0x1989cb (0x5952b18a29cb in /usr/bin/python3)
+frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x5952b1880ea2 in /usr/bin/python3)
+frame #26: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+frame #27: _PyEval_EvalFrameDefault + 0x286b (0x5952b1881d7b in /usr/bin/python3)
+frame #28: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x5952b1884bdb in /usr/bin/python3)
+frame #30: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x5952b187fbd0 in /usr/bin/python3)
+frame #32: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x5952b1880ea2 in /usr/bin/python3)
+frame #34: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x5952b1880ea2 in /usr/bin/python3)
+frame #36: <unknown function> + 0x259d36 (0x5952b1963d36 in /usr/bin/python3)
+frame #37: PyEval_EvalCode + 0x86 (0x5952b1963c06 in /usr/bin/python3)
+frame #38: <unknown function> + 0x280678 (0x5952b198a678 in /usr/bin/python3)
+frame #39: <unknown function> + 0x27accf (0x5952b1984ccf in /usr/bin/python3)
+frame #40: <unknown function> + 0x280415 (0x5952b198a415 in /usr/bin/python3)
+frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x5952b1989958 in /usr/bin/python3)
+frame #42: _PyRun_AnyFileObject + 0x47 (0x5952b1989637 in /usr/bin/python3)
+frame #43: Py_RunMain + 0x2be (0x5952b197dbfe in /usr/bin/python3)
+frame #44: Py_BytesMain + 0x2d (0x5952b1957c4d in /usr/bin/python3)
+frame #45: <unknown function> + 0x29d90 (0x703ba1819d90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #46: __libc_start_main + 0x80 (0x703ba1819e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #47: _start + 0x25 (0x5952b1957b45 in /usr/bin/python3)
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/SDP4Bit/pretrain_gpt.py", line 210, in <module>
+[rank1]:     pretrain(train_valid_test_datasets_provider,
+[rank1]:   File "/SDP4Bit/megatron/training.py", line 177, in pretrain
+[rank1]:     initialize_megatron(extra_args_provider=extra_args_provider,
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 89, in initialize_megatron
+[rank1]:     _compile_dependencies()
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 156, in _compile_dependencies
+[rank1]:     torch.distributed.barrier()
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 4881, in barrier
+[rank1]:     work = group.barrier(opts=opts)
+[rank1]: torch.distributed.DistBackendError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+[rank1]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x703ba0b7cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+[rank1]: frame #1: <unknown function> + 0x5ffc5b1 (0x703b83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #2: <unknown function> + 0x5ffdc0d (0x703b83c9dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #3: <unknown function> + 0x5ffe2c9 (0x703b83c9e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x703b83c99576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x703b83c9b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x703b83c9c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x703b83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x703b83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x703b83c46d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x703b428221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x703b42824d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #12: <unknown function> + 0xe664ff (0x703b428294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x703b42829d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x703b42838de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #15: <unknown function> + 0x5f95fa0 (0x703b83c35fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #16: <unknown function> + 0x5fa3aea (0x703b83c43aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #17: <unknown function> + 0x54dffc5 (0x703b8317ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #18: <unknown function> + 0x5fb5b54 (0x703b83c55b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #19: <unknown function> + 0x5fb6ad1 (0x703b83c56ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #20: <unknown function> + 0xe073ba (0x703b933fd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #21: <unknown function> + 0x3cc213 (0x703b929c2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #22: <unknown function> + 0x18ae32 (0x5952b1894e32 in /usr/bin/python3)
+[rank1]: frame #23: _PyObject_MakeTpCall + 0x25b (0x5952b188b89b in /usr/bin/python3)
+[rank1]: frame #24: <unknown function> + 0x1989cb (0x5952b18a29cb in /usr/bin/python3)
+[rank1]: frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x5952b1880ea2 in /usr/bin/python3)
+[rank1]: frame #26: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+[rank1]: frame #27: _PyEval_EvalFrameDefault + 0x286b (0x5952b1881d7b in /usr/bin/python3)
+[rank1]: frame #28: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+[rank1]: frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x5952b1884bdb in /usr/bin/python3)
+[rank1]: frame #30: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+[rank1]: frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x5952b187fbd0 in /usr/bin/python3)
+[rank1]: frame #32: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+[rank1]: frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x5952b1880ea2 in /usr/bin/python3)
+[rank1]: frame #34: _PyFunction_Vectorcall + 0x7c (0x5952b189568c in /usr/bin/python3)
+[rank1]: frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x5952b1880ea2 in /usr/bin/python3)
+[rank1]: frame #36: <unknown function> + 0x259d36 (0x5952b1963d36 in /usr/bin/python3)
+[rank1]: frame #37: PyEval_EvalCode + 0x86 (0x5952b1963c06 in /usr/bin/python3)
+[rank1]: frame #38: <unknown function> + 0x280678 (0x5952b198a678 in /usr/bin/python3)
+[rank1]: frame #39: <unknown function> + 0x27accf (0x5952b1984ccf in /usr/bin/python3)
+[rank1]: frame #40: <unknown function> + 0x280415 (0x5952b198a415 in /usr/bin/python3)
+[rank1]: frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x5952b1989958 in /usr/bin/python3)
+[rank1]: frame #42: _PyRun_AnyFileObject + 0x47 (0x5952b1989637 in /usr/bin/python3)
+[rank1]: frame #43: Py_RunMain + 0x2be (0x5952b197dbfe in /usr/bin/python3)
+[rank1]: frame #44: Py_BytesMain + 0x2d (0x5952b1957c4d in /usr/bin/python3)
+[rank1]: frame #45: <unknown function> + 0x29d90 (0x703ba1819d90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #46: __libc_start_main + 0x80 (0x703ba1819e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #47: _start + 0x25 (0x5952b1957b45 in /usr/bin/python3)
+[rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank1]:[W1120 01:08:27.789983070 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:48214, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x703ba0b7cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x703b83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffd9ad (0x703b83c9d9ad in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe55a (0x703b83c9e55a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x703b83c9927e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x703b42818868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x703b996b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x703ba1884ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x703ba1915a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1120 01:08:27.792450232 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:08:27.094123494 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1120 01:08:28.024000 162 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 0 (pid: 179) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-20_01:08:28
+  host      : HOST
+  rank      : 1 (local_rank: 0)
+  exitcode  : 1 (pid: 179)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1120 01:09:50.726264480 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1120 01:09:51.899151895 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:55346, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x74ea44d3fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x74ea8709c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffdc0d (0x74ea8709dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe2c9 (0x74ea8709e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x74ea87099576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x74ea8709b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x74ea8709c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x74ea87046d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x74ea87046d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x74ea87046d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x74ea45c221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x74ea45c24d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #12: <unknown function> + 0xe664ff (0x74ea45c294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x74ea45c29d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x74ea45c38de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #15: <unknown function> + 0x5f95fa0 (0x74ea87035fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x5fa3aea (0x74ea87043aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x54dffc5 (0x74ea8657ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #18: <unknown function> + 0x5fb5b54 (0x74ea87055b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x5fb6ad1 (0x74ea87056ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #20: <unknown function> + 0xe073ba (0x74ea967fd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #21: <unknown function> + 0x3cc213 (0x74ea95dc2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #22: <unknown function> + 0x18ae32 (0x5dbac1f7ae32 in /usr/bin/python3)
+frame #23: _PyObject_MakeTpCall + 0x25b (0x5dbac1f7189b in /usr/bin/python3)
+frame #24: <unknown function> + 0x1989cb (0x5dbac1f889cb in /usr/bin/python3)
+frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x5dbac1f66ea2 in /usr/bin/python3)
+frame #26: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+frame #27: _PyEval_EvalFrameDefault + 0x286b (0x5dbac1f67d7b in /usr/bin/python3)
+frame #28: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x5dbac1f6abdb in /usr/bin/python3)
+frame #30: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x5dbac1f65bd0 in /usr/bin/python3)
+frame #32: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x5dbac1f66ea2 in /usr/bin/python3)
+frame #34: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x5dbac1f66ea2 in /usr/bin/python3)
+frame #36: <unknown function> + 0x259d36 (0x5dbac2049d36 in /usr/bin/python3)
+frame #37: PyEval_EvalCode + 0x86 (0x5dbac2049c06 in /usr/bin/python3)
+frame #38: <unknown function> + 0x280678 (0x5dbac2070678 in /usr/bin/python3)
+frame #39: <unknown function> + 0x27accf (0x5dbac206accf in /usr/bin/python3)
+frame #40: <unknown function> + 0x280415 (0x5dbac2070415 in /usr/bin/python3)
+frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x5dbac206f958 in /usr/bin/python3)
+frame #42: _PyRun_AnyFileObject + 0x47 (0x5dbac206f637 in /usr/bin/python3)
+frame #43: Py_RunMain + 0x2be (0x5dbac2063bfe in /usr/bin/python3)
+frame #44: Py_BytesMain + 0x2d (0x5dbac203dc4d in /usr/bin/python3)
+frame #45: <unknown function> + 0x29d90 (0x74eaa4aadd90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #46: __libc_start_main + 0x80 (0x74eaa4aade40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #47: _start + 0x25 (0x5dbac203db45 in /usr/bin/python3)
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/SDP4Bit/pretrain_gpt.py", line 210, in <module>
+[rank1]:     pretrain(train_valid_test_datasets_provider,
+[rank1]:   File "/SDP4Bit/megatron/training.py", line 177, in pretrain
+[rank1]:     initialize_megatron(extra_args_provider=extra_args_provider,
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 89, in initialize_megatron
+[rank1]:     _compile_dependencies()
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 156, in _compile_dependencies
+[rank1]:     torch.distributed.barrier()
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 4881, in barrier
+[rank1]:     work = group.barrier(opts=opts)
+[rank1]: torch.distributed.DistBackendError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+[rank1]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x74ea44d3fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+[rank1]: frame #1: <unknown function> + 0x5ffc5b1 (0x74ea8709c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #2: <unknown function> + 0x5ffdc0d (0x74ea8709dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #3: <unknown function> + 0x5ffe2c9 (0x74ea8709e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x74ea87099576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x74ea8709b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x74ea8709c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x74ea87046d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x74ea87046d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x74ea87046d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x74ea45c221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x74ea45c24d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #12: <unknown function> + 0xe664ff (0x74ea45c294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x74ea45c29d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x74ea45c38de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #15: <unknown function> + 0x5f95fa0 (0x74ea87035fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #16: <unknown function> + 0x5fa3aea (0x74ea87043aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #17: <unknown function> + 0x54dffc5 (0x74ea8657ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #18: <unknown function> + 0x5fb5b54 (0x74ea87055b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #19: <unknown function> + 0x5fb6ad1 (0x74ea87056ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #20: <unknown function> + 0xe073ba (0x74ea967fd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #21: <unknown function> + 0x3cc213 (0x74ea95dc2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #22: <unknown function> + 0x18ae32 (0x5dbac1f7ae32 in /usr/bin/python3)
+[rank1]: frame #23: _PyObject_MakeTpCall + 0x25b (0x5dbac1f7189b in /usr/bin/python3)
+[rank1]: frame #24: <unknown function> + 0x1989cb (0x5dbac1f889cb in /usr/bin/python3)
+[rank1]: frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x5dbac1f66ea2 in /usr/bin/python3)
+[rank1]: frame #26: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+[rank1]: frame #27: _PyEval_EvalFrameDefault + 0x286b (0x5dbac1f67d7b in /usr/bin/python3)
+[rank1]: frame #28: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+[rank1]: frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x5dbac1f6abdb in /usr/bin/python3)
+[rank1]: frame #30: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+[rank1]: frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x5dbac1f65bd0 in /usr/bin/python3)
+[rank1]: frame #32: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+[rank1]: frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x5dbac1f66ea2 in /usr/bin/python3)
+[rank1]: frame #34: _PyFunction_Vectorcall + 0x7c (0x5dbac1f7b68c in /usr/bin/python3)
+[rank1]: frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x5dbac1f66ea2 in /usr/bin/python3)
+[rank1]: frame #36: <unknown function> + 0x259d36 (0x5dbac2049d36 in /usr/bin/python3)
+[rank1]: frame #37: PyEval_EvalCode + 0x86 (0x5dbac2049c06 in /usr/bin/python3)
+[rank1]: frame #38: <unknown function> + 0x280678 (0x5dbac2070678 in /usr/bin/python3)
+[rank1]: frame #39: <unknown function> + 0x27accf (0x5dbac206accf in /usr/bin/python3)
+[rank1]: frame #40: <unknown function> + 0x280415 (0x5dbac2070415 in /usr/bin/python3)
+[rank1]: frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x5dbac206f958 in /usr/bin/python3)
+[rank1]: frame #42: _PyRun_AnyFileObject + 0x47 (0x5dbac206f637 in /usr/bin/python3)
+[rank1]: frame #43: Py_RunMain + 0x2be (0x5dbac2063bfe in /usr/bin/python3)
+[rank1]: frame #44: Py_BytesMain + 0x2d (0x5dbac203dc4d in /usr/bin/python3)
+[rank1]: frame #45: <unknown function> + 0x29d90 (0x74eaa4aadd90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #46: __libc_start_main + 0x80 (0x74eaa4aade40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #47: _start + 0x25 (0x5dbac203db45 in /usr/bin/python3)
+[rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank1]:[W1120 01:09:51.906808697 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:55346, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x74ea44d3fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x74ea8709c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffd9ad (0x74ea8709d9ad in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe55a (0x74ea8709e55a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x74ea8709927e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x74ea45c18868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x74ea9cab0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x74eaa4b18ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x74eaa4ba9a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1120 01:09:51.909099651 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:09:51.202292697 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1120 01:09:52.148000 162 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 0 (pid: 179) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-20_01:09:52
+  host      : HOST
+  rank      : 1 (local_rank: 0)
+  exitcode  : 1 (pid: 179)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1120 01:11:13.562608059 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1120 01:11:14.762940309 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:34778, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x78e8d513fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x78e91749c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffdc0d (0x78e91749dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe2c9 (0x78e91749e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x78e917499576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x78e91749b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x78e91749c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x78e917446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x78e917446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x78e917446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x78e8d60221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x78e8d6024d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #12: <unknown function> + 0xe664ff (0x78e8d60294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x78e8d6029d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x78e8d6038de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #15: <unknown function> + 0x5f95fa0 (0x78e917435fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x5fa3aea (0x78e917443aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #17: <unknown function> + 0x54dffc5 (0x78e91697ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #18: <unknown function> + 0x5fb5b54 (0x78e917455b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x5fb6ad1 (0x78e917456ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #20: <unknown function> + 0xe073ba (0x78e926bfd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #21: <unknown function> + 0x3cc213 (0x78e9261c2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+frame #22: <unknown function> + 0x18ae32 (0x650fe6599e32 in /usr/bin/python3)
+frame #23: _PyObject_MakeTpCall + 0x25b (0x650fe659089b in /usr/bin/python3)
+frame #24: <unknown function> + 0x1989cb (0x650fe65a79cb in /usr/bin/python3)
+frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x650fe6585ea2 in /usr/bin/python3)
+frame #26: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+frame #27: _PyEval_EvalFrameDefault + 0x286b (0x650fe6586d7b in /usr/bin/python3)
+frame #28: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x650fe6589bdb in /usr/bin/python3)
+frame #30: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x650fe6584bd0 in /usr/bin/python3)
+frame #32: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x650fe6585ea2 in /usr/bin/python3)
+frame #34: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x650fe6585ea2 in /usr/bin/python3)
+frame #36: <unknown function> + 0x259d36 (0x650fe6668d36 in /usr/bin/python3)
+frame #37: PyEval_EvalCode + 0x86 (0x650fe6668c06 in /usr/bin/python3)
+frame #38: <unknown function> + 0x280678 (0x650fe668f678 in /usr/bin/python3)
+frame #39: <unknown function> + 0x27accf (0x650fe6689ccf in /usr/bin/python3)
+frame #40: <unknown function> + 0x280415 (0x650fe668f415 in /usr/bin/python3)
+frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x650fe668e958 in /usr/bin/python3)
+frame #42: _PyRun_AnyFileObject + 0x47 (0x650fe668e637 in /usr/bin/python3)
+frame #43: Py_RunMain + 0x2be (0x650fe6682bfe in /usr/bin/python3)
+frame #44: Py_BytesMain + 0x2d (0x650fe665cc4d in /usr/bin/python3)
+frame #45: <unknown function> + 0x29d90 (0x78e934eb9d90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #46: __libc_start_main + 0x80 (0x78e934eb9e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #47: _start + 0x25 (0x650fe665cb45 in /usr/bin/python3)
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/SDP4Bit/pretrain_gpt.py", line 210, in <module>
+[rank1]:     pretrain(train_valid_test_datasets_provider,
+[rank1]:   File "/SDP4Bit/megatron/training.py", line 177, in pretrain
+[rank1]:     initialize_megatron(extra_args_provider=extra_args_provider,
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 89, in initialize_megatron
+[rank1]:     _compile_dependencies()
+[rank1]:   File "/SDP4Bit/megatron/initialize.py", line 156, in _compile_dependencies
+[rank1]:     torch.distributed.barrier()
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 4881, in barrier
+[rank1]:     work = group.barrier(opts=opts)
+[rank1]: torch.distributed.DistBackendError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]: Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+[rank1]: frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x78e8d513fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+[rank1]: frame #1: <unknown function> + 0x5ffc5b1 (0x78e91749c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #2: <unknown function> + 0x5ffdc0d (0x78e91749dc0d in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #3: <unknown function> + 0x5ffe2c9 (0x78e91749e2c9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #4: c10d::TCPStore::doWait(c10::ArrayRef<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::chrono::duration<long, std::ratio<1l, 1000l> >) + 0x1c6 (0x78e917499576 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #5: c10d::TCPStore::doGet(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x33 (0x78e91749b0c3 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #6: c10d::TCPStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x114 (0x78e91749c1d4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #7: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x78e917446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #8: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x78e917446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #9: c10d::PrefixStore::get(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x30 (0x78e917446d30 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #10: c10d::ProcessGroupNCCL::broadcastUniqueNCCLID(ncclUniqueId*, bool, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int) + 0x5c4 (0x78e8d60221c4 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #11: c10d::ProcessGroupNCCL::initNCCLComm(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c10::Device&, c10d::OpType, int, bool) + 0x1c2a (0x78e8d6024d1a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #12: <unknown function> + 0xe664ff (0x78e8d60294ff in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #13: c10d::ProcessGroupNCCL::allreduce_impl(at::Tensor&, char const*, c10d::AllreduceOptions const&) + 0xc2 (0x78e8d6029d72 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #14: c10d::ProcessGroupNCCL::barrier(c10d::BarrierOptions const&) + 0x4d9 (0x78e8d6038de9 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+[rank1]: frame #15: <unknown function> + 0x5f95fa0 (0x78e917435fa0 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #16: <unknown function> + 0x5fa3aea (0x78e917443aea in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #17: <unknown function> + 0x54dffc5 (0x78e91697ffc5 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #18: <unknown function> + 0x5fb5b54 (0x78e917455b54 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #19: <unknown function> + 0x5fb6ad1 (0x78e917456ad1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+[rank1]: frame #20: <unknown function> + 0xe073ba (0x78e926bfd3ba in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #21: <unknown function> + 0x3cc213 (0x78e9261c2213 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_python.so)
+[rank1]: frame #22: <unknown function> + 0x18ae32 (0x650fe6599e32 in /usr/bin/python3)
+[rank1]: frame #23: _PyObject_MakeTpCall + 0x25b (0x650fe659089b in /usr/bin/python3)
+[rank1]: frame #24: <unknown function> + 0x1989cb (0x650fe65a79cb in /usr/bin/python3)
+[rank1]: frame #25: _PyEval_EvalFrameDefault + 0x1992 (0x650fe6585ea2 in /usr/bin/python3)
+[rank1]: frame #26: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+[rank1]: frame #27: _PyEval_EvalFrameDefault + 0x286b (0x650fe6586d7b in /usr/bin/python3)
+[rank1]: frame #28: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+[rank1]: frame #29: _PyEval_EvalFrameDefault + 0x56cb (0x650fe6589bdb in /usr/bin/python3)
+[rank1]: frame #30: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+[rank1]: frame #31: _PyEval_EvalFrameDefault + 0x6c0 (0x650fe6584bd0 in /usr/bin/python3)
+[rank1]: frame #32: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+[rank1]: frame #33: _PyEval_EvalFrameDefault + 0x1992 (0x650fe6585ea2 in /usr/bin/python3)
+[rank1]: frame #34: _PyFunction_Vectorcall + 0x7c (0x650fe659a68c in /usr/bin/python3)
+[rank1]: frame #35: _PyEval_EvalFrameDefault + 0x1992 (0x650fe6585ea2 in /usr/bin/python3)
+[rank1]: frame #36: <unknown function> + 0x259d36 (0x650fe6668d36 in /usr/bin/python3)
+[rank1]: frame #37: PyEval_EvalCode + 0x86 (0x650fe6668c06 in /usr/bin/python3)
+[rank1]: frame #38: <unknown function> + 0x280678 (0x650fe668f678 in /usr/bin/python3)
+[rank1]: frame #39: <unknown function> + 0x27accf (0x650fe6689ccf in /usr/bin/python3)
+[rank1]: frame #40: <unknown function> + 0x280415 (0x650fe668f415 in /usr/bin/python3)
+[rank1]: frame #41: _PyRun_SimpleFileObject + 0x1a8 (0x650fe668e958 in /usr/bin/python3)
+[rank1]: frame #42: _PyRun_AnyFileObject + 0x47 (0x650fe668e637 in /usr/bin/python3)
+[rank1]: frame #43: Py_RunMain + 0x2be (0x650fe6682bfe in /usr/bin/python3)
+[rank1]: frame #44: Py_BytesMain + 0x2d (0x650fe665cc4d in /usr/bin/python3)
+[rank1]: frame #45: <unknown function> + 0x29d90 (0x78e934eb9d90 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #46: __libc_start_main + 0x80 (0x78e934eb9e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+[rank1]: frame #47: _start + 0x25 (0x650fe665cb45 in /usr/bin/python3)
+[rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
+[rank1]:[W1120 01:11:14.770850528 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:34778, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x78e8d513fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x78e91749c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffd9ad (0x78e91749d9ad in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe55a (0x78e91749e55a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x78e91749927e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x78e8d6018868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x78e92ceb0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x78e934f24ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x78e934fb5a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1120 01:11:14.773199589 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:11:14.065502651 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+E1120 01:11:15.005000 162 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 0 (pid: 179) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-11-20_01:11:15
+  host      : HOST
+  rank      : 1 (local_rank: 0)
+  exitcode  : 1 (pid: 179)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1120 02:50:00.833476821 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1120 02:50:02.920761090 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 300520960
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (300520960 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    load-checkpoint ................................: (573.24, 573.27)
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (1518.31, 2057.43)
+    train/valid/test-data-iterators-setup ..........: (731.47, 838.16)
+EVAL_ITER 1 3.22215295
+EVAL_ITER 2 3.40714574
+EVAL_ITER 3 3.24890399
+EVAL_ITER 4 3.31158757
+EVAL_ITER 5 3.43670321
+EVAL_ITER 6 3.37694049
+EVAL_ITER 7 3.23276186
+EVAL_ITER 8 3.18955469
+EVAL_ITER 9 3.25258040
+EVAL_ITER 10 3.21742535
+EVAL_ITER 11 3.31419730
+EVAL_ITER 12 3.26966763
+EVAL_ITER 13 3.15600753
+EVAL_ITER 14 3.30260706
+EVAL_ITER 15 3.34966087
+EVAL_ITER 16 3.34759927
+EVAL_ITER 17 3.26002073
+EVAL_ITER 18 3.25624609
+EVAL_ITER 19 3.48338223
+EVAL_ITER 20 3.21396732
+EVAL_ITER 21 3.27512789
+EVAL_ITER 22 3.30165434
+EVAL_ITER 23 3.20956755
+EVAL_ITER 24 3.38009238
+EVAL_ITER 25 3.32483244
+EVAL_ITER 26 3.32692361
+EVAL_ITER 27 3.38849974
+EVAL_ITER 28 3.38801813
+EVAL_ITER 29 3.38463426
+EVAL_ITER 30 3.27662873
+EVAL_ITER 31 3.30568552
+EVAL_ITER 32 3.29213834
+EVAL_ITER 33 3.32120609
+EVAL_ITER 34 3.24168658
+EVAL_ITER 35 3.18164825
+EVAL_ITER 36 3.36830640
+EVAL_ITER 37 3.35181284
+EVAL_ITER 38 3.35042453
+EVAL_ITER 39 3.29483724
+EVAL_ITER 40 3.37290096
+EVAL_ITER 41 3.26683187
+EVAL_ITER 42 3.27663708
+EVAL_ITER 43 3.24650693
+EVAL_ITER 44 3.35808921
+EVAL_ITER 45 3.34164310
+EVAL_ITER 46 3.20179439
+EVAL_ITER 47 3.27381277
+EVAL_ITER 48 3.16980720
+EVAL_ITER 49 3.41124344
+EVAL_ITER 50 3.41551638
+EVAL_ITER 51 3.51694059
+EVAL_ITER 52 3.32696414
+EVAL_ITER 53 3.21218562
+EVAL_ITER 54 3.47054625
+EVAL_ITER 55 3.27020812
+EVAL_ITER 56 3.18346143
+EVAL_ITER 57 3.32067823
+EVAL_ITER 58 3.34564114
+EVAL_ITER 59 3.22882009
+EVAL_ITER 60 3.28261399
+EVAL_ITER 61 3.35756588
+EVAL_ITER 62 3.28749704
+EVAL_ITER 63 3.35474157
+EVAL_ITER 64 3.28939605
+EVAL_ITER 65 3.30284262
+EVAL_ITER 66 3.34112859
+EVAL_ITER 67 3.16270757
+EVAL_ITER 68 3.30711293
+EVAL_ITER 69 3.28366303
+EVAL_ITER 70 3.26969099
+EVAL_ITER 71 3.32555485
+EVAL_ITER 72 3.11999488
+EVAL_ITER 73 3.43434739
+EVAL_ITER 74 3.32677722
+EVAL_ITER 75 3.26524830
+EVAL_ITER 76 3.18941665
+EVAL_ITER 77 3.33186531
+EVAL_ITER 78 3.13568425
+EVAL_ITER 79 3.22453213
+EVAL_ITER 80 3.25612140
+EVAL_ITER 81 3.04855800
+EVAL_ITER 82 3.40648484
+EVAL_ITER 83 3.28448558
+EVAL_ITER 84 3.27383280
+EVAL_ITER 85 3.33182836
+EVAL_ITER 86 3.47946095
+EVAL_ITER 87 3.34037089
+EVAL_ITER 88 3.35861707
+EVAL_ITER 89 3.30543184
+EVAL_ITER 90 3.17857742
+EVAL_ITER 91 3.35813093
+EVAL_ITER 92 3.22378135
+EVAL_ITER 93 3.18363380
+EVAL_ITER 94 3.37081242
+EVAL_ITER 95 3.44121265
+EVAL_ITER 96 3.26924086
+EVAL_ITER 97 3.29846621
+EVAL_ITER 98 3.32841706
+EVAL_ITER 99 3.32910609
+EVAL_ITER 100 3.34980750
+EVAL_ITER 101 3.33882236
+EVAL_ITER 102 3.22849035
+EVAL_ITER 103 3.36003065
+EVAL_ITER 104 3.22995996
+EVAL_ITER 105 3.34101677
+EVAL_ITER 106 3.25101113
+EVAL_ITER 107 3.33127308
+EVAL_ITER 108 3.31267905
+EVAL_ITER 109 3.24800062
+EVAL_ITER 110 3.09209394
+EVAL_ITER 111 3.36295414
+EVAL_ITER 112 3.22306776
+EVAL_ITER 113 3.26666451
+EVAL_ITER 114 3.25974536
+EVAL_ITER 115 3.39859104
+EVAL_ITER 116 3.45769358
+EVAL_ITER 117 3.34567547
+EVAL_ITER 118 3.36270785
+EVAL_ITER 119 3.30105686
+EVAL_ITER 120 3.34660816
+EVAL_ITER 121 3.39285040
+EVAL_ITER 122 3.35987043
+EVAL_ITER 123 3.34408975
+EVAL_ITER 124 3.15991545
+EVAL_ITER 125 3.32296538
+EVAL_ITER 126 3.29744172
+EVAL_ITER 127 3.38454509
+EVAL_ITER 128 3.37171340
+EVAL_ITER 129 3.33632302
+EVAL_ITER 130 3.52678061
+EVAL_ITER 131 3.34308791
+EVAL_ITER 132 3.35897446
+EVAL_ITER 133 3.30855250
+EVAL_ITER 134 3.15431762
+EVAL_ITER 135 3.32779598
+EVAL_ITER 136 3.47603345
+EVAL_ITER 137 3.20235825
+EVAL_ITER 138 3.30906701
+EVAL_ITER 139 3.21795797
+EVAL_ITER 140 3.26641750
+EVAL_ITER 141 3.36465693
+EVAL_ITER 142 3.33163548
+EVAL_ITER 143 3.32536364
+EVAL_ITER 144 3.07300425
+EVAL_ITER 145 3.27003837
+EVAL_ITER 146 3.25631547
+EVAL_ITER 147 3.27602887
+EVAL_ITER 148 3.19816828
+EVAL_ITER 149 3.17457628
+EVAL_ITER 150 3.17302489
+EVAL_ITER 151 3.28087044
+EVAL_ITER 152 3.25986552
+EVAL_ITER 153 3.38770413
+EVAL_ITER 154 3.32086277
+EVAL_ITER 155 3.33470678
+EVAL_ITER 156 3.20762730
+EVAL_ITER 157 3.33729172
+EVAL_ITER 158 3.24421525
+EVAL_ITER 159 3.31441832
+EVAL_ITER 160 3.32441330
+EVAL_ITER 161 3.30613351
+EVAL_ITER 162 3.20184851
+EVAL_ITER 163 3.33019257
+EVAL_ITER 164 3.40816450
+EVAL_ITER 165 3.25904512
+EVAL_ITER 166 3.15012336
+EVAL_ITER 167 3.30945444
+EVAL_ITER 168 3.22933292
+EVAL_ITER 169 3.36277080
+EVAL_ITER 170 3.24777699
+EVAL_ITER 171 3.40140915
+EVAL_ITER 172 3.30675840
+EVAL_ITER 173 3.31413388
+EVAL_ITER 174 3.29209208
+EVAL_ITER 175 3.28850675
+EVAL_ITER 176 3.28099823
+EVAL_ITER 177 3.41161871
+EVAL_ITER 178 3.21480513
+EVAL_ITER 179 3.36024451
+EVAL_ITER 180 3.31051087
+EVAL_ITER 181 3.18134308
+EVAL_ITER 182 3.19737864
+EVAL_ITER 183 3.38833952
+EVAL_ITER 184 3.26476812
+EVAL_ITER 185 3.38481116
+EVAL_ITER 186 3.25702381
+EVAL_ITER 187 3.31407404
+EVAL_ITER 188 3.36394620
+EVAL_ITER 189 3.25272107
+EVAL_ITER 190 3.19047976
+EVAL_ITER 191 3.29878831
+EVAL_ITER 192 3.30072474
+EVAL_ITER 193 3.21469402
+EVAL_ITER 194 3.30797982
+EVAL_ITER 195 3.24090338
+EVAL_ITER 196 3.26409388
+EVAL_ITER 197 3.29484677
+EVAL_ITER 198 3.27393222
+EVAL_ITER 199 3.32351661
+EVAL_ITER 200 3.32613349
+EVAL_ITER 201 3.35452080
+EVAL_ITER 202 3.27324796
+EVAL_ITER 203 3.27493024
+EVAL_ITER 204 3.22935081
+EVAL_ITER 205 3.28069854
+EVAL_ITER 206 3.33694887
+EVAL_ITER 207 3.29284596
+EVAL_ITER 208 3.28080153
+EVAL_ITER 209 3.22558784
+EVAL_ITER 210 3.27481604
+EVAL_ITER 211 3.18626070
+EVAL_ITER 212 3.29729962
+EVAL_ITER 213 3.25189328
+EVAL_ITER 214 3.31233525
+EVAL_ITER 215 3.31542706
+EVAL_ITER 216 3.17744398
+EVAL_ITER 217 3.17610216
+EVAL_ITER 218 3.22684860
+EVAL_ITER 219 3.28138614
+EVAL_ITER 220 3.35582185
+EVAL_ITER 221 3.38805389
+EVAL_ITER 222 3.26937151
+EVAL_ITER 223 3.20467257
+EVAL_ITER 224 3.22408390
+EVAL_ITER 225 3.28676081
+EVAL_ITER 226 3.36619139
+EVAL_ITER 227 3.33682442
+EVAL_ITER 228 3.46578765
+EVAL_ITER 229 3.30555725
+EVAL_ITER 230 3.35607767
+EVAL_ITER 231 3.19879055
+EVAL_ITER 232 3.24109125
+EVAL_ITER 233 3.49613047
+EVAL_ITER 234 3.39821434
+EVAL_ITER 235 3.30126858
+EVAL_ITER 236 3.21621323
+EVAL_ITER 237 3.48300743
+EVAL_ITER 238 3.45445514
+EVAL_ITER 239 3.27812600
+EVAL_ITER 240 3.38641572
+EVAL_ITER 241 3.21376920
+EVAL_ITER 242 3.32738519
+EVAL_ITER 243 3.39114332
+EVAL_ITER 244 3.19228125
+EVAL_ITER 245 3.28630877
+EVAL_ITER 246 3.45442414
+EVAL_ITER 247 3.43893433
+EVAL_ITER 248 3.42955184
+EVAL_ITER 249 3.15133739
+EVAL_ITER 250 3.28014231
+EVAL_ITER 251 3.43049622
+EVAL_ITER 252 3.23337221
+EVAL_ITER 253 3.17140365
+EVAL_ITER 254 3.18738103
+EVAL_ITER 255 3.33328581
+EVAL_ITER 256 3.14278007
+EVAL_ITER 257 3.29148817
+EVAL_ITER 258 3.20905471
+EVAL_ITER 259 3.31632519
+EVAL_ITER 260 3.31534791
+EVAL_ITER 261 3.38161397
+EVAL_ITER 262 3.23558569
+EVAL_ITER 263 3.42198658
+EVAL_ITER 264 3.41759157
+EVAL_ITER 265 3.32358050
+EVAL_ITER 266 3.36822867
+EVAL_ITER 267 3.42813277
+EVAL_ITER 268 3.30521250
+EVAL_ITER 269 3.36180043
+EVAL_ITER 270 3.22459364
+EVAL_ITER 271 3.18964148
+EVAL_ITER 272 3.44609356
+EVAL_ITER 273 3.24643111
+EVAL_ITER 274 3.26403713
+EVAL_ITER 275 3.24866819
+EVAL_ITER 276 3.25785446
+EVAL_ITER 277 3.40953112
+EVAL_ITER 278 3.43540454
+EVAL_ITER 279 3.22293329
+EVAL_ITER 280 3.27577639
+EVAL_ITER 281 3.39139080
+EVAL_ITER 282 3.39371562
+EVAL_ITER 283 3.21210647
+EVAL_ITER 284 3.37237883
+EVAL_ITER 285 3.36373639
+EVAL_ITER 286 3.19753504
+EVAL_ITER 287 3.33099389
+EVAL_ITER 288 3.33320165
+EVAL_ITER 289 3.42782807
+EVAL_ITER 290 3.27552938
+EVAL_ITER 291 3.33900094
+EVAL_ITER 292 3.17339945
+EVAL_ITER 293 3.35804272
+EVAL_ITER 294 3.23740268
+EVAL_ITER 295 3.29694438
+EVAL_ITER 296 3.46851611
+EVAL_ITER 297 3.24849677
+EVAL_ITER 298 3.27567768
+EVAL_ITER 299 3.32319808
+EVAL_ITER 300 3.29385757
+EVAL_ITER 301 3.15663838
+EVAL_ITER 302 3.24305177
+EVAL_ITER 303 3.22372341
+EVAL_ITER 304 3.38835287
+EVAL_ITER 305 3.38651419
+EVAL_ITER 306 3.26915646
+EVAL_ITER 307 3.44697571
+EVAL_ITER 308 3.45745087
+EVAL_ITER 309 3.34167171
+EVAL_ITER 310 3.47881842
+EVAL_ITER 311 3.33793736
+EVAL_ITER 312 3.37030911
+EVAL_ITER 313 3.22001195
+EVAL_ITER 314 3.40173864
+EVAL_ITER 315 3.15340328
+EVAL_ITER 316 3.21166492
+EVAL_ITER 317 3.36669874
+EVAL_ITER 318 3.32824755
+EVAL_ITER 319 3.25439358
+EVAL_ITER 320 3.22617483
+EVAL_ITER 321 3.28096342
+EVAL_ITER 322 3.29583097
+EVAL_ITER 323 3.22041655
+EVAL_ITER 324 3.31801128
+EVAL_ITER 325 3.36740923
+EVAL_ITER 326 3.19806480
+EVAL_ITER 327 3.35593462
+EVAL_ITER 328 3.25651908
+EVAL_ITER 329 3.32592177
+EVAL_ITER 330 3.16844153
+EVAL_ITER 331 3.17348886
+EVAL_ITER 332 3.28956985
+EVAL_ITER 333 3.45348358
+EVAL_ITER 334 3.21194029
+EVAL_ITER 335 3.33875966
+EVAL_ITER 336 3.31026125
+EVAL_ITER 337 3.18758583
+EVAL_ITER 338 3.36259079
+EVAL_ITER 339 3.52269697
+EVAL_ITER 340 3.36888337
+EVAL_ITER 341 3.19251442
+EVAL_ITER 342 3.27608037
+EVAL_ITER 343 3.03213692
+EVAL_ITER 344 3.18071508
+EVAL_ITER 345 3.45344877
+EVAL_ITER 346 3.14118004
+EVAL_ITER 347 3.22396302
+EVAL_ITER 348 3.30093145
+EVAL_ITER 349 3.12216926
+EVAL_ITER 350 3.45484853
+EVAL_ITER 351 3.28959608
+EVAL_ITER 352 3.32838678
+EVAL_ITER 353 3.29627395
+EVAL_ITER 354 3.29558134
+EVAL_ITER 355 3.23345709
+EVAL_ITER 356 3.38870955
+EVAL_ITER 357 3.12688756
+EVAL_ITER 358 3.20530272
+EVAL_ITER 359 3.26754141
+EVAL_ITER 360 3.34346557
+EVAL_ITER 361 3.13679457
+EVAL_ITER 362 3.31939077
+EVAL_ITER 363 3.32141256
+EVAL_ITER 364 3.13213301
+EVAL_ITER 365 3.39593172
+EVAL_ITER 366 3.34262681
+EVAL_ITER 367 3.30893254
+EVAL_ITER 368 3.40804267
+EVAL_ITER 369 3.29989529
+EVAL_ITER 370 3.20279527
+EVAL_ITER 371 3.25921273
+EVAL_ITER 372 3.39005518
+EVAL_ITER 373 3.26129079
+EVAL_ITER 374 3.24666357
+EVAL_ITER 375 3.30626106
+EVAL_ITER 376 3.34516883
+EVAL_ITER 377 3.38181567
+EVAL_ITER 378 3.20484853
+EVAL_ITER 379 3.30438972
+EVAL_ITER 380 3.24872208
+EVAL_ITER 381 3.29924393
+EVAL_ITER 382 3.31511879
+EVAL_ITER 383 2.90634584
+EVAL_ITER 384 3.35482621
+EVAL_ITER 385 3.13021994
+EVAL_ITER 386 3.25716925
+EVAL_ITER 387 3.32781219
+EVAL_ITER 388 3.31757450
+EVAL_ITER 389 3.23008180
+EVAL_ITER 390 3.44102573
+EVAL_ITER 391 3.42977047
+EVAL_ITER 392 3.21178913
+EVAL_ITER 393 3.37869620
+EVAL_ITER 394 3.22402096
+EVAL_ITER 395 3.30915642
+EVAL_ITER 396 3.09835100
+EVAL_ITER 397 3.36200595
+EVAL_ITER 398 3.26328301
+EVAL_ITER 399 3.30468130
+EVAL_ITER 400 3.05967855
+EVAL_ITER 401 3.38784122
+EVAL_ITER 402 3.21512008
+EVAL_ITER 403 3.19790006
+EVAL_ITER 404 3.29788828
+EVAL_ITER 405 3.20540500
+EVAL_ITER 406 3.19150925
+EVAL_ITER 407 3.20769453
+EVAL_ITER 408 3.29505467
+EVAL_ITER 409 3.34177971
+EVAL_ITER 410 3.28311229
+EVAL_ITER 411 3.29744625
+EVAL_ITER 412 3.32281756
+EVAL_ITER 413 3.10147643
+EVAL_ITER 414 3.34306526
+EVAL_ITER 415 3.24816465
+EVAL_ITER 416 3.26663303
+EVAL_ITER 417 3.36595249
+EVAL_ITER 418 3.39054751
+EVAL_ITER 419 3.35091805
+EVAL_ITER 420 3.23200345
+EVAL_ITER 421 3.31932306
+EVAL_ITER 422 3.26523590
+EVAL_ITER 423 3.36241651
+EVAL_ITER 424 3.37184358
+EVAL_ITER 425 3.31972194
+EVAL_ITER 426 3.27803636
+EVAL_ITER 427 3.40675306
+EVAL_ITER 428 3.37385368
+EVAL_ITER 429 3.27880049
+EVAL_ITER 430 3.21412086
+EVAL_ITER 431 3.32336020
+EVAL_ITER 432 3.32045364
+EVAL_ITER 433 3.30724740
+EVAL_ITER 434 3.25130701
+EVAL_ITER 435 3.25862098
+EVAL_ITER 436 3.35747981
+EVAL_ITER 437 3.39179540
+EVAL_ITER 438 3.35321403
+EVAL_ITER 439 3.39783692
+EVAL_ITER 440 3.27912354
+EVAL_ITER 441 3.32941628
+EVAL_ITER 442 3.14896631
+EVAL_ITER 443 3.19404054
+EVAL_ITER 444 3.17296886
+EVAL_ITER 445 3.33720779
+EVAL_ITER 446 3.18417859
+EVAL_ITER 447 3.27162004
+EVAL_ITER 448 3.25254202
+EVAL_ITER 449 3.27956629
+EVAL_ITER 450 3.30022144
+EVAL_ITER 451 3.45241094
+EVAL_ITER 452 3.23714256
+EVAL_ITER 453 3.22482753
+EVAL_ITER 454 3.32464647
+EVAL_ITER 455 3.18702698
+EVAL_ITER 456 3.19923925
+EVAL_ITER 457 3.37648916
+EVAL_ITER 458 3.33968258
+EVAL_ITER 459 3.28721023
+EVAL_ITER 460 3.36795115
+EVAL_ITER 461 3.31311870
+EVAL_ITER 462 3.29031515
+EVAL_ITER 463 3.38325405
+EVAL_ITER 464 3.41499209
+EVAL_ITER 465 3.15983176
+EVAL_ITER 466 3.33329391
+EVAL_ITER 467 3.28169751
+EVAL_ITER 468 3.29558492
+EVAL_ITER 469 3.37591314
+EVAL_ITER 470 3.27461982
+EVAL_ITER 471 3.41325259
+EVAL_ITER 472 3.34002686
+EVAL_ITER 473 3.38437772
+EVAL_ITER 474 3.43752289
+EVAL_ITER 475 3.21642232
+EVAL_ITER 476 3.24980354
+EVAL_ITER 477 3.34021616
+EVAL_ITER 478 3.28040385
+EVAL_ITER 479 3.19169378
+EVAL_ITER 480 3.21560740
+EVAL_ITER 481 3.31189561
+EVAL_ITER 482 3.24561691
+EVAL_ITER 483 3.34784436
+EVAL_ITER 484 3.31984425
+EVAL_ITER 485 3.37570238
+EVAL_ITER 486 3.15293932
+EVAL_ITER 487 3.33553791
+EVAL_ITER 488 3.36789703
+EVAL_ITER 489 3.27367640
+EVAL_ITER 490 3.23252821
+EVAL_ITER 491 3.24192286
+EVAL_ITER 492 3.39338946
+EVAL_ITER 493 3.25099230
+EVAL_ITER 494 3.29114246
+EVAL_ITER 495 3.21940327
+EVAL_ITER 496 3.27515221
+EVAL_ITER 497 3.22809505
+EVAL_ITER 498 3.34316373
+EVAL_ITER 499 3.23079872
+EVAL_ITER 500 3.09611845
+EVAL_ITER 501 3.35031009
+EVAL_ITER 502 3.26120019
+EVAL_ITER 503 3.29390597
+EVAL_ITER 504 3.17389631
+EVAL_ITER 505 3.33210421
+EVAL_ITER 506 3.32019806
+EVAL_ITER 507 3.15895629
+EVAL_ITER 508 3.21947551
+EVAL_ITER 509 3.26925230
+EVAL_ITER 510 3.27131128
+EVAL_ITER 511 3.17338777
+EVAL_ITER 512 3.42895269
+EVAL_ITER 513 3.34528804
+EVAL_ITER 514 3.29382014
+EVAL_ITER 515 3.20852971
+EVAL_ITER 516 3.15128708
+EVAL_ITER 517 3.33494043
+EVAL_ITER 518 3.30452132
+EVAL_ITER 519 3.37764812
+EVAL_ITER 520 3.25734997
+EVAL_ITER 521 3.42453837
+EVAL_ITER 522 3.17875600
+EVAL_ITER 523 3.14221406
+EVAL_ITER 524 3.31982684
+EVAL_ITER 525 3.34028983
+EVAL_ITER 526 3.26734638
+EVAL_ITER 527 3.55705309
+EVAL_ITER 528 3.44028783
+EVAL_ITER 529 3.34674072
+EVAL_ITER 530 3.43420196
+EVAL_ITER 531 3.08402538
+EVAL_ITER 532 3.43486428
+EVAL_ITER 533 3.50944877
+EVAL_ITER 534 3.02991056
+EVAL_ITER 535 3.38341880
+EVAL_ITER 536 3.04604530
+EVAL_ITER 537 3.20755100
+EVAL_ITER 538 3.28699040
+EVAL_ITER 539 3.25828314
+EVAL_ITER 540 3.36734056
+EVAL_ITER 541 3.24981189
+EVAL_ITER 542 3.18675661
+EVAL_ITER 543 3.28769302
+EVAL_ITER 544 3.33706236
+EVAL_ITER 545 3.41186285
+EVAL_ITER 546 3.29870343
+EVAL_ITER 547 3.40004373
+EVAL_ITER 548 3.30242848
+EVAL_ITER 549 3.20985508
+EVAL_ITER 550 3.37585354
+EVAL_ITER 551 3.31273985
+EVAL_ITER 552 3.12974811
+EVAL_ITER 553 3.42021585
+EVAL_ITER 554 3.36534309
+EVAL_ITER 555 3.25748873
+EVAL_ITER 556 3.17359257
+EVAL_ITER 557 3.35303044
+EVAL_ITER 558 3.38676310
+EVAL_ITER 559 3.31920028
+EVAL_ITER 560 3.36550069
+EVAL_ITER 561 3.30959892
+EVAL_ITER 562 3.15773249
+EVAL_ITER 563 3.41696262
+EVAL_ITER 564 3.23743033
+EVAL_ITER 565 3.40287352
+EVAL_ITER 566 3.24231243
+EVAL_ITER 567 3.35579395
+EVAL_ITER 568 3.30302072
+EVAL_ITER 569 3.36819005
+EVAL_ITER 570 3.27723384
+EVAL_ITER 571 3.21718478
+EVAL_ITER 572 3.31299210
+EVAL_ITER 573 3.32778645
+EVAL_ITER 574 3.31800556
+EVAL_ITER 575 3.27704716
+EVAL_ITER 576 3.28395557
+EVAL_ITER 577 3.32906580
+EVAL_ITER 578 3.34313250
+EVAL_ITER 579 3.40394664
+EVAL_ITER 580 3.33920717
+EVAL_ITER 581 3.27336860
+EVAL_ITER 582 3.34747553
+EVAL_ITER 583 3.26870298
+EVAL_ITER 584 3.29192066
+EVAL_ITER 585 3.24273133
+EVAL_ITER 586 3.38609719
+EVAL_ITER 587 3.29718971
+EVAL_ITER 588 3.10374689
+EVAL_ITER 589 3.33175659
+EVAL_ITER 590 3.29594636
+EVAL_ITER 591 3.25915432
+EVAL_ITER 592 3.40679598
+EVAL_ITER 593 3.25988984
+EVAL_ITER 594 3.40520239
+EVAL_ITER 595 3.47620964
+EVAL_ITER 596 3.37469387
+EVAL_ITER 597 3.42654943
+EVAL_ITER 598 3.17276549
+EVAL_ITER 599 3.43361378
+EVAL_ITER 600 3.31093431
+EVAL_ITER 601 3.17338037
+EVAL_ITER 602 3.03353310
+EVAL_ITER 603 3.27793694
+EVAL_ITER 604 3.25671268
+EVAL_ITER 605 3.34807372
+EVAL_ITER 606 3.30762386
+EVAL_ITER 607 3.32266402
+EVAL_ITER 608 3.35891604
+EVAL_ITER 609 3.21234369
+EVAL_ITER 610 3.38556933
+EVAL_ITER 611 3.29948759
+EVAL_ITER 612 3.26910782
+EVAL_ITER 613 3.19386458
+EVAL_ITER 614 3.33770037
+EVAL_ITER 615 3.26546812
+EVAL_ITER 616 3.24142408
+EVAL_ITER 617 3.37044668
+EVAL_ITER 618 3.28615284
+EVAL_ITER 619 3.28092837
+EVAL_ITER 620 3.42769241
+EVAL_ITER 621 3.17740726
+EVAL_ITER 622 3.31538057
+EVAL_ITER 623 3.45661974
+EVAL_ITER 624 3.30407381
+EVAL_ITER 625 3.36379313
+EVAL_ITER 626 3.27598047
+EVAL_ITER 627 3.40137649
+EVAL_ITER 628 3.35237050
+EVAL_ITER 629 3.36299658
+EVAL_ITER 630 3.26357293
+EVAL_ITER 631 3.28560209
+EVAL_ITER 632 3.39853144
+EVAL_ITER 633 3.22232676
+EVAL_ITER 634 3.29699969
+EVAL_ITER 635 3.46017385
+EVAL_ITER 636 3.14818048
+EVAL_ITER 637 3.29943681
+EVAL_ITER 638 3.29841542
+EVAL_ITER 639 3.30442095
+EVAL_ITER 640 3.34397674
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    evaluate .......................................: (490171.91, 490172.12)
+-------------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 30000 on validation set | lm loss value: 3.297175E+00 | lm loss PPL: 2.703615E+01 | 
+-------------------------------------------------------------------------------------------------------------------
+EVAL_ITER 1 3.09736061
+EVAL_ITER 2 3.29876018
+EVAL_ITER 3 3.27650309
+EVAL_ITER 4 3.32034445
+EVAL_ITER 5 3.31603336
+EVAL_ITER 6 3.22268391
+EVAL_ITER 7 3.34941149
+EVAL_ITER 8 3.25958157
+EVAL_ITER 9 3.39383674
+EVAL_ITER 10 3.28705406
+EVAL_ITER 11 3.37542915
+EVAL_ITER 12 3.39761209
+EVAL_ITER 13 3.25627422
+EVAL_ITER 14 3.53306055
+EVAL_ITER 15 3.38284206
+EVAL_ITER 16 3.34111047
+EVAL_ITER 17 3.31483603
+EVAL_ITER 18 3.33676815
+EVAL_ITER 19 3.41035795
+EVAL_ITER 20 3.42868257
+EVAL_ITER 21 3.27939510
+EVAL_ITER 22 3.40802956
+EVAL_ITER 23 3.31519198
+EVAL_ITER 24 3.36084795
+EVAL_ITER 25 3.32288837
+EVAL_ITER 26 3.28925490
+EVAL_ITER 27 3.24743533
+EVAL_ITER 28 3.27345109
+EVAL_ITER 29 3.27345157
+EVAL_ITER 30 3.32058573
+EVAL_ITER 31 3.28415561
+EVAL_ITER 32 3.31855154
+EVAL_ITER 33 3.17915273
+EVAL_ITER 34 3.27760148
+EVAL_ITER 35 3.18828297
+EVAL_ITER 36 3.37712145
+EVAL_ITER 37 3.24215174
+EVAL_ITER 38 3.33443522
+EVAL_ITER 39 3.31477547
+EVAL_ITER 40 3.30969906
+EVAL_ITER 41 3.39507627
+EVAL_ITER 42 3.26731491
+EVAL_ITER 43 3.33567286
+EVAL_ITER 44 3.21891475
+EVAL_ITER 45 3.30926538
+EVAL_ITER 46 3.39339042
+EVAL_ITER 47 3.29349947
+EVAL_ITER 48 3.29520726
+EVAL_ITER 49 3.35880065
+EVAL_ITER 50 3.12346196
+EVAL_ITER 51 3.50290132
+EVAL_ITER 52 3.24123406
+EVAL_ITER 53 3.30839205
+EVAL_ITER 54 3.24690318
+EVAL_ITER 55 3.22246313
+EVAL_ITER 56 3.30571508
+EVAL_ITER 57 3.32291889
+EVAL_ITER 58 3.36200380
+EVAL_ITER 59 3.47188759
+EVAL_ITER 60 3.31372166
+EVAL_ITER 61 3.46827912
+EVAL_ITER 62 3.28613520
+EVAL_ITER 63 3.35371232
+EVAL_ITER 64 3.15405369
+EVAL_ITER 65 3.20530438
+EVAL_ITER 66 3.45151496
+EVAL_ITER 67 3.28627515
+EVAL_ITER 68 3.26793242
+EVAL_ITER 69 3.32169437
+EVAL_ITER 70 3.33783650
+EVAL_ITER 71 3.38178539
+EVAL_ITER 72 3.38515091
+EVAL_ITER 73 3.26456285
+EVAL_ITER 74 3.29203057
+EVAL_ITER 75 3.22065210
+EVAL_ITER 76 3.40927315
+EVAL_ITER 77 3.40759587
+EVAL_ITER 78 3.39880323
+EVAL_ITER 79 3.37421703
+EVAL_ITER 80 3.19587994
+EVAL_ITER 81 3.31647515
+EVAL_ITER 82 3.18012524
+EVAL_ITER 83 3.27829146
+EVAL_ITER 84 3.43296409
+EVAL_ITER 85 3.39681149
+EVAL_ITER 86 3.38102460
+EVAL_ITER 87 3.38407564
+EVAL_ITER 88 3.32856894
+EVAL_ITER 89 3.32495451
+EVAL_ITER 90 3.40825224
+EVAL_ITER 91 3.22961903
+EVAL_ITER 92 3.25965619
+EVAL_ITER 93 3.31215739
+EVAL_ITER 94 3.29498553
+EVAL_ITER 95 3.39320731
+EVAL_ITER 96 3.29089761
+EVAL_ITER 97 3.24248219
+EVAL_ITER 98 3.27142358
+EVAL_ITER 99 3.36562729
+EVAL_ITER 100 3.39097571
+EVAL_ITER 101 3.34097958
+EVAL_ITER 102 3.42580914
+EVAL_ITER 103 3.35518646
+EVAL_ITER 104 3.38830423
+EVAL_ITER 105 3.25209618
+EVAL_ITER 106 3.38303781
+EVAL_ITER 107 3.42465329
+EVAL_ITER 108 3.38150740
+EVAL_ITER 109 3.41080642
+EVAL_ITER 110 3.27795935
+EVAL_ITER 111 3.24583983
+EVAL_ITER 112 3.16588116
+EVAL_ITER 113 3.40528131
+EVAL_ITER 114 3.29715014
+EVAL_ITER 115 3.32822800
+EVAL_ITER 116 3.43325257
+EVAL_ITER 117 3.23832083
+EVAL_ITER 118 3.27853775
+EVAL_ITER 119 3.25652027
+EVAL_ITER 120 3.19205070
+EVAL_ITER 121 3.33802557
+EVAL_ITER 122 3.34473300
+EVAL_ITER 123 3.34766364
+EVAL_ITER 124 3.30230999
+EVAL_ITER 125 3.34995890
+EVAL_ITER 126 3.29963398
+EVAL_ITER 127 3.36695361
+EVAL_ITER 128 3.33866239
+EVAL_ITER 129 3.31271338
+EVAL_ITER 130 3.12483978
+EVAL_ITER 131 3.27978039
+EVAL_ITER 132 3.19798279
+EVAL_ITER 133 3.40005922
+EVAL_ITER 134 3.32209992
+EVAL_ITER 135 3.31844187
+EVAL_ITER 136 3.17741060
+EVAL_ITER 137 3.35553527
+EVAL_ITER 138 3.19213939
+EVAL_ITER 139 3.46304584
+EVAL_ITER 140 3.36467528
+EVAL_ITER 141 3.40093446
+EVAL_ITER 142 3.36572647
+EVAL_ITER 143 3.32241464
+EVAL_ITER 144 3.23315334
+EVAL_ITER 145 3.21527314
+EVAL_ITER 146 3.23355222
+EVAL_ITER 147 3.35031772
+EVAL_ITER 148 3.20662308
+EVAL_ITER 149 3.40581870
+EVAL_ITER 150 3.35485792
+EVAL_ITER 151 3.33792019
+EVAL_ITER 152 3.42212391
+EVAL_ITER 153 3.34597254
+EVAL_ITER 154 3.27417636
+EVAL_ITER 155 3.38247561
+EVAL_ITER 156 3.22776890
+EVAL_ITER 157 3.26920533
+EVAL_ITER 158 3.27385330
+EVAL_ITER 159 3.22613931
+EVAL_ITER 160 3.36554551
+EVAL_ITER 161 3.29787111
+EVAL_ITER 162 3.41090631
+EVAL_ITER 163 3.43130040
+EVAL_ITER 164 3.25938869
+EVAL_ITER 165 3.33523703
+EVAL_ITER 166 3.29663277
+EVAL_ITER 167 3.28593588
+EVAL_ITER 168 3.32857513
+EVAL_ITER 169 3.41259527
+EVAL_ITER 170 3.35718346
+EVAL_ITER 171 3.44021368
+EVAL_ITER 172 3.32496548
+EVAL_ITER 173 3.21828866
+EVAL_ITER 174 3.39059591
+EVAL_ITER 175 3.23179436
+EVAL_ITER 176 3.31190777
+EVAL_ITER 177 3.30376029
+EVAL_ITER 178 3.43317223
+EVAL_ITER 179 3.33787513
+EVAL_ITER 180 3.46587610
+EVAL_ITER 181 3.37953401
+EVAL_ITER 182 3.32036614
+EVAL_ITER 183 3.37614608
+EVAL_ITER 184 3.24585986
+EVAL_ITER 185 3.21507525
+EVAL_ITER 186 3.26897979
+EVAL_ITER 187 3.20037365
+EVAL_ITER 188 3.25853395
+EVAL_ITER 189 3.24769545
+EVAL_ITER 190 3.35061407
+EVAL_ITER 191 3.40060902
+EVAL_ITER 192 3.20298123
+EVAL_ITER 193 3.32644272
+EVAL_ITER 194 3.38364840
+EVAL_ITER 195 3.39048457
+EVAL_ITER 196 3.35422134
+EVAL_ITER 197 3.34433818
+EVAL_ITER 198 3.35672927
+EVAL_ITER 199 3.25624657
+EVAL_ITER 200 3.30007291
+EVAL_ITER 201 3.40820360
+EVAL_ITER 202 3.19924831
+EVAL_ITER 203 3.26908898
+EVAL_ITER 204 3.32447314
+EVAL_ITER 205 3.18271732
+EVAL_ITER 206 3.34207702
+EVAL_ITER 207 3.16724157
+EVAL_ITER 208 3.25108147
+EVAL_ITER 209 3.33475208
+EVAL_ITER 210 3.32395244
+EVAL_ITER 211 3.37484980
+EVAL_ITER 212 3.30702639
+EVAL_ITER 213 3.23976660
+EVAL_ITER 214 3.35446334
+EVAL_ITER 215 3.31827831
+EVAL_ITER 216 3.33447695
+EVAL_ITER 217 3.39863133
+EVAL_ITER 218 3.33101535
+EVAL_ITER 219 3.28954411
+EVAL_ITER 220 3.37079692
+EVAL_ITER 221 3.42634487
+EVAL_ITER 222 3.34582233
+EVAL_ITER 223 3.34038281
+EVAL_ITER 224 3.24272752
+EVAL_ITER 225 3.27487421
+EVAL_ITER 226 3.23719788
+EVAL_ITER 227 3.17465448
+EVAL_ITER 228 3.23769522
+EVAL_ITER 229 3.38670611
+EVAL_ITER 230 3.35888147
+EVAL_ITER 231 3.27610135
+EVAL_ITER 232 3.37269497
+EVAL_ITER 233 3.17817187
+EVAL_ITER 234 3.35794950
+EVAL_ITER 235 3.34312248
+EVAL_ITER 236 3.30632257
+EVAL_ITER 237 3.22703147
+EVAL_ITER 238 3.30933690
+EVAL_ITER 239 3.31627870
+EVAL_ITER 240 3.35031366
+EVAL_ITER 241 3.31115150
+EVAL_ITER 242 3.28399086
+EVAL_ITER 243 3.45123887
+EVAL_ITER 244 3.33627462
+EVAL_ITER 245 3.20868468
+EVAL_ITER 246 3.34334064
+EVAL_ITER 247 3.31613994
+EVAL_ITER 248 3.26457834
+EVAL_ITER 249 3.34144473
+EVAL_ITER 250 3.30071425
+EVAL_ITER 251 3.37267828
+EVAL_ITER 252 3.40168619
+EVAL_ITER 253 3.11798096
+EVAL_ITER 254 3.42673922
+EVAL_ITER 255 3.27240968
+EVAL_ITER 256 3.41471767
+EVAL_ITER 257 3.22030115
+EVAL_ITER 258 3.35727143
+EVAL_ITER 259 3.08901334
+EVAL_ITER 260 3.36950088
+EVAL_ITER 261 3.23836708
+EVAL_ITER 262 3.38100410
+EVAL_ITER 263 3.34481382
+EVAL_ITER 264 3.29557681
+EVAL_ITER 265 3.28591871
+EVAL_ITER 266 3.25174665
+EVAL_ITER 267 3.32424474
+EVAL_ITER 268 3.40659785
+EVAL_ITER 269 3.42014384
+EVAL_ITER 270 3.15089989
+EVAL_ITER 271 3.35131598
+EVAL_ITER 272 3.35634208
+EVAL_ITER 273 3.52060699
+EVAL_ITER 274 3.34038210
+EVAL_ITER 275 3.35123682
+EVAL_ITER 276 3.33532810
+EVAL_ITER 277 3.30231810
+EVAL_ITER 278 3.46293092
+EVAL_ITER 279 3.21231461
+EVAL_ITER 280 3.38690376
+EVAL_ITER 281 3.22981954
+EVAL_ITER 282 3.32182574
+EVAL_ITER 283 3.30000901
+EVAL_ITER 284 3.39904428
+EVAL_ITER 285 3.23062205
+EVAL_ITER 286 3.33492208
+EVAL_ITER 287 3.12425041
+EVAL_ITER 288 3.29651690
+EVAL_ITER 289 3.34740114
+EVAL_ITER 290 3.29694343
+EVAL_ITER 291 3.47985363
+EVAL_ITER 292 3.26191878
+EVAL_ITER 293 3.27395368
+EVAL_ITER 294 3.23956800
+EVAL_ITER 295 3.20825672
+EVAL_ITER 296 3.33409882
+EVAL_ITER 297 3.28718090
+EVAL_ITER 298 3.17142844
+EVAL_ITER 299 3.31129599
+EVAL_ITER 300 3.22797704
+EVAL_ITER 301 3.25872183
+EVAL_ITER 302 3.31360936
+EVAL_ITER 303 3.25151205
+EVAL_ITER 304 3.33404088
+EVAL_ITER 305 3.35365796
+EVAL_ITER 306 3.17680120
+EVAL_ITER 307 3.23839021
+EVAL_ITER 308 3.38312054
+EVAL_ITER 309 3.30639887
+EVAL_ITER 310 3.37460804
+EVAL_ITER 311 3.41319203
+EVAL_ITER 312 3.42985559
+EVAL_ITER 313 3.39340377
+EVAL_ITER 314 3.30896378
+EVAL_ITER 315 3.31389713
+EVAL_ITER 316 3.29619551
+EVAL_ITER 317 3.41142964
+EVAL_ITER 318 3.30613446
+EVAL_ITER 319 3.31840825
+EVAL_ITER 320 3.33000112
+EVAL_ITER 321 3.26974273
+EVAL_ITER 322 3.19442415
+EVAL_ITER 323 3.32899523
+EVAL_ITER 324 3.54505062
+EVAL_ITER 325 3.24660897
+EVAL_ITER 326 3.32650208
+EVAL_ITER 327 3.10017037
+EVAL_ITER 328 3.22524953
+EVAL_ITER 329 3.28323579
+EVAL_ITER 330 3.32877707
+EVAL_ITER 331 3.29103804
+EVAL_ITER 332 3.37328434
+EVAL_ITER 333 3.28477907
+EVAL_ITER 334 3.25781083
+EVAL_ITER 335 3.46499610
+EVAL_ITER 336 3.12908959
+EVAL_ITER 337 3.19064808
+EVAL_ITER 338 3.28737187
+EVAL_ITER 339 3.21573114
+EVAL_ITER 340 3.42925215
+EVAL_ITER 341 3.29303050
+EVAL_ITER 342 3.28827596
+EVAL_ITER 343 3.44542098
+EVAL_ITER 344 3.40598321
+EVAL_ITER 345 3.24804878
+EVAL_ITER 346 3.35554218
+EVAL_ITER 347 3.28388119
+EVAL_ITER 348 3.22588801
+EVAL_ITER 349 3.30107474
+EVAL_ITER 350 3.27252626
+EVAL_ITER 351 3.42199731
+EVAL_ITER 352 3.38909936
+EVAL_ITER 353 3.38185120
+EVAL_ITER 354 3.32915640
+EVAL_ITER 355 3.28266215
+EVAL_ITER 356 3.26371002
+EVAL_ITER 357 3.43875599
+EVAL_ITER 358 3.25239301
+EVAL_ITER 359 3.29959655
+EVAL_ITER 360 3.28145313
+EVAL_ITER 361 3.43236852
+EVAL_ITER 362 3.34088802
+EVAL_ITER 363 3.28600931
+EVAL_ITER 364 3.42520618
+EVAL_ITER 365 3.31475592
+EVAL_ITER 366 3.35665274
+EVAL_ITER 367 3.26773024
+EVAL_ITER 368 3.37777257
+EVAL_ITER 369 3.25404429
+EVAL_ITER 370 3.33471060
+EVAL_ITER 371 3.24442816
+EVAL_ITER 372 3.26408434
+EVAL_ITER 373 3.34143376
+EVAL_ITER 374 3.29193783
+EVAL_ITER 375 3.41410589
+EVAL_ITER 376 3.43051672
+EVAL_ITER 377 3.40535164
+EVAL_ITER 378 3.24464583
+EVAL_ITER 379 3.25402784
+EVAL_ITER 380 3.24628663
+EVAL_ITER 381 3.22739792
+EVAL_ITER 382 3.43487501
+EVAL_ITER 383 3.39073491
+EVAL_ITER 384 3.34339309
+EVAL_ITER 385 3.27399445
+EVAL_ITER 386 3.20328736
+EVAL_ITER 387 3.26381874
+EVAL_ITER 388 3.34184861
+EVAL_ITER 389 3.27005506
+EVAL_ITER 390 3.23824835
+EVAL_ITER 391 3.26516271
+EVAL_ITER 392 3.25024605
+EVAL_ITER 393 3.33557534
+EVAL_ITER 394 3.36740303
+EVAL_ITER 395 3.22115350
+EVAL_ITER 396 3.32801533
+EVAL_ITER 397 3.27726531
+EVAL_ITER 398 3.24425912
+EVAL_ITER 399 3.40608406
+EVAL_ITER 400 3.45722651
+EVAL_ITER 401 3.27880383
+EVAL_ITER 402 3.26796818
+EVAL_ITER 403 3.33032894
+EVAL_ITER 404 3.41514444
+EVAL_ITER 405 3.33945131
+EVAL_ITER 406 3.37356949
+EVAL_ITER 407 3.25459027
+EVAL_ITER 408 3.38431406
+EVAL_ITER 409 3.31892681
+EVAL_ITER 410 3.25147367
+EVAL_ITER 411 3.31262469
+EVAL_ITER 412 3.40587163
+EVAL_ITER 413 3.30337477
+EVAL_ITER 414 3.18565321
+EVAL_ITER 415 3.31840801
+EVAL_ITER 416 3.21088195
+EVAL_ITER 417 3.26072788
+EVAL_ITER 418 3.30529737
+EVAL_ITER 419 3.29181099
+EVAL_ITER 420 3.16125870
+EVAL_ITER 421 3.30470419
+EVAL_ITER 422 3.34224224
+EVAL_ITER 423 3.33466101
+EVAL_ITER 424 3.18747497
+EVAL_ITER 425 3.28438234
+EVAL_ITER 426 3.30318832
+EVAL_ITER 427 3.43383694
+EVAL_ITER 428 3.24093962
+EVAL_ITER 429 3.34456396
+EVAL_ITER 430 3.24516988
+EVAL_ITER 431 3.12387848
+EVAL_ITER 432 3.28093863
+EVAL_ITER 433 3.14507508
+EVAL_ITER 434 3.39671040
+EVAL_ITER 435 3.53020120
+EVAL_ITER 436 3.41398931
+EVAL_ITER 437 3.40498567
+EVAL_ITER 438 3.33123493
+EVAL_ITER 439 3.42381096
+EVAL_ITER 440 3.25922775
+EVAL_ITER 441 3.46562839
+EVAL_ITER 442 3.32452917
+EVAL_ITER 443 3.36190677
+EVAL_ITER 444 3.39506412
+EVAL_ITER 445 3.42465067
+EVAL_ITER 446 3.30962944
+EVAL_ITER 447 3.31501508
+EVAL_ITER 448 3.16495323
+EVAL_ITER 449 3.31740570
+EVAL_ITER 450 3.36601806
+EVAL_ITER 451 3.30954862
+EVAL_ITER 452 3.39216805
+EVAL_ITER 453 3.37812400
+EVAL_ITER 454 3.19766331
+EVAL_ITER 455 3.33895969
+EVAL_ITER 456 3.29803824
+EVAL_ITER 457 3.44100809
+EVAL_ITER 458 3.26884222
+EVAL_ITER 459 3.40875459
+EVAL_ITER 460 3.32558680
+EVAL_ITER 461 3.21274471
+EVAL_ITER 462 3.32075787
+EVAL_ITER 463 3.26948929
+EVAL_ITER 464 3.27338839
+EVAL_ITER 465 3.31571388
+EVAL_ITER 466 3.20101380
+EVAL_ITER 467 3.37845707
+EVAL_ITER 468 3.26913166
+EVAL_ITER 469 3.34636474
+EVAL_ITER 470 3.36075401
+EVAL_ITER 471 3.32052898
+EVAL_ITER 472 3.26918650
+EVAL_ITER 473 3.22904062
+EVAL_ITER 474 3.21223831
+EVAL_ITER 475 3.16396761
+EVAL_ITER 476 3.26020765
+EVAL_ITER 477 3.40121102
+EVAL_ITER 478 3.27790689
+EVAL_ITER 479 3.20108247
+EVAL_ITER 480 3.20963764
+EVAL_ITER 481 3.17828751
+EVAL_ITER 482 3.24387932
+EVAL_ITER 483 3.23697853
+EVAL_ITER 484 3.32166696
+EVAL_ITER 485 3.36416912
+EVAL_ITER 486 3.35671902
+EVAL_ITER 487 3.32946682
+EVAL_ITER 488 3.25661516
+EVAL_ITER 489 3.27745295
+EVAL_ITER 490 3.32871652
+EVAL_ITER 491 3.28737187
+EVAL_ITER 492 3.20493388
+EVAL_ITER 493 3.35665154
+EVAL_ITER 494 3.24313617
+EVAL_ITER 495 3.55578852
+EVAL_ITER 496 3.28426576
+EVAL_ITER 497 3.37528229
+EVAL_ITER 498 3.34601426
+EVAL_ITER 499 3.39852071
+EVAL_ITER 500 3.27026153
+EVAL_ITER 501 3.41652107
+EVAL_ITER 502 3.20884800
+EVAL_ITER 503 3.25274515
+EVAL_ITER 504 3.30117178
+EVAL_ITER 505 3.22385430
+EVAL_ITER 506 3.28029275
+EVAL_ITER 507 3.28800702
+EVAL_ITER 508 3.33941412
+EVAL_ITER 509 3.30184603
+EVAL_ITER 510 3.46752930
+EVAL_ITER 511 3.23649263
+EVAL_ITER 512 3.43610406
+EVAL_ITER 513 3.33565044
+EVAL_ITER 514 3.37933779
+EVAL_ITER 515 3.35044861
+EVAL_ITER 516 3.41996408
+EVAL_ITER 517 3.38329387
+EVAL_ITER 518 3.27429080
+EVAL_ITER 519 3.31909227
+EVAL_ITER 520 3.36341166
+EVAL_ITER 521 3.21953869
+EVAL_ITER 522 3.40983224
+EVAL_ITER 523 3.37983704
+EVAL_ITER 524 3.30903602
+EVAL_ITER 525 3.31753993
+EVAL_ITER 526 3.32606316
+EVAL_ITER 527 3.14454722
+EVAL_ITER 528 3.34510517
+EVAL_ITER 529 3.37565184
+EVAL_ITER 530 3.23039508
+EVAL_ITER 531 3.30424643
+EVAL_ITER 532 3.16864324
+EVAL_ITER 533 3.27497768
+EVAL_ITER 534 3.41720486
+EVAL_ITER 535 3.31947041
+EVAL_ITER 536 3.29093289
+EVAL_ITER 537 3.27625155
+EVAL_ITER 538 3.43256593
+EVAL_ITER 539 3.49233389
+EVAL_ITER 540 3.32242775
+EVAL_ITER 541 3.29201555
+EVAL_ITER 542 3.42600226
+EVAL_ITER 543 3.44274640
+EVAL_ITER 544 3.40013337
+EVAL_ITER 545 3.25694299
+EVAL_ITER 546 3.24514055
+EVAL_ITER 547 3.35753822
+EVAL_ITER 548 3.25848937
+EVAL_ITER 549 3.30077100
+EVAL_ITER 550 3.39176774
+EVAL_ITER 551 3.24402165
+EVAL_ITER 552 3.16076589
+EVAL_ITER 553 3.20268250
+EVAL_ITER 554 3.23014545
+EVAL_ITER 555 3.41952848
+EVAL_ITER 556 3.26224136
+EVAL_ITER 557 3.32866216
+EVAL_ITER 558 3.25762796
+EVAL_ITER 559 3.30906153
+EVAL_ITER 560 3.32943964
+EVAL_ITER 561 3.33182693
+EVAL_ITER 562 3.30916834
+EVAL_ITER 563 3.24555588
+EVAL_ITER 564 3.20086455
+EVAL_ITER 565 3.22650528
+EVAL_ITER 566 3.44850779
+EVAL_ITER 567 3.17546463
+EVAL_ITER 568 3.28609800
+EVAL_ITER 569 3.23015404
+EVAL_ITER 570 3.12398171
+EVAL_ITER 571 3.22230196
+EVAL_ITER 572 3.28894377
+EVAL_ITER 573 3.26975322
+EVAL_ITER 574 3.21225166
+EVAL_ITER 575 3.24487996
+EVAL_ITER 576 3.22347760
+EVAL_ITER 577 3.26296902
+EVAL_ITER 578 3.27461314
+EVAL_ITER 579 3.35707736
+EVAL_ITER 580 3.22257519
+EVAL_ITER 581 3.42407489
+EVAL_ITER 582 3.19601965
+EVAL_ITER 583 3.28146148
+EVAL_ITER 584 3.21660519
+EVAL_ITER 585 3.35627127
+EVAL_ITER 586 3.39041138
+EVAL_ITER 587 3.40363216
+EVAL_ITER 588 3.25675583
+EVAL_ITER 589 3.23746037
+EVAL_ITER 590 3.47684860
+EVAL_ITER 591 3.31819463
+EVAL_ITER 592 3.52904463
+EVAL_ITER 593 3.41194248
+EVAL_ITER 594 3.25295639
+EVAL_ITER 595 3.33355284
+EVAL_ITER 596 3.36885309
+EVAL_ITER 597 3.44909501
+EVAL_ITER 598 3.35859251
+EVAL_ITER 599 3.37525010
+EVAL_ITER 600 3.30781031
+EVAL_ITER 601 3.42449522
+EVAL_ITER 602 3.26326346
+EVAL_ITER 603 3.30871844
+EVAL_ITER 604 3.30079889
+EVAL_ITER 605 3.28554797
+EVAL_ITER 606 3.27642250
+EVAL_ITER 607 3.20939541
+EVAL_ITER 608 3.35808635
+EVAL_ITER 609 3.35230207
+EVAL_ITER 610 3.39775157
+EVAL_ITER 611 3.20541143
+EVAL_ITER 612 3.34327078
+EVAL_ITER 613 3.22497535
+EVAL_ITER 614 3.32041240
+EVAL_ITER 615 3.34266281
+EVAL_ITER 616 3.24315095
+EVAL_ITER 617 3.30438256
+EVAL_ITER 618 3.40213227
+EVAL_ITER 619 3.37266469
+EVAL_ITER 620 3.40808773
+EVAL_ITER 621 3.25132608
+EVAL_ITER 622 3.39313674
+EVAL_ITER 623 3.32793140
+EVAL_ITER 624 3.31033945
+EVAL_ITER 625 3.38826299
+EVAL_ITER 626 3.35246253
+EVAL_ITER 627 3.18579364
+EVAL_ITER 628 3.18544745
+EVAL_ITER 629 3.27431035
+EVAL_ITER 630 3.29672050
+EVAL_ITER 631 3.45162916
+EVAL_ITER 632 3.30993962
+EVAL_ITER 633 3.31830192
+EVAL_ITER 634 3.41714573
+EVAL_ITER 635 3.43108511
+EVAL_ITER 636 3.44385529
+EVAL_ITER 637 3.29056215
+EVAL_ITER 638 3.34784889
+EVAL_ITER 639 3.42504311
+EVAL_ITER 640 3.18261099
+(min, max) time across ranks (ms):
+    evaluate .......................................: (486633.15, 486633.45)
+-------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 30000 on test set | lm loss value: 3.313719E+00 | lm loss PPL: 2.748715E+01 | 
+-------------------------------------------------------------------------------------------------------------
+[rank1]:[W1120 03:06:35.274634389 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

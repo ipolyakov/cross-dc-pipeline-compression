@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper."
+title: "Low-Bit Activation Compression for Pipeline-Parallel LLM Training over Bandwidth-Constrained Cross-Datacenter Links"
+authors:
+  - family-names: "Poliakov"
+    given-names: "Igor"
+date-released: 2026-11-19

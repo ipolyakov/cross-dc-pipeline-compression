@@ -1,0 +1,1871 @@
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1111 05:45:12.118466210 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1111 05:45:13.970121637 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 300520960
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (300520960 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+[rank1]:[E1111 05:55:26.065812608 ProcessGroupNCCL.cpp:1794] [PG ID 0 PG GUID 0(default_pg) Rank 1] Observed flight recorder dump signal from another rank via TCPStore.
+[rank1]:[E1111 05:55:26.066119760 ProcessGroupNCCL.cpp:1858] [PG ID 0 PG GUID 0(default_pg) Rank 1] Received a dump signal due to a collective timeout from  rank 0 and we will try our best to dump the debug info. Last enqueued NCCL work: 8, last completed NCCL work: 5.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank1]:[E1111 05:55:26.066230025 ProcessGroupNCCL.cpp:1575] [PG ID 0 PG GUID 0(default_pg) Rank 1] ProcessGroupNCCL preparing to dump debug info. Include stack trace: 1
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1111 06:02:53.381482936 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1111 06:02:54.148334012 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 300520960
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (300520960 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+[rank1]:[W1111 06:07:05.637097714 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[host remote=[user-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x76031177cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x7602f489c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffd9ad (0x7602f489d9ad in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe55a (0x7602f489e55a in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x31e (0x7602f489927e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7602b3418868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x76030a2b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x760312496ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x760312527a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1111 06:07:05.695754071 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1111 06:07:06.695851336 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=41, addr=[host remote=[user-tower]:6012): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x76031177cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x7602f489c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffce42 (0x7602f489ce42 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe94e (0x7602f489e94e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7602f489926e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7602b3418868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x76030a2b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x760312496ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x760312527a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1111 06:07:06.698232244 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1111 06:07:07.698312469 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=41, addr=[host remote=[user-tower]:6012): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x76031177cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x7602f489c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffce42 (0x7602f489ce42 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe94e (0x7602f489e94e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7602f489926e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7602b3418868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x76030a2b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x760312496ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x760312527a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1111 06:07:07.700610443 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1111 06:07:08.700667685 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=41, addr=[host remote=[user-tower]:6012): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x76031177cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x7602f489c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffce42 (0x7602f489ce42 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe94e (0x7602f489e94e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7602f489926e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7602b3418868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x76030a2b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x760312496ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x760312527a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1111 06:07:08.702979664 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+[rank1]:[W1111 06:07:09.703037839 TCPStore.cpp:106] [c10d] sendBytes failed on SocketImpl(fd=41, addr=[host remote=[user-tower]:6012): Broken pipe
+Exception raised from sendBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:653 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x76031177cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
+frame #1: <unknown function> + 0x5ffc5b1 (0x7602f489c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #2: <unknown function> + 0x5ffce42 (0x7602f489ce42 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #3: <unknown function> + 0x5ffe94e (0x7602f489e94e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #4: c10d::TCPStore::check(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) + 0x30e (0x7602f489926e in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
+frame #5: c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() + 0x3c8 (0x7602b3418868 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
+frame #6: <unknown function> + 0xdc253 (0x76030a2b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x760312496ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x760312527a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank1]:[W1111 06:07:09.705190312 ProcessGroupNCCL.cpp:1771] [PG ID 0 PG GUID 0(default_pg) Rank 1] Failed to check the "should dump" flag on TCPStore, (maybe TCPStore server has shut down too early), with error: Broken pipe
+Checking s3:
+
+aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. You can configure credentials by running "aws login".
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:257: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:268: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:328: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(
+/SDP4Bit/megatron/core/tensor_parallel/layers.py:363: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+> setting tensorboard ...
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[rank1]:[W1111 06:07:34.766602547 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[rank1]:[W1111 06:07:35.527984276 init.cpp:772] Warning: nvfuser is no longer supported in torch script, use _jit_set_nvfuser_enabled is deprecated and a no-op (function operator())
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 300520960
+INFO:megatron.core.distributed.grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+INFO:megatron.core.distributed.grad_buffer:Params for bucket 1 (300520960 elements):
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.output_layer.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.final_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.6.mlp.dense_h_to_4h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.11.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.input_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.post_attention_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.input_norm.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.10.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.9.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.5.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.4.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.post_attention_norm.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.0.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.8.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.7.mlp.dense_h_to_4h.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.3.self_attention.query_key_value.bias
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.mlp.dense_4h_to_h.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.2.self_attention.dense.weight
+INFO:megatron.core.distributed.grad_buffer:    module.language_model.encoder.layers.1.mlp.dense_4h_to_h.bias
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    load-checkpoint ................................: (429.13, 429.15)
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (724.86, 889.24)
+    train/valid/test-data-iterators-setup ..........: (506.83, 557.30)
+[rank 1] pipeline p2p compression: activations=nvfp4, gradients=nvfp4
+EVAL_ITER 1 3.39053798
+EVAL_ITER 2 3.30778885
+EVAL_ITER 3 3.26487637
+EVAL_ITER 4 3.32231259
+EVAL_ITER 5 3.39550447
+EVAL_ITER 6 3.29234552
+EVAL_ITER 7 3.28808975
+EVAL_ITER 8 3.43140531
+EVAL_ITER 9 3.34413338
+EVAL_ITER 10 3.43724990
+EVAL_ITER 11 3.49386716
+EVAL_ITER 12 3.44011474
+EVAL_ITER 13 3.17716169
+EVAL_ITER 14 3.39007640
+EVAL_ITER 15 3.41875648
+EVAL_ITER 16 3.43417907
+EVAL_ITER 17 3.28945613
+EVAL_ITER 18 3.28317857
+EVAL_ITER 19 3.08359742
+EVAL_ITER 20 3.26493168
+EVAL_ITER 21 3.48455715
+EVAL_ITER 22 3.43824887
+EVAL_ITER 23 3.33547521
+EVAL_ITER 24 3.42599273
+EVAL_ITER 25 3.31676054
+EVAL_ITER 26 3.41366100
+EVAL_ITER 27 3.37678099
+EVAL_ITER 28 3.44942546
+EVAL_ITER 29 3.28944230
+EVAL_ITER 30 3.24622583
+EVAL_ITER 31 3.22495222
+EVAL_ITER 32 3.35408330
+EVAL_ITER 33 3.31680870
+EVAL_ITER 34 3.31340885
+EVAL_ITER 35 3.31870985
+EVAL_ITER 36 3.31295967
+EVAL_ITER 37 3.34128928
+EVAL_ITER 38 3.33517742
+EVAL_ITER 39 3.30173254
+EVAL_ITER 40 3.22205329
+EVAL_ITER 41 3.28124952
+EVAL_ITER 42 3.48527980
+EVAL_ITER 43 3.25591350
+EVAL_ITER 44 3.50761843
+EVAL_ITER 45 3.51159263
+EVAL_ITER 46 3.34748793
+EVAL_ITER 47 3.22110963
+EVAL_ITER 48 3.33849311
+EVAL_ITER 49 3.42914510
+EVAL_ITER 50 3.38920379
+EVAL_ITER 51 3.30907154
+EVAL_ITER 52 3.24055195
+EVAL_ITER 53 3.26330900
+EVAL_ITER 54 3.31462908
+EVAL_ITER 55 3.40468597
+EVAL_ITER 56 3.31285477
+EVAL_ITER 57 3.18089867
+EVAL_ITER 58 3.26646328
+EVAL_ITER 59 3.18138075
+EVAL_ITER 60 3.36485910
+EVAL_ITER 61 3.22466922
+EVAL_ITER 62 3.35969830
+EVAL_ITER 63 3.48290038
+EVAL_ITER 64 3.12851524
+EVAL_ITER 65 3.40671754
+EVAL_ITER 66 3.18515205
+EVAL_ITER 67 3.36517501
+EVAL_ITER 68 3.33910036
+EVAL_ITER 69 3.34486175
+EVAL_ITER 70 3.45522451
+EVAL_ITER 71 3.37188148
+EVAL_ITER 72 3.45005774
+EVAL_ITER 73 3.34313536
+EVAL_ITER 74 3.41322064
+EVAL_ITER 75 3.33973241
+EVAL_ITER 76 3.30841208
+EVAL_ITER 77 3.34714842
+EVAL_ITER 78 3.37099504
+EVAL_ITER 79 3.43452907
+EVAL_ITER 80 3.38591552
+EVAL_ITER 81 3.35046816
+EVAL_ITER 82 3.46591306
+EVAL_ITER 83 3.22605014
+EVAL_ITER 84 3.34536171
+EVAL_ITER 85 3.23772311
+EVAL_ITER 86 3.41841078
+EVAL_ITER 87 3.31015611
+EVAL_ITER 88 3.44994998
+EVAL_ITER 89 3.26847100
+EVAL_ITER 90 3.37087107
+EVAL_ITER 91 3.36862373
+EVAL_ITER 92 3.51228762
+EVAL_ITER 93 3.34444785
+EVAL_ITER 94 3.33448267
+EVAL_ITER 95 3.32084107
+EVAL_ITER 96 3.47582722
+EVAL_ITER 97 3.23771858
+EVAL_ITER 98 3.21794653
+EVAL_ITER 99 3.35499883
+EVAL_ITER 100 3.24809456
+EVAL_ITER 101 3.35706329
+EVAL_ITER 102 3.42439914
+EVAL_ITER 103 3.29599738
+EVAL_ITER 104 3.25738454
+EVAL_ITER 105 3.28916025
+EVAL_ITER 106 3.34654999
+EVAL_ITER 107 3.39476967
+EVAL_ITER 108 3.40711141
+EVAL_ITER 109 3.18519926
+EVAL_ITER 110 3.26930785
+EVAL_ITER 111 3.22338438
+EVAL_ITER 112 3.34105086
+EVAL_ITER 113 3.33005047
+EVAL_ITER 114 3.27592134
+EVAL_ITER 115 3.33832264
+EVAL_ITER 116 3.31068325
+EVAL_ITER 117 3.52628732
+EVAL_ITER 118 3.37276149
+EVAL_ITER 119 3.30370975
+EVAL_ITER 120 3.36459017
+EVAL_ITER 121 3.30594063
+EVAL_ITER 122 3.26416659
+EVAL_ITER 123 3.38635540
+EVAL_ITER 124 3.37010622
+EVAL_ITER 125 3.19583035
+EVAL_ITER 126 3.44268537
+EVAL_ITER 127 3.40987945
+EVAL_ITER 128 3.35645890
+EVAL_ITER 129 3.29858756
+EVAL_ITER 130 3.37410092
+EVAL_ITER 131 3.17913675
+EVAL_ITER 132 3.38385010
+EVAL_ITER 133 3.28575897
+EVAL_ITER 134 3.36105371
+EVAL_ITER 135 3.34517694
+EVAL_ITER 136 3.35718966
+EVAL_ITER 137 3.25426960
+EVAL_ITER 138 3.44217968
+EVAL_ITER 139 3.43187785
+EVAL_ITER 140 3.28854299
+EVAL_ITER 141 3.36171985
+EVAL_ITER 142 3.38116074
+EVAL_ITER 143 3.45926166
+EVAL_ITER 144 3.27530193
+EVAL_ITER 145 3.27187085
+EVAL_ITER 146 3.34207249
+EVAL_ITER 147 3.37675095
+EVAL_ITER 148 3.31659055
+EVAL_ITER 149 3.31818390
+EVAL_ITER 150 3.33920479
+EVAL_ITER 151 3.39533663
+EVAL_ITER 152 3.33623099
+EVAL_ITER 153 3.39576197
+EVAL_ITER 154 3.32048512
+EVAL_ITER 155 3.34678149
+EVAL_ITER 156 3.29885364
+EVAL_ITER 157 3.45073247
+EVAL_ITER 158 3.37360716
+EVAL_ITER 159 3.40856600
+EVAL_ITER 160 3.36196876
+EVAL_ITER 161 3.34348392
+EVAL_ITER 162 3.24309659
+EVAL_ITER 163 3.40049267
+EVAL_ITER 164 3.28793931
+EVAL_ITER 165 3.27111864
+EVAL_ITER 166 3.10720658
+EVAL_ITER 167 3.28822947
+EVAL_ITER 168 3.35575080
+EVAL_ITER 169 3.39141870
+EVAL_ITER 170 3.25913000
+EVAL_ITER 171 3.42444897
+EVAL_ITER 172 3.36289740
+EVAL_ITER 173 3.18653011
+EVAL_ITER 174 3.42726946
+EVAL_ITER 175 3.35372162
+EVAL_ITER 176 3.30612540
+EVAL_ITER 177 3.31192422
+EVAL_ITER 178 3.28930569
+EVAL_ITER 179 3.31994605
+EVAL_ITER 180 3.39670324
+EVAL_ITER 181 3.31388378
+EVAL_ITER 182 3.36962652
+EVAL_ITER 183 3.34414434
+EVAL_ITER 184 3.40632915
+EVAL_ITER 185 3.37482905
+EVAL_ITER 186 3.29107738
+EVAL_ITER 187 3.40243959
+EVAL_ITER 188 3.23435760
+EVAL_ITER 189 3.42984533
+EVAL_ITER 190 3.29077840
+EVAL_ITER 191 3.14459181
+EVAL_ITER 192 3.20814896
+EVAL_ITER 193 3.41664171
+EVAL_ITER 194 3.38470840
+EVAL_ITER 195 3.42737937
+EVAL_ITER 196 3.21267939
+EVAL_ITER 197 3.38088965
+EVAL_ITER 198 3.33108568
+EVAL_ITER 199 3.43194485
+EVAL_ITER 200 3.42863989
+EVAL_ITER 201 3.37471914
+EVAL_ITER 202 3.49263096
+EVAL_ITER 203 3.47875643
+EVAL_ITER 204 3.42958736
+EVAL_ITER 205 3.25613570
+EVAL_ITER 206 3.23002076
+EVAL_ITER 207 3.31886363
+EVAL_ITER 208 3.29757404
+EVAL_ITER 209 3.37973785
+EVAL_ITER 210 3.41993809
+EVAL_ITER 211 3.27133417
+EVAL_ITER 212 3.28269410
+EVAL_ITER 213 3.34346628
+EVAL_ITER 214 3.37597609
+EVAL_ITER 215 3.43312788
+EVAL_ITER 216 3.34549737
+EVAL_ITER 217 3.42300582
+EVAL_ITER 218 3.44696522
+EVAL_ITER 219 3.36899948
+EVAL_ITER 220 3.44650984
+EVAL_ITER 221 3.37965322
+EVAL_ITER 222 3.39688134
+EVAL_ITER 223 3.06505442
+EVAL_ITER 224 2.99351692
+EVAL_ITER 225 3.25316095
+EVAL_ITER 226 3.32944679
+EVAL_ITER 227 3.25690103
+EVAL_ITER 228 3.52768183
+EVAL_ITER 229 3.48325753
+EVAL_ITER 230 3.29868698
+EVAL_ITER 231 3.29748726
+EVAL_ITER 232 3.28861856
+EVAL_ITER 233 3.37954307
+EVAL_ITER 234 3.34557390
+EVAL_ITER 235 3.40932560
+EVAL_ITER 236 3.34265661
+EVAL_ITER 237 3.26358461
+EVAL_ITER 238 3.27815843
+EVAL_ITER 239 3.31331205
+EVAL_ITER 240 3.31932545
+EVAL_ITER 241 3.31973648
+EVAL_ITER 242 3.39594293
+EVAL_ITER 243 3.29282022
+EVAL_ITER 244 3.24748373
+EVAL_ITER 245 3.35733557
+EVAL_ITER 246 3.28918624
+EVAL_ITER 247 3.35122967
+EVAL_ITER 248 3.32243586
+EVAL_ITER 249 3.29187226
+EVAL_ITER 250 3.31668162
+EVAL_ITER 251 3.24316955
+EVAL_ITER 252 3.27246594
+EVAL_ITER 253 3.31162858
+EVAL_ITER 254 3.41091442
+EVAL_ITER 255 3.34067249
+EVAL_ITER 256 3.30157900
+EVAL_ITER 257 3.32923031
+EVAL_ITER 258 3.31677866
+EVAL_ITER 259 3.42735648
+EVAL_ITER 260 3.43657112
+EVAL_ITER 261 3.37746763
+EVAL_ITER 262 3.28924608
+EVAL_ITER 263 3.48501706
+EVAL_ITER 264 3.44513392
+EVAL_ITER 265 3.23909187
+EVAL_ITER 266 3.29665804
+EVAL_ITER 267 3.25293016
+EVAL_ITER 268 3.38658214
+EVAL_ITER 269 3.43352866
+EVAL_ITER 270 3.31152415
+EVAL_ITER 271 3.53025293
+EVAL_ITER 272 3.19202805
+EVAL_ITER 273 3.39826107
+EVAL_ITER 274 3.37579298
+EVAL_ITER 275 3.27745533
+EVAL_ITER 276 3.42734218
+EVAL_ITER 277 3.28319740
+EVAL_ITER 278 3.32927918
+EVAL_ITER 279 3.37783360
+EVAL_ITER 280 3.31473947
+EVAL_ITER 281 3.40073109
+EVAL_ITER 282 3.39921117
+EVAL_ITER 283 3.24211621
+EVAL_ITER 284 3.26850963
+EVAL_ITER 285 3.43179846
+EVAL_ITER 286 3.36700845
+EVAL_ITER 287 3.42513013
+EVAL_ITER 288 3.37649083
+EVAL_ITER 289 3.27034521
+EVAL_ITER 290 3.45343852
+EVAL_ITER 291 3.28617954
+EVAL_ITER 292 3.30880761
+EVAL_ITER 293 3.30428433
+EVAL_ITER 294 3.38212800
+EVAL_ITER 295 3.41228771
+EVAL_ITER 296 3.21156693
+EVAL_ITER 297 3.38108468
+EVAL_ITER 298 3.41942787
+EVAL_ITER 299 3.27181268
+EVAL_ITER 300 3.52048278
+EVAL_ITER 301 3.36390877
+EVAL_ITER 302 3.28565550
+EVAL_ITER 303 3.18731165
+EVAL_ITER 304 3.40223289
+EVAL_ITER 305 3.37896562
+EVAL_ITER 306 3.58317947
+EVAL_ITER 307 3.40030217
+EVAL_ITER 308 3.24354076
+EVAL_ITER 309 3.30111980
+EVAL_ITER 310 3.41830826
+EVAL_ITER 311 3.41167021
+EVAL_ITER 312 3.37421608
+EVAL_ITER 313 3.22488427
+EVAL_ITER 314 3.26952910
+EVAL_ITER 315 3.31834364
+EVAL_ITER 316 3.25170207
+EVAL_ITER 317 3.30411530
+EVAL_ITER 318 3.37369680
+EVAL_ITER 319 3.17522049
+EVAL_ITER 320 3.42129135
+EVAL_ITER 321 3.49679923
+EVAL_ITER 322 3.33500576
+EVAL_ITER 323 3.40656257
+EVAL_ITER 324 3.25887966
+EVAL_ITER 325 3.33779001
+EVAL_ITER 326 3.37667084
+EVAL_ITER 327 3.32709360
+EVAL_ITER 328 3.39729714
+EVAL_ITER 329 3.39018106
+EVAL_ITER 330 3.33093643
+EVAL_ITER 331 3.44117117
+EVAL_ITER 332 3.23183441
+EVAL_ITER 333 3.46033978
+EVAL_ITER 334 3.18411040
+EVAL_ITER 335 3.46835518
+EVAL_ITER 336 3.40227628
+EVAL_ITER 337 3.30069733
+EVAL_ITER 338 3.46219015
+EVAL_ITER 339 3.31200886
+EVAL_ITER 340 3.34771276
+EVAL_ITER 341 3.32192588
+EVAL_ITER 342 3.33269858
+EVAL_ITER 343 3.18921041
+EVAL_ITER 344 3.33108950
+EVAL_ITER 345 3.40088296
+EVAL_ITER 346 3.38846946
+EVAL_ITER 347 3.36738086
+EVAL_ITER 348 3.26734877
+EVAL_ITER 349 3.37641907
+EVAL_ITER 350 3.35157967
+EVAL_ITER 351 3.39527631
+EVAL_ITER 352 3.30938697
+EVAL_ITER 353 3.41174555
+EVAL_ITER 354 3.53555799
+EVAL_ITER 355 3.61036372
+EVAL_ITER 356 3.31581664
+EVAL_ITER 357 3.40124416
+EVAL_ITER 358 3.42044020
+EVAL_ITER 359 3.28304219
+EVAL_ITER 360 3.44411445
+EVAL_ITER 361 3.25802612
+EVAL_ITER 362 3.45264292
+EVAL_ITER 363 3.38254595
+EVAL_ITER 364 3.29196835
+EVAL_ITER 365 3.39909506
+EVAL_ITER 366 3.27425337
+EVAL_ITER 367 3.33019257
+EVAL_ITER 368 3.27006650
+EVAL_ITER 369 3.33440065
+EVAL_ITER 370 3.36077070
+EVAL_ITER 371 3.37514424
+EVAL_ITER 372 3.38459945
+EVAL_ITER 373 3.44687557
+EVAL_ITER 374 3.37313914
+EVAL_ITER 375 3.19983721
+EVAL_ITER 376 3.35645890
+EVAL_ITER 377 3.23501468
+EVAL_ITER 378 3.36315298
+EVAL_ITER 379 3.51237726
+EVAL_ITER 380 3.29593515
+EVAL_ITER 381 3.43481064
+EVAL_ITER 382 3.38982320
+EVAL_ITER 383 3.38076019
+EVAL_ITER 384 3.39464378
+EVAL_ITER 385 3.43284869
+EVAL_ITER 386 3.25942349
+EVAL_ITER 387 3.33381796
+EVAL_ITER 388 3.38623643
+EVAL_ITER 389 3.41408443
+EVAL_ITER 390 3.33243275
+EVAL_ITER 391 3.39523745
+EVAL_ITER 392 3.28000998
+EVAL_ITER 393 3.48529983
+EVAL_ITER 394 3.22803712
+EVAL_ITER 395 3.23595667
+EVAL_ITER 396 3.29399276
+EVAL_ITER 397 3.40455604
+EVAL_ITER 398 3.29299617
+EVAL_ITER 399 3.14553332
+EVAL_ITER 400 3.39411688
+EVAL_ITER 401 3.18799114
+EVAL_ITER 402 3.30786800
+EVAL_ITER 403 3.41878629
+EVAL_ITER 404 3.13998246
+EVAL_ITER 405 3.25996733
+EVAL_ITER 406 3.46136761
+EVAL_ITER 407 3.32333136
+EVAL_ITER 408 3.43286157
+EVAL_ITER 409 3.53158355
+EVAL_ITER 410 3.42895150
+EVAL_ITER 411 3.33241463
+EVAL_ITER 412 3.24157333
+EVAL_ITER 413 3.38634253
+EVAL_ITER 414 3.40401483
+EVAL_ITER 415 3.31237459
+EVAL_ITER 416 3.42192626
+EVAL_ITER 417 3.44002008
+EVAL_ITER 418 3.39060450
+EVAL_ITER 419 3.30603361
+EVAL_ITER 420 3.10945773
+EVAL_ITER 421 3.47739863
+EVAL_ITER 422 3.27083063
+EVAL_ITER 423 3.30575299
+EVAL_ITER 424 3.38501596
+EVAL_ITER 425 3.29819036
+EVAL_ITER 426 3.36490107
+EVAL_ITER 427 3.43548441
+EVAL_ITER 428 3.14788342
+EVAL_ITER 429 3.27718544
+EVAL_ITER 430 3.29066229
+EVAL_ITER 431 3.39568210
+EVAL_ITER 432 3.30703449
+EVAL_ITER 433 3.34241724
+EVAL_ITER 434 3.20829630
+EVAL_ITER 435 3.30059314
+EVAL_ITER 436 3.27638221
+EVAL_ITER 437 3.35419798
+EVAL_ITER 438 3.25412226
+EVAL_ITER 439 3.35549498
+EVAL_ITER 440 3.34444594
+EVAL_ITER 441 3.21520543
+EVAL_ITER 442 3.41088319
+EVAL_ITER 443 3.35068393
+EVAL_ITER 444 3.19459295
+EVAL_ITER 445 3.37251234
+EVAL_ITER 446 3.32123899
+EVAL_ITER 447 3.43552685
+EVAL_ITER 448 3.29881811
+EVAL_ITER 449 3.33879757
+EVAL_ITER 450 3.38139200
+EVAL_ITER 451 3.24258614
+EVAL_ITER 452 3.29868817
+EVAL_ITER 453 3.30667830
+EVAL_ITER 454 3.22106409
+EVAL_ITER 455 3.24244213
+EVAL_ITER 456 3.30334592
+EVAL_ITER 457 3.29282141
+EVAL_ITER 458 3.40221596
+EVAL_ITER 459 3.29944324
+EVAL_ITER 460 3.19966745
+EVAL_ITER 461 3.33691335
+EVAL_ITER 462 3.25416923
+EVAL_ITER 463 3.36536312
+EVAL_ITER 464 3.13567781
+EVAL_ITER 465 3.34861588
+EVAL_ITER 466 3.31541491
+EVAL_ITER 467 3.35311484
+EVAL_ITER 468 3.28693604
+EVAL_ITER 469 3.29127550
+EVAL_ITER 470 3.28988123
+EVAL_ITER 471 3.32795620
+EVAL_ITER 472 3.34367466
+EVAL_ITER 473 3.21062827
+EVAL_ITER 474 3.25485039
+EVAL_ITER 475 3.42754173
+EVAL_ITER 476 3.24018621
+EVAL_ITER 477 3.13385201
+EVAL_ITER 478 3.27640438
+EVAL_ITER 479 3.19683957
+EVAL_ITER 480 3.35340643
+EVAL_ITER 481 3.27785730
+EVAL_ITER 482 3.44890475
+EVAL_ITER 483 3.30306363
+EVAL_ITER 484 3.40735006
+EVAL_ITER 485 3.26605415
+EVAL_ITER 486 3.36757755
+EVAL_ITER 487 3.35076976
+EVAL_ITER 488 3.41033673
+EVAL_ITER 489 3.33280110
+EVAL_ITER 490 3.22961450
+EVAL_ITER 491 3.35208535
+EVAL_ITER 492 3.34721947
+EVAL_ITER 493 3.27531075
+EVAL_ITER 494 3.29473114
+EVAL_ITER 495 3.42889261
+EVAL_ITER 496 3.29549050
+EVAL_ITER 497 3.37574911
+EVAL_ITER 498 3.35948420
+EVAL_ITER 499 3.47699451
+EVAL_ITER 500 3.38675737
+EVAL_ITER 501 3.23596048
+EVAL_ITER 502 3.30890822
+EVAL_ITER 503 3.17692184
+EVAL_ITER 504 3.38799620
+EVAL_ITER 505 3.35815382
+EVAL_ITER 506 3.36021709
+EVAL_ITER 507 3.32739162
+EVAL_ITER 508 3.41368175
+EVAL_ITER 509 3.31001806
+EVAL_ITER 510 3.38359022
+EVAL_ITER 511 3.27884030
+EVAL_ITER 512 3.25032425
+EVAL_ITER 513 3.21953225
+EVAL_ITER 514 3.38231277
+EVAL_ITER 515 3.29421830
+EVAL_ITER 516 3.32223606
+EVAL_ITER 517 3.20379877
+EVAL_ITER 518 3.21516204
+EVAL_ITER 519 3.32763696
+EVAL_ITER 520 3.28789377
+EVAL_ITER 521 3.38509345
+EVAL_ITER 522 3.41572762
+EVAL_ITER 523 3.39851999
+EVAL_ITER 524 3.32755208
+EVAL_ITER 525 3.47090387
+EVAL_ITER 526 3.17889786
+EVAL_ITER 527 3.32181025
+EVAL_ITER 528 3.37041616
+EVAL_ITER 529 3.28683043
+EVAL_ITER 530 3.18524075
+EVAL_ITER 531 3.33026648
+EVAL_ITER 532 3.39070010
+EVAL_ITER 533 3.23369980
+EVAL_ITER 534 3.34992743
+EVAL_ITER 535 3.17500877
+EVAL_ITER 536 3.33076692
+EVAL_ITER 537 3.43099523
+EVAL_ITER 538 3.28159976
+EVAL_ITER 539 3.44595098
+EVAL_ITER 540 3.37482452
+EVAL_ITER 541 3.16301727
+EVAL_ITER 542 3.32422352
+EVAL_ITER 543 3.30736256
+EVAL_ITER 544 3.42816806
+EVAL_ITER 545 3.36654282
+EVAL_ITER 546 3.31305695
+EVAL_ITER 547 3.25235319
+EVAL_ITER 548 3.25740147
+EVAL_ITER 549 3.37908459
+EVAL_ITER 550 3.37629199
+EVAL_ITER 551 3.31055260
+EVAL_ITER 552 3.35962391
+EVAL_ITER 553 3.22239995
+EVAL_ITER 554 3.18402839
+EVAL_ITER 555 3.31573749
+EVAL_ITER 556 3.39788413
+EVAL_ITER 557 3.21472430
+EVAL_ITER 558 3.33902049
+EVAL_ITER 559 3.25897145
+EVAL_ITER 560 3.28976989
+EVAL_ITER 561 3.46303844
+EVAL_ITER 562 3.29221845
+EVAL_ITER 563 3.44887185
+EVAL_ITER 564 3.50889754
+EVAL_ITER 565 3.34579062
+EVAL_ITER 566 3.43936181
+EVAL_ITER 567 3.47422504
+EVAL_ITER 568 3.35468578
+EVAL_ITER 569 3.18042779
+EVAL_ITER 570 3.25016141
+EVAL_ITER 571 3.38874769
+EVAL_ITER 572 3.40631580
+EVAL_ITER 573 3.43953419
+EVAL_ITER 574 3.42147160
+EVAL_ITER 575 3.42019033
+EVAL_ITER 576 3.38317275
+EVAL_ITER 577 3.39473438
+EVAL_ITER 578 3.35080671
+EVAL_ITER 579 3.32050776
+EVAL_ITER 580 3.43434644
+EVAL_ITER 581 3.28690076
+EVAL_ITER 582 3.19430089
+EVAL_ITER 583 3.32872987
+EVAL_ITER 584 3.44350767
+EVAL_ITER 585 3.25162101
+EVAL_ITER 586 3.40350556
+EVAL_ITER 587 3.24125004
+EVAL_ITER 588 3.38948107
+EVAL_ITER 589 3.33082604
+EVAL_ITER 590 3.37388420
+EVAL_ITER 591 3.32639742
+EVAL_ITER 592 3.39747643
+EVAL_ITER 593 3.22809529
+EVAL_ITER 594 3.52286005
+EVAL_ITER 595 3.40609169
+EVAL_ITER 596 3.18222117
+EVAL_ITER 597 3.37962890
+EVAL_ITER 598 3.39721870
+EVAL_ITER 599 3.45972276
+EVAL_ITER 600 3.39919519
+EVAL_ITER 601 3.28852725
+EVAL_ITER 602 3.39935827
+EVAL_ITER 603 3.15737438
+EVAL_ITER 604 3.24553823
+EVAL_ITER 605 3.35246181
+EVAL_ITER 606 3.27997351
+EVAL_ITER 607 3.55353546
+EVAL_ITER 608 3.41345739
+EVAL_ITER 609 3.26287460
+EVAL_ITER 610 3.41864705
+EVAL_ITER 611 3.23371124
+EVAL_ITER 612 3.20022345
+EVAL_ITER 613 3.29112506
+EVAL_ITER 614 3.36926794
+EVAL_ITER 615 3.42885351
+EVAL_ITER 616 3.41073060
+EVAL_ITER 617 3.33447742
+EVAL_ITER 618 3.37068272
+EVAL_ITER 619 3.30355906
+EVAL_ITER 620 3.30598569
+EVAL_ITER 621 3.23729157
+EVAL_ITER 622 3.27133727
+EVAL_ITER 623 3.35838914
+EVAL_ITER 624 3.36423373
+EVAL_ITER 625 3.39814115
+EVAL_ITER 626 3.37616062
+EVAL_ITER 627 3.35493279
+EVAL_ITER 628 3.17919970
+EVAL_ITER 629 3.43274283
+EVAL_ITER 630 3.34372830
+EVAL_ITER 631 3.24157119
+EVAL_ITER 632 3.42001200
+EVAL_ITER 633 3.31374264
+EVAL_ITER 634 3.31681013
+EVAL_ITER 635 3.33934855
+EVAL_ITER 636 3.32742929
+EVAL_ITER 637 3.37873507
+EVAL_ITER 638 3.36057377
+EVAL_ITER 639 3.25421977
+EVAL_ITER 640 3.33741903
+/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py:81: FutureWarning: `torch.distributed._all_gather_base` is a private function and will be deprecated. Please use `torch.distributed.all_gather_into_tensor` instead.
+  return func(*args, **kwargs)
+(min, max) time across ranks (ms):
+    evaluate .......................................: (485362.61, 485363.04)
+-------------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 30000 on validation set | lm loss value: 3.337608E+00 | lm loss PPL: 2.815170E+01 | 
+-------------------------------------------------------------------------------------------------------------------
+EVAL_ITER 1 3.49215364
+EVAL_ITER 2 3.32210565
+EVAL_ITER 3 3.37324262
+EVAL_ITER 4 3.40054917
+EVAL_ITER 5 3.24438167
+EVAL_ITER 6 3.31770587
+EVAL_ITER 7 3.29640770
+EVAL_ITER 8 3.20709491
+EVAL_ITER 9 3.36350393
+EVAL_ITER 10 3.34075022
+EVAL_ITER 11 3.34486675
+EVAL_ITER 12 3.28568721
+EVAL_ITER 13 3.43953753
+EVAL_ITER 14 3.31219196
+EVAL_ITER 15 3.33015633
+EVAL_ITER 16 3.34343839
+EVAL_ITER 17 3.33415341
+EVAL_ITER 18 3.42914319
+EVAL_ITER 19 3.21841836
+EVAL_ITER 20 3.37523746
+EVAL_ITER 21 3.34882450
+EVAL_ITER 22 3.19600153
+EVAL_ITER 23 3.37055135
+EVAL_ITER 24 3.27412963
+EVAL_ITER 25 3.48638105
+EVAL_ITER 26 3.34031677
+EVAL_ITER 27 3.40510154
+EVAL_ITER 28 3.29607844
+EVAL_ITER 29 3.33476424
+EVAL_ITER 30 3.26189876
+EVAL_ITER 31 3.48514056
+EVAL_ITER 32 3.39850044
+EVAL_ITER 33 3.32129025
+EVAL_ITER 34 3.30236697
+EVAL_ITER 35 3.39406276
+EVAL_ITER 36 3.30759120
+EVAL_ITER 37 3.47369289
+EVAL_ITER 38 3.28117156
+EVAL_ITER 39 3.40328407
+EVAL_ITER 40 3.13468957
+EVAL_ITER 41 3.23095560
+EVAL_ITER 42 3.29819274
+EVAL_ITER 43 3.48880982
+EVAL_ITER 44 3.24179578
+EVAL_ITER 45 3.36304617
+EVAL_ITER 46 3.32268119
+EVAL_ITER 47 3.38711047
+EVAL_ITER 48 3.35455179
+EVAL_ITER 49 3.31155920
+EVAL_ITER 50 3.36170340
+EVAL_ITER 51 3.24271536
+EVAL_ITER 52 3.37803841
+EVAL_ITER 53 3.36024332
+EVAL_ITER 54 3.21765161
+EVAL_ITER 55 3.19408846
+EVAL_ITER 56 3.21324015
+EVAL_ITER 57 3.39709735
+EVAL_ITER 58 3.25342417
+EVAL_ITER 59 3.17180181
+EVAL_ITER 60 3.35565186
+EVAL_ITER 61 3.39649677
+EVAL_ITER 62 3.38810444
+EVAL_ITER 63 3.54596281
+EVAL_ITER 64 3.29899907
+EVAL_ITER 65 3.44524765
+EVAL_ITER 66 3.45204902
+EVAL_ITER 67 3.39916348
+EVAL_ITER 68 3.40566778
+EVAL_ITER 69 3.35419679
+EVAL_ITER 70 3.23231936
+EVAL_ITER 71 3.34500623
+EVAL_ITER 72 3.31967735
+EVAL_ITER 73 3.46192455
+EVAL_ITER 74 3.27698612
+EVAL_ITER 75 3.35578442
+EVAL_ITER 76 3.26399994
+EVAL_ITER 77 3.37819982
+EVAL_ITER 78 3.26366448
+EVAL_ITER 79 3.28099489
+EVAL_ITER 80 3.35454297
+EVAL_ITER 81 3.40366936
+EVAL_ITER 82 3.37462568
+EVAL_ITER 83 3.21751213
+EVAL_ITER 84 3.33085394
+EVAL_ITER 85 3.46408749
+EVAL_ITER 86 3.51812196
+EVAL_ITER 87 3.32345104
+EVAL_ITER 88 3.38440871
+EVAL_ITER 89 3.34290171
+EVAL_ITER 90 3.23561621
+EVAL_ITER 91 3.38808560
+EVAL_ITER 92 3.48640513
+EVAL_ITER 93 3.35072470
+EVAL_ITER 94 3.31200862
+EVAL_ITER 95 3.32805014
+EVAL_ITER 96 3.38723397
+EVAL_ITER 97 3.52197433
+EVAL_ITER 98 3.36075354
+EVAL_ITER 99 3.33359528
+EVAL_ITER 100 3.30498195
+EVAL_ITER 101 3.21244526
+EVAL_ITER 102 3.46086168
+EVAL_ITER 103 3.34401417
+EVAL_ITER 104 3.36872196
+EVAL_ITER 105 3.53386760
+EVAL_ITER 106 3.29279017
+EVAL_ITER 107 3.23920465
+EVAL_ITER 108 3.37251067
+EVAL_ITER 109 3.40617275
+EVAL_ITER 110 3.33711505
+EVAL_ITER 111 3.20672536
+EVAL_ITER 112 3.20225835
+EVAL_ITER 113 3.38721085
+EVAL_ITER 114 3.31435251
+EVAL_ITER 115 3.37455559
+EVAL_ITER 116 3.39401293
+EVAL_ITER 117 3.37532139
+EVAL_ITER 118 3.43845844
+EVAL_ITER 119 3.28639698
+EVAL_ITER 120 3.33241057
+EVAL_ITER 121 3.36987829
+EVAL_ITER 122 3.23987865
+EVAL_ITER 123 3.41995788
+EVAL_ITER 124 3.35850668
+EVAL_ITER 125 3.37351084
+EVAL_ITER 126 3.24271488
+EVAL_ITER 127 3.11999464
+EVAL_ITER 128 3.54431081
+EVAL_ITER 129 3.26711321
+EVAL_ITER 130 3.26689100
+EVAL_ITER 131 3.23968077
+EVAL_ITER 132 3.32438064
+EVAL_ITER 133 3.29692817
+EVAL_ITER 134 3.47478557
+EVAL_ITER 135 3.40835619
+EVAL_ITER 136 3.41956496
+EVAL_ITER 137 3.37158203
+EVAL_ITER 138 3.19260240
+EVAL_ITER 139 3.34363413
+EVAL_ITER 140 3.25755548
+EVAL_ITER 141 3.35154247
+EVAL_ITER 142 3.26223516
+EVAL_ITER 143 3.57672811
+EVAL_ITER 144 3.28004861
+EVAL_ITER 145 3.41482663
+EVAL_ITER 146 3.34704256
+EVAL_ITER 147 3.28407502
+EVAL_ITER 148 3.36377525
+EVAL_ITER 149 3.22668767
+EVAL_ITER 150 3.22901392
+EVAL_ITER 151 3.28995395
+EVAL_ITER 152 3.35501981
+EVAL_ITER 153 3.43375635
+EVAL_ITER 154 3.31286645
+EVAL_ITER 155 3.22573280
+EVAL_ITER 156 3.18830156
+EVAL_ITER 157 3.17719817
+EVAL_ITER 158 3.32436657
+EVAL_ITER 159 3.34423661
+EVAL_ITER 160 3.35421062
+EVAL_ITER 161 3.39982486
+EVAL_ITER 162 3.30288792
+EVAL_ITER 163 3.16907382
+EVAL_ITER 164 3.38312626
+EVAL_ITER 165 3.49336076
+EVAL_ITER 166 3.33390093
+EVAL_ITER 167 3.40530109
+EVAL_ITER 168 3.26984119
+EVAL_ITER 169 3.37550426
+EVAL_ITER 170 3.44738078
+EVAL_ITER 171 3.27601290
+EVAL_ITER 172 3.30701804
+EVAL_ITER 173 3.40859604
+EVAL_ITER 174 3.41516399
+EVAL_ITER 175 3.32873082
+EVAL_ITER 176 3.23145437
+EVAL_ITER 177 3.36201859
+EVAL_ITER 178 3.36303186
+EVAL_ITER 179 3.30410361
+EVAL_ITER 180 3.42808890
+EVAL_ITER 181 3.32702017
+EVAL_ITER 182 3.35970211
+EVAL_ITER 183 3.34656882
+EVAL_ITER 184 3.38159704
+EVAL_ITER 185 3.23632336
+EVAL_ITER 186 3.38641858
+EVAL_ITER 187 3.34028435
+EVAL_ITER 188 3.48785996
+EVAL_ITER 189 3.38254833
+EVAL_ITER 190 3.34971619
+EVAL_ITER 191 3.27053356
+EVAL_ITER 192 3.30148935
+EVAL_ITER 193 3.30609012
+EVAL_ITER 194 3.39341784
+EVAL_ITER 195 3.37554383
+EVAL_ITER 196 3.23642588
+EVAL_ITER 197 3.31779528
+EVAL_ITER 198 3.31934738
+EVAL_ITER 199 3.36250162
+EVAL_ITER 200 3.40808606
+EVAL_ITER 201 3.37121797
+EVAL_ITER 202 3.35478783
+EVAL_ITER 203 3.43091559
+EVAL_ITER 204 3.38875389
+EVAL_ITER 205 3.28125000
+EVAL_ITER 206 3.37809920
+EVAL_ITER 207 3.37527871
+EVAL_ITER 208 3.42733192
+EVAL_ITER 209 3.29784417
+EVAL_ITER 210 3.27981257
+EVAL_ITER 211 3.34708071
+EVAL_ITER 212 3.39117432
+EVAL_ITER 213 3.30214834
+EVAL_ITER 214 3.37003636
+EVAL_ITER 215 3.46211338
+EVAL_ITER 216 3.40717554
+EVAL_ITER 217 3.38413095
+EVAL_ITER 218 3.36956334
+EVAL_ITER 219 3.21425271
+EVAL_ITER 220 3.32754993
+EVAL_ITER 221 3.39156008
+EVAL_ITER 222 3.25907493
+EVAL_ITER 223 3.43292236
+EVAL_ITER 224 3.45325637
+EVAL_ITER 225 3.46109152
+EVAL_ITER 226 3.32271361
+EVAL_ITER 227 3.30289650
+EVAL_ITER 228 3.31636333
+EVAL_ITER 229 3.29097223
+EVAL_ITER 230 3.19595575
+EVAL_ITER 231 3.36903238
+EVAL_ITER 232 3.26446366
+EVAL_ITER 233 3.32768965
+EVAL_ITER 234 3.29714799
+EVAL_ITER 235 3.37227225
+EVAL_ITER 236 3.36632156
+EVAL_ITER 237 3.30154395
+EVAL_ITER 238 3.46328640
+EVAL_ITER 239 3.28625441
+EVAL_ITER 240 3.39326000
+EVAL_ITER 241 3.40839291
+EVAL_ITER 242 3.32771969
+EVAL_ITER 243 3.21739388
+EVAL_ITER 244 3.41299057
+EVAL_ITER 245 3.44852400
+EVAL_ITER 246 3.33005643
+EVAL_ITER 247 3.36077547
+EVAL_ITER 248 3.35200214
+EVAL_ITER 249 3.32247806
+EVAL_ITER 250 3.21613407
+EVAL_ITER 251 3.31711817
+EVAL_ITER 252 3.23909593
+EVAL_ITER 253 3.33675146
+EVAL_ITER 254 3.28772593
+EVAL_ITER 255 3.18508410
+EVAL_ITER 256 3.28086114
+EVAL_ITER 257 3.32310462
+EVAL_ITER 258 3.28671598
+EVAL_ITER 259 3.38769269
+EVAL_ITER 260 3.36520624
+EVAL_ITER 261 3.23336482
+EVAL_ITER 262 3.37752628
+EVAL_ITER 263 3.29362559
+EVAL_ITER 264 3.42067075
+EVAL_ITER 265 3.38830423
+EVAL_ITER 266 3.38794470
+EVAL_ITER 267 3.39165020
+EVAL_ITER 268 3.33924246
+EVAL_ITER 269 3.41549349
+EVAL_ITER 270 3.31014681
+EVAL_ITER 271 3.42975879
+EVAL_ITER 272 3.23265982
+EVAL_ITER 273 3.26902294
+EVAL_ITER 274 3.36669254
+EVAL_ITER 275 3.36344218
+EVAL_ITER 276 3.44339585
+EVAL_ITER 277 3.25995874
+EVAL_ITER 278 3.31425953
+EVAL_ITER 279 3.32747197
+EVAL_ITER 280 3.37738204
+EVAL_ITER 281 3.31018019
+EVAL_ITER 282 3.39053226
+EVAL_ITER 283 3.23631811
+EVAL_ITER 284 3.39350319
+EVAL_ITER 285 3.31509256
+EVAL_ITER 286 3.39198828
+EVAL_ITER 287 3.17473054
+EVAL_ITER 288 3.32955194
+EVAL_ITER 289 3.32004213
+EVAL_ITER 290 3.39067245
+EVAL_ITER 291 3.42191315
+EVAL_ITER 292 3.34300113
+EVAL_ITER 293 3.34056616
+EVAL_ITER 294 3.33219433
+EVAL_ITER 295 3.30202961
+EVAL_ITER 296 3.38676333
+EVAL_ITER 297 3.36918759
+EVAL_ITER 298 3.46517205
+EVAL_ITER 299 3.46564770
+EVAL_ITER 300 3.35756826
+EVAL_ITER 301 3.31759977
+EVAL_ITER 302 3.40627503
+EVAL_ITER 303 3.26263618
+EVAL_ITER 304 3.28327370
+EVAL_ITER 305 3.33115888
+EVAL_ITER 306 3.41934085
+EVAL_ITER 307 3.31330228
+EVAL_ITER 308 3.38608456
+EVAL_ITER 309 3.35474849
+EVAL_ITER 310 3.35626221
+EVAL_ITER 311 3.25058651
+EVAL_ITER 312 3.20478272
+EVAL_ITER 313 3.38429737
+EVAL_ITER 314 3.25196481
+EVAL_ITER 315 3.41138220
+EVAL_ITER 316 3.28218341
+EVAL_ITER 317 3.47568583
+EVAL_ITER 318 3.21877503
+EVAL_ITER 319 3.37366605
+EVAL_ITER 320 3.38983297
+EVAL_ITER 321 3.36710382
+EVAL_ITER 322 3.18163204
+EVAL_ITER 323 3.45241427
+EVAL_ITER 324 3.45343065
+EVAL_ITER 325 3.39274168
+EVAL_ITER 326 3.33401513
+EVAL_ITER 327 3.21508932
+EVAL_ITER 328 3.34322143
+EVAL_ITER 329 3.31223607
+EVAL_ITER 330 3.26763749
+EVAL_ITER 331 3.33474636
+EVAL_ITER 332 3.38578653
+EVAL_ITER 333 3.32727289
+EVAL_ITER 334 3.34665489
+EVAL_ITER 335 3.39916873
+EVAL_ITER 336 3.33503270
+EVAL_ITER 337 3.45924020
+EVAL_ITER 338 3.33975244
+EVAL_ITER 339 3.43883038
+EVAL_ITER 340 3.36768293
+EVAL_ITER 341 3.33098435
+EVAL_ITER 342 3.29625869
+EVAL_ITER 343 3.37498951
+EVAL_ITER 344 3.49540830
+EVAL_ITER 345 3.42354584
+EVAL_ITER 346 3.40467906
+EVAL_ITER 347 3.34840417
+EVAL_ITER 348 3.42081428
+EVAL_ITER 349 3.34619284
+EVAL_ITER 350 3.38051772
+EVAL_ITER 351 3.29163933
+EVAL_ITER 352 3.42946196
+EVAL_ITER 353 3.30948997
+EVAL_ITER 354 3.32227015
+EVAL_ITER 355 3.33492446
+EVAL_ITER 356 3.35563898
+EVAL_ITER 357 3.33454347
+EVAL_ITER 358 3.29437017
+EVAL_ITER 359 3.31157446
+EVAL_ITER 360 3.27075315
+EVAL_ITER 361 3.42867279
+EVAL_ITER 362 3.52396059
+EVAL_ITER 363 3.14171028
+EVAL_ITER 364 3.33885407
+EVAL_ITER 365 3.30280113
+EVAL_ITER 366 3.45315933
+EVAL_ITER 367 3.23939180
+EVAL_ITER 368 3.30388165
+EVAL_ITER 369 3.37488365
+EVAL_ITER 370 3.28704309
+EVAL_ITER 371 3.41747427
+EVAL_ITER 372 3.37496734
+EVAL_ITER 373 3.42357063
+EVAL_ITER 374 3.26786160
+EVAL_ITER 375 3.24935555
+EVAL_ITER 376 3.29981685
+EVAL_ITER 377 3.34830189
+EVAL_ITER 378 3.40026283
+EVAL_ITER 379 3.24914241
+EVAL_ITER 380 3.29287457
+EVAL_ITER 381 3.25351334
+EVAL_ITER 382 3.42431760
+EVAL_ITER 383 3.33143854
+EVAL_ITER 384 3.36363268
+EVAL_ITER 385 3.39851069
+EVAL_ITER 386 3.27174807
+EVAL_ITER 387 3.23020554
+EVAL_ITER 388 3.36576557
+EVAL_ITER 389 3.51553059
+EVAL_ITER 390 3.25943756
+EVAL_ITER 391 3.40068197
+EVAL_ITER 392 3.36672688
+EVAL_ITER 393 3.34701204
+EVAL_ITER 394 3.30358887
+EVAL_ITER 395 3.45164728
+EVAL_ITER 396 3.22598958
+EVAL_ITER 397 3.35085535
+EVAL_ITER 398 3.33032680
+EVAL_ITER 399 3.36922383
+EVAL_ITER 400 3.39289904
+EVAL_ITER 401 3.32959604
+EVAL_ITER 402 3.29193616
+EVAL_ITER 403 3.34324431
+EVAL_ITER 404 3.34559345
+EVAL_ITER 405 3.42104483
+EVAL_ITER 406 3.35213923
+EVAL_ITER 407 3.20385408
+EVAL_ITER 408 3.33666372
+EVAL_ITER 409 3.37383246
+EVAL_ITER 410 3.43863487
+EVAL_ITER 411 3.31004977
+EVAL_ITER 412 3.23342109
+EVAL_ITER 413 3.32895136
+EVAL_ITER 414 3.38567162
+EVAL_ITER 415 3.29801798
+EVAL_ITER 416 3.48684335
+EVAL_ITER 417 3.36602020
+EVAL_ITER 418 3.42855811
+EVAL_ITER 419 3.29415822
+EVAL_ITER 420 3.32433271
+EVAL_ITER 421 3.39043307
+EVAL_ITER 422 3.39789414
+EVAL_ITER 423 3.35993576
+EVAL_ITER 424 3.31931829
+EVAL_ITER 425 3.47253466
+EVAL_ITER 426 3.37437797
+EVAL_ITER 427 3.25804305
+EVAL_ITER 428 3.41328478
+EVAL_ITER 429 3.28917408
+EVAL_ITER 430 3.41753387
+EVAL_ITER 431 3.36955261
+EVAL_ITER 432 3.23565531
+EVAL_ITER 433 3.37398076
+EVAL_ITER 434 3.27872181
+EVAL_ITER 435 3.33693933
+EVAL_ITER 436 3.48745584
+EVAL_ITER 437 3.39722037
+EVAL_ITER 438 3.29353786
+EVAL_ITER 439 3.34365845
+EVAL_ITER 440 3.35138011
+EVAL_ITER 441 3.39698172
+EVAL_ITER 442 3.27850723
+EVAL_ITER 443 3.34871864
+EVAL_ITER 444 3.17233753
+EVAL_ITER 445 3.44748974
+EVAL_ITER 446 3.30683589
+EVAL_ITER 447 3.27118134
+EVAL_ITER 448 3.35463142
+EVAL_ITER 449 3.33727574
+EVAL_ITER 450 3.42455077
+EVAL_ITER 451 3.41338587
+EVAL_ITER 452 3.38648415
+EVAL_ITER 453 3.38930941
+EVAL_ITER 454 3.45383048
+EVAL_ITER 455 3.29008317
+EVAL_ITER 456 3.27133107
+EVAL_ITER 457 3.44439507
+EVAL_ITER 458 3.41214800
+EVAL_ITER 459 3.22328734
+EVAL_ITER 460 3.36064506
+EVAL_ITER 461 3.39554667
+EVAL_ITER 462 3.36939335
+EVAL_ITER 463 3.27890706
+EVAL_ITER 464 3.28351259
+EVAL_ITER 465 3.38137627
+EVAL_ITER 466 3.26666212
+EVAL_ITER 467 3.39493990
+EVAL_ITER 468 3.39776206
+EVAL_ITER 469 3.37996626
+EVAL_ITER 470 3.25968742
+EVAL_ITER 471 3.25609040
+EVAL_ITER 472 3.33771229
+EVAL_ITER 473 3.33660030
+EVAL_ITER 474 3.40164280
+EVAL_ITER 475 3.24674654
+EVAL_ITER 476 3.40665102
+EVAL_ITER 477 3.29437399
+EVAL_ITER 478 3.31935167
+EVAL_ITER 479 3.40195417
+EVAL_ITER 480 3.35053539
+EVAL_ITER 481 3.39472961
+EVAL_ITER 482 3.50401735
+EVAL_ITER 483 3.45056939
+EVAL_ITER 484 3.35298920
+EVAL_ITER 485 3.31011820
+EVAL_ITER 486 3.24164009
+EVAL_ITER 487 3.36984301
+EVAL_ITER 488 3.32129860
+EVAL_ITER 489 3.41699457
+EVAL_ITER 490 3.33883119
+EVAL_ITER 491 3.39587069
+EVAL_ITER 492 3.34942532
+EVAL_ITER 493 3.32341695
+EVAL_ITER 494 3.21615601
+EVAL_ITER 495 3.33755159
+EVAL_ITER 496 3.42137814
+EVAL_ITER 497 3.28051138
+EVAL_ITER 498 3.27877283
+EVAL_ITER 499 3.32086658
+EVAL_ITER 500 3.44864917
+EVAL_ITER 501 3.43642497
+EVAL_ITER 502 3.24339151
+EVAL_ITER 503 3.32152867
+EVAL_ITER 504 3.43923092
+EVAL_ITER 505 3.42047119
+EVAL_ITER 506 3.24741340
+EVAL_ITER 507 3.42773008
+EVAL_ITER 508 3.37549543
+EVAL_ITER 509 3.34444642
+EVAL_ITER 510 3.38257098
+EVAL_ITER 511 3.30310392
+EVAL_ITER 512 3.34107733
+EVAL_ITER 513 3.27337098
+EVAL_ITER 514 3.23292518
+EVAL_ITER 515 3.36202860
+EVAL_ITER 516 3.24933171
+EVAL_ITER 517 3.33478403
+EVAL_ITER 518 3.32073975
+EVAL_ITER 519 3.35675478
+EVAL_ITER 520 3.37251902
+EVAL_ITER 521 3.47900677
+EVAL_ITER 522 3.41904306
+EVAL_ITER 523 3.36673379
+EVAL_ITER 524 3.35009122
+EVAL_ITER 525 3.29086185
+EVAL_ITER 526 3.12506509
+EVAL_ITER 527 3.40358448
+EVAL_ITER 528 3.38199162
+EVAL_ITER 529 3.33303452
+EVAL_ITER 530 3.23747540
+EVAL_ITER 531 3.34776378
+EVAL_ITER 532 3.32380986
+EVAL_ITER 533 3.29299426
+EVAL_ITER 534 3.29581094
+EVAL_ITER 535 3.39949369
+EVAL_ITER 536 3.45599508
+EVAL_ITER 537 3.45332241
+EVAL_ITER 538 3.45614195
+EVAL_ITER 539 3.18779874
+EVAL_ITER 540 3.27124190
+EVAL_ITER 541 3.34024239
+EVAL_ITER 542 3.30047560
+EVAL_ITER 543 3.23746109
+EVAL_ITER 544 3.45287561
+EVAL_ITER 545 3.36308241
+EVAL_ITER 546 3.22906661
+EVAL_ITER 547 3.43800330
+EVAL_ITER 548 3.48600602
+EVAL_ITER 549 3.26564002
+EVAL_ITER 550 3.34874749
+EVAL_ITER 551 3.29989624
+EVAL_ITER 552 3.34061956
+EVAL_ITER 553 3.48241782
+EVAL_ITER 554 3.13398433
+EVAL_ITER 555 3.40715837
+EVAL_ITER 556 3.36389732
+EVAL_ITER 557 3.28487110
+EVAL_ITER 558 3.33914375
+EVAL_ITER 559 3.48491096
+EVAL_ITER 560 3.42390180
+EVAL_ITER 561 3.44723821
+EVAL_ITER 562 3.24833965
+EVAL_ITER 563 3.39746261
+EVAL_ITER 564 3.29955292
+EVAL_ITER 565 3.32134557
+EVAL_ITER 566 3.40280128
+EVAL_ITER 567 3.47190404
+EVAL_ITER 568 3.42464995
+EVAL_ITER 569 3.37489843
+EVAL_ITER 570 3.41815162
+EVAL_ITER 571 3.43120670
+EVAL_ITER 572 3.40126061
+EVAL_ITER 573 3.27668452
+EVAL_ITER 574 3.31949902
+EVAL_ITER 575 3.45229816
+EVAL_ITER 576 3.33257842
+EVAL_ITER 577 3.27662945
+EVAL_ITER 578 3.56181931
+EVAL_ITER 579 3.39211631
+EVAL_ITER 580 3.38090420
+EVAL_ITER 581 3.34519053
+EVAL_ITER 582 3.33497000
+EVAL_ITER 583 3.23847651
+EVAL_ITER 584 3.20461249
+EVAL_ITER 585 3.35059690
+EVAL_ITER 586 3.27625275
+EVAL_ITER 587 3.45755577
+EVAL_ITER 588 3.14456701
+EVAL_ITER 589 3.36312056
+EVAL_ITER 590 3.34281945
+EVAL_ITER 591 3.50546885
+EVAL_ITER 592 3.33848119
+EVAL_ITER 593 3.35839629
+EVAL_ITER 594 3.42612123
+EVAL_ITER 595 3.34094477
+EVAL_ITER 596 3.49097919
+EVAL_ITER 597 3.29416561
+EVAL_ITER 598 3.57306743
+EVAL_ITER 599 3.36074352
+EVAL_ITER 600 3.35016203
+EVAL_ITER 601 3.41828704
+EVAL_ITER 602 3.38337278
+EVAL_ITER 603 3.38586497
+EVAL_ITER 604 3.30207348
+EVAL_ITER 605 3.35076118
+EVAL_ITER 606 3.44016099
+EVAL_ITER 607 3.25408745
+EVAL_ITER 608 3.22478604
+EVAL_ITER 609 3.31874299
+EVAL_ITER 610 3.36599946
+EVAL_ITER 611 3.40161443
+EVAL_ITER 612 3.36633086
+EVAL_ITER 613 3.45606542
+EVAL_ITER 614 3.42561555
+EVAL_ITER 615 3.37620258
+EVAL_ITER 616 3.31139755
+EVAL_ITER 617 3.38486624
+EVAL_ITER 618 3.33676410
+EVAL_ITER 619 3.31404400
+EVAL_ITER 620 3.36304426
+EVAL_ITER 621 3.41117048
+EVAL_ITER 622 3.30139923
+EVAL_ITER 623 3.44735098
+EVAL_ITER 624 3.35156131
+EVAL_ITER 625 3.27451682
+EVAL_ITER 626 3.34279966
+EVAL_ITER 627 3.21289134
+EVAL_ITER 628 3.36987591
+EVAL_ITER 629 3.33795285
+EVAL_ITER 630 3.44576001
+EVAL_ITER 631 3.32868457
+EVAL_ITER 632 3.12855959
+EVAL_ITER 633 3.42644238
+EVAL_ITER 634 3.38227487
+EVAL_ITER 635 3.24407482
+EVAL_ITER 636 3.32285643
+EVAL_ITER 637 3.29467559
+EVAL_ITER 638 3.23486900
+EVAL_ITER 639 3.32051563
+EVAL_ITER 640 3.50325584
+(min, max) time across ranks (ms):
+    evaluate .......................................: (479696.50, 479696.87)
+-------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 30000 on test set | lm loss value: 3.345303E+00 | lm loss PPL: 2.836916E+01 | 
+-------------------------------------------------------------------------------------------------------------
+[rank1]:[W1111 06:23:44.505105591 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
