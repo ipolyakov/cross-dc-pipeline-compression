@@ -13,8 +13,8 @@ aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. Y
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [rank1]:[W1120 00:55:41.424505347 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
-[rank1]:[W1120 01:05:42.601353167 socket.cpp:472] [c10d] waitForInput: poll for socket SocketImpl(fd=42, addr=[HOST]:41842, remote=[igor-tower]:6012) returned 0, likely a timeout
-[rank1]:[W1120 01:05:42.601696827 socket.cpp:497] [c10d] waitForInput: socket SocketImpl(fd=42, addr=[HOST]:41842, remote=[igor-tower]:6012) timed out after 600000ms
+[rank1]:[W1120 01:05:42.601353167 socket.cpp:472] [c10d] waitForInput: poll for socket SocketImpl(fd=42, addr=[HOST]:41842, remote=[[HOST]]:6012) returned 0, likely a timeout
+[rank1]:[W1120 01:05:42.601696827 socket.cpp:497] [c10d] waitForInput: socket SocketImpl(fd=42, addr=[HOST]:41842, remote=[[HOST]]:6012) timed out after 600000ms
 [rank1]: Traceback (most recent call last):
 [rank1]:   File "/SDP4Bit/pretrain_gpt.py", line 210, in <module>
 [rank1]:     pretrain(train_valid_test_datasets_provider,
@@ -123,7 +123,7 @@ aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. Y
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [rank1]:[W1120 01:07:02.740787804 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
-[rank1]:[W1120 01:07:03.044875270 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:43486, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:07:03.044875270 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:43486, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x784f4193fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x784f83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
@@ -238,7 +238,7 @@ frame #47: _start + 0x25 (0x5f27579b9b45 in /usr/bin/python3)
 [rank1]: frame #46: __libc_start_main + 0x80 (0x784fa1778e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 [rank1]: frame #47: _start + 0x25 (0x5f27579b9b45 in /usr/bin/python3)
 [rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
-[rank1]:[W1120 01:07:03.086884422 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:43486, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:07:03.086884422 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:43486, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x784f4193fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x784f83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
@@ -297,7 +297,7 @@ aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. Y
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [rank1]:[W1120 01:08:26.713640841 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
-[rank1]:[W1120 01:08:27.782215021 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:48214, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:08:27.782215021 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:48214, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x703ba0b7cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x703b83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
@@ -412,7 +412,7 @@ frame #47: _start + 0x25 (0x5952b1957b45 in /usr/bin/python3)
 [rank1]: frame #46: __libc_start_main + 0x80 (0x703ba1819e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 [rank1]: frame #47: _start + 0x25 (0x5952b1957b45 in /usr/bin/python3)
 [rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
-[rank1]:[W1120 01:08:27.789983070 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:48214, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:08:27.789983070 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:48214, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x703ba0b7cb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x703b83c9c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
@@ -471,7 +471,7 @@ aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. Y
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [rank1]:[W1120 01:09:50.726264480 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
-[rank1]:[W1120 01:09:51.899151895 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:55346, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:09:51.899151895 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:55346, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x74ea44d3fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x74ea8709c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
@@ -586,7 +586,7 @@ frame #47: _start + 0x25 (0x5dbac203db45 in /usr/bin/python3)
 [rank1]: frame #46: __libc_start_main + 0x80 (0x74eaa4aade40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 [rank1]: frame #47: _start + 0x25 (0x5dbac203db45 in /usr/bin/python3)
 [rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
-[rank1]:[W1120 01:09:51.906808697 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:55346, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:09:51.906808697 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:55346, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x74ea44d3fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x74ea8709c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
@@ -645,7 +645,7 @@ aws: [ERROR]: An error occurred (NoCredentials): Unable to locate credentials. Y
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
 [rank1]:[W1120 01:11:13.562608059 ProcessGroupNCCL.cpp:5072] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
-[rank1]:[W1120 01:11:14.762940309 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:34778, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:11:14.762940309 TCPStore.cpp:138] [c10d] recvValueWithTimeout failed on SocketImpl(fd=41, addr=[HOST]:34778, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x78e8d513fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x78e91749c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)
@@ -760,7 +760,7 @@ frame #47: _start + 0x25 (0x650fe665cb45 in /usr/bin/python3)
 [rank1]: frame #46: __libc_start_main + 0x80 (0x78e934eb9e40 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 [rank1]: frame #47: _start + 0x25 (0x650fe665cb45 in /usr/bin/python3)
 [rank1]: . This may indicate a possible application crash on rank 0 or a network set up issue.
-[rank1]:[W1120 01:11:14.770850528 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:34778, remote=[igor-tower]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
+[rank1]:[W1120 01:11:14.770850528 TCPStore.cpp:125] [c10d] recvValue failed on SocketImpl(fd=41, addr=[HOST]:34778, remote=[[HOST]]:6012): Failed to recv, got 0 bytes. Connection was likely closed. Did the remote server shutdown or crash?
 Exception raised from recvBytes at /pytorch/torch/csrc/distributed/c10d/Utils.hpp:682 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x80 (0x78e8d513fb80 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0x5ffc5b1 (0x78e91749c5b1 in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cpu.so)

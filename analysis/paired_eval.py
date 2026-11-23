@@ -51,8 +51,58 @@ print("\n=== Ablations vs reeval-none ===")
 report("ablate-fwd", files.get("reeval-ablate-fp8-fwd", []), base1234)
 report("ablate-bwd", files.get("reeval-ablate-fp8-bwd", []), base1234)
 
-print("\n=== Table 4 style (three seeds) ===")
-# seed 3456 gaps already computed above; print summary
-print("FP8 val: seeds 1234 +0.0074, seed2 -0.0003, seed3456 +0.0035 | mean +0.0035 SD 0.0039")
-print("NVFP4 val: seeds 1234 +0.0329, seed2 +0.0248, seed3456 +0.0390 | mean +0.0322 SD 0.0072")
-print("(INT8 seed 3456 not present; skipped)")
+# seed 3456
+base3456 = files.get("reeval-none-seed3", [])[-1280:]
+print("\n=== Seed 3456 vs reeval-none-seed3 ===")
+report("fp8-seed3", files.get("reeval-fp8-seed3", []), base3456)
+report("int8-seed3", files.get("reeval-int8-seed3", []), base3456)
+report("nvfp4-seed3", files.get("reeval-nvfp4-seed3", []), base3456)
+
+def mean_se_n(name, vals):
+    if len(vals) < 1280:
+        print(f"{name}: insufficient data")
+        return
+    for split, a in [("val", vals[:640]), ("test", vals[640:1280])]:
+        m = statistics.mean(a)
+        s = statistics.stdev(a) / math.sqrt(len(a)) if len(a) > 1 else 0.0
+        print(f"{name} {split}: mean {m:.6f}  SE {s:.6f}  n {len(a)}")
+
+print("\n=== mean / SE / n for seed 3456 ===")
+mean_se_n("none-seed3", base3456)
+mean_se_n("int8-seed3", files.get("reeval-int8-seed3", [])[-1280:])
+
+print("\n=== Table 4 ===")
+# collect gaps
+gaps = {}
+for codec, key in [("INT8", "int8"), ("FP8", "fp8"), ("NVFP4", "nvfp4")]:
+    gaps[codec] = {}
+    for split_i, split in enumerate(["val", "test"]):
+        g1234 = None
+        g2 = None
+        g3456 = None
+        # recompute the three gaps the same way report does
+        for seed_name, base, fkey in [
+            ("1234", base1234, f"reeval-{key}"),
+            ("seed2", base2, f"reeval-{key}-seed2"),
+            ("seed3", base3456, f"reeval-{key}-seed3"),
+        ]:
+            vals = files.get(fkey, [])[-1280:]
+            if len(vals) >= 1280 and len(base) >= 1280:
+                a = vals[split_i*640:(split_i+1)*640]
+                b = base[split_i*640:(split_i+1)*640]
+                diffs = [x - y for x, y in zip(a, b)]
+                g = statistics.mean(diffs)
+                if seed_name == "1234":
+                    g1234 = g
+                elif seed_name == "seed2":
+                    g2 = g
+                else:
+                    g3456 = g
+        if None not in (g1234, g2, g3456):
+            three = [g1234, g2, g3456]
+            mean = statistics.mean(three)
+            sd = statistics.stdev(three)  # sample, n-1
+            t = 4.3027 * sd / math.sqrt(3)
+            print(f"{codec} {split}: gaps {g1234:+.6f} {g2:+.6f} {g3456:+.6f} | mean {mean:+.6f} SD {sd:.6f} 95% t-interval [{mean-t:+.6f}, {mean+t:+.6f}]")
+        else:
+            print(f"{codec} {split}: missing gap(s)")
